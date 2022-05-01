@@ -4,7 +4,7 @@ let
   inherit (pkgs) vscode-extensions vscode-with-extensions;
 
   vscode = vscode-with-extensions.override {
-    vscodeExtensions = with vsode-extensions; [
+    vscodeExtensions = with vscode-extensions; [
       jnoortheen.nix-ide
       ms-python.python
     ];

@@ -9,8 +9,9 @@
     ./display.nix
     ./time.nix
     ./softwares/vscode.nix
-    ./softwares/idea.nix
-    ./softwares/java.nix
+    ./softwares/simple.nix
     ./softwares/nix.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 }
