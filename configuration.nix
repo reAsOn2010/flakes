@@ -7,6 +7,10 @@
     ./version.nix
     ./user.nix
     ./display.nix
+    ./time.nix
+    ./softwares/vscode.nix
+    ./softwares/idea.nix
+    ./softwares/java.nix
+    ./softwares/nix.nix
   ];
-  nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 }

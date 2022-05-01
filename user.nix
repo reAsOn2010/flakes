@@ -15,7 +15,7 @@ in
       home = "/home/yakumo";
       createHome = true;
       group = "users";
-      extraGroup = ["wheel"];
+      extraGroups = ["wheel"];
       hashedPassword = readHashedPassword ./secrets/users/yakumo/hashed-password;
       openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
     };

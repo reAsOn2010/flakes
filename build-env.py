@@ -14,6 +14,7 @@ run("tr -cd '[:alnum:]' < /dev/urandom | head -c16 | mkpasswd -m sha-512 -s > /e
 run("mkdir -p /etc/nixos/secrets/users/yakumo")
 run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/yakumo/hashed-password")
 
-run("nix-shell -p git --run \"git clone https://github.com/reAsOn2010/nixos-config.git\"")
+run("rm -rf nixos-config")
+run("nix-shell -p git --run \"git clone --depth 1 https://github.com/reAsOn2010/nixos-config.git\"")
 run("cp nixos-config/*.nix /etc/nixos/")
-run("nixos-rebuild")
+run("nixos-rebuild test")
