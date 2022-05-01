@@ -9,12 +9,13 @@ def run(cmd):
         print("run %s failed" % cmd)
         exit(exit_code)
 
-run("mkdir -p /etc/nixos/secrets/users/root")
-run("tr -cd '[:alnum:]' < /dev/urandom | head -c16 | mkpasswd -m sha-512 -s > /etc/nixos/secrets/users/root/hashed-password")
-run("mkdir -p /etc/nixos/secrets/users/yakumo")
-run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/yakumo/hashed-password")
-
 run("rm -rf nixos-config")
 run("nix-shell -p git --run \"git clone --depth 1 https://github.com/reAsOn2010/nixos-config.git\"")
-run("rsync -av --exclude=\"*.py\" --exclude=\"*.sh\" nixos-config/nixos /etc/nixos")
+run("rsync -av --exclude=\"*.py\" --exclude=\"*.sh\" --exclude=\".git\" nixos-config/* /etc/nixos/")
 run("nixos-rebuild test")
+
+run("mkdir -p /etc/nixos/secrets/users/root")
+# run("tr -cd '[:alnum:]' < /dev/urandom | head -c16 | mkpasswd -m sha-512 -s > /etc/nixos/secrets/users/root/hashed-password")
+run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/root/hashed-password")
+run("mkdir -p /etc/nixos/secrets/users/yakumo")
+run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/yakumo/hashed-password")
