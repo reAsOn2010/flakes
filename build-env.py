@@ -1,4 +1,7 @@
 import os
+import signal
+
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
 def run(cmd):
     exit_code = os.system(cmd)
@@ -7,7 +10,7 @@ def run(cmd):
         exit(exit_code)
 
 run("mkdir -p /etc/nixos/secrets/users/root")
-run("openssl rand -hex 8 | mkpasswd -m sha-512 -s > /etc/nixos/secrets/users/root/hashed-password")
+run("tr -cd '[:alnum:]' < /dev/urandom | head -c16 | mkpasswd -m sha-512 -s > /etc/nixos/secrets/users/root/hashed-password")
 run("mkdir -p /etc/nixos/secrets/users/yakumo")
 run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/yakumo/hashed-password")
 

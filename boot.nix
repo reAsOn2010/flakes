@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  boot.loader = {
-    system-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
+  boot.loader.system-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 }
