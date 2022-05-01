@@ -1,0 +1,16 @@
+import os
+
+def run(cmd):
+    exit_code = os.system(cmd)
+    if exit_code != 0:
+        print("run %s failed" % cmd)
+        exit(exit_code)
+
+run("mkdir -p /etc/nixos/secrets/users/root")
+run("openssl rand -hex 8 | mkpasswd -m sha-512 -s > /etc/nixos/secrets/users/root/hashed-password")
+run("mkdir -p /etc/nixos/secrets/users/yakumo")
+run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/yakumo/hashed-password")
+
+run("nix-shell -p git --run \"git clone https://github.com/reAsOn2010/nixos-config.git\"")
+run("cp nixos-config/*.nix /etc/nixos/")
+run("nixos-rebuild")
