@@ -16,6 +16,5 @@ run("mkpasswd -m sha-512 > /etc/nixos/secrets/users/yakumo/hashed-password")
 
 run("rm -rf nixos-config")
 run("nix-shell -p git --run \"git clone --depth 1 https://github.com/reAsOn2010/nixos-config.git\"")
-run("cp nixos-config/*.nix /etc/nixos/")
-run("cp -r nixos-config/softwares /etc/nixos/")
+run("rsync -av --exclude=\"*.py\" --exclude=\"*.sh\" nixos-config/nixos /etc/nixos")
 run("nixos-rebuild test")
