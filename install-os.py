@@ -6,11 +6,13 @@ if getpass.getuser() != "root":
     print("Please run this script as root.")
     exit(1)
 
+
 def run(cmd):
     exit_code = os.system(cmd)
     if exit_code != 0:
         print("run %s failed" % cmd)
         exit(exit_code)
+
 
 run("lsblk")
 dev = input("Please input install device: ")
