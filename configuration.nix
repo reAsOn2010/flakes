@@ -5,12 +5,13 @@
     /etc/nixos/hardware-configuration.nix
     ./boot.nix
     ./version.nix
-    ./user.nix
+    ./users.nix
     ./display.nix
     ./time.nix
-    ./softwares/vscode.nix
-    ./softwares/simple.nix
-    ./softwares/nix.nix
+    ./environment.nix
+    <home-manager/nixos>
+    ./home.nix
+    ./nix.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

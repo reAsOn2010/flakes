@@ -1,20 +1,21 @@
 {
-    description = "Yakumo's NixOS configuration"
+    description = "Yakumo's NixOS configuration";
 
     inputs = {
-        nixpkgs = { url = "github:nixos/nixpkgs/nixos-21.11"}
-    }
+        nixpkgs = { url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-21.11"; };
+        home-manager = { url= "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz"; };
+    };
 
     outputs = inputs:
     {
         nixosConfigurations = {
-            myNixOS = inputs.nixpkgs.lib.nixosSystem {
+            nixos = inputs.nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 modules = [
                     ./configuration.nix
-                ]
-                specialArgs = { inherit inputs; }
-            }
-        }
-    }
+                ];
+                specialArgs = { inherit inputs; };
+            };
+        };
+    };
 }
