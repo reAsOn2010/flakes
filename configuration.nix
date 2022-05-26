@@ -2,16 +2,16 @@
 
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
     ./boot.nix
     ./version.nix
     ./users.nix
     ./display.nix
     ./time.nix
     ./environment.nix
-    <home-manager/nixos>
     ./home.nix
     ./nix.nix
+    ./agenix.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

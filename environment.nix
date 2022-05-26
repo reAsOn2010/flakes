@@ -12,5 +12,9 @@
     gnome.networkmanager-openvpn
     gnomeExtensions.topicons-plus
     gnomeExtensions.appindicator
+    gnome3.adwaita-icon-theme
+  ];
+  fonts.fonts = with pkgs; [
+    ubuntu_font_family
   ];
 }

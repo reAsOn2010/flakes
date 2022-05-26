@@ -38,6 +38,19 @@ run("mount /dev/disk/by-label/BOOT /mnt/boot")
 
 # generate config
 run("nixos-generate-config --root /mnt")
+print("""
+Please manually open nix flake support here.
+
+    nix = {
+        package = pkgs.nixFlakes;
+        binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+        extraOptions = ''
+            experimental-features = nix-command flakes
+        '';
+    };
+
+""")
+input("Copied? : ")
 run("vim /mnt/etc/nixos/configuration.nix")
 
 # install

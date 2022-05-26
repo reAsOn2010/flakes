@@ -16,11 +16,11 @@ in
       createHome = true;
       group = "users";
       extraGroups = ["wheel"];
-      hashedPassword = readHashedPassword ./secrets/users/yakumo/hashed-password;
-      openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
+      passwordFile = config.age.secrets."yakumo/hashed-password.age".path;
+      # openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
     };
     root = {
-      hashedPassword = readHashedPassword ./secrets/users/root/hashed-password;
+      # passwordFile = config.age.secrets."root/hashed-password.age".path;
     };
   };
 }
