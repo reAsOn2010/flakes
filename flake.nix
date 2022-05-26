@@ -2,8 +2,8 @@
     description = "Yakumo's NixOS configuration";
 
     inputs = {
-        nixpkgs = { url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-21.11"; };
-        home-manager = { url= "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz"; };
+        nixpkgs = { url = "github:nixos/nixpkgs/nixos-21.11"; };
+        home-manager = { url= "github:nix-community/home-manager"; };
     };
 
     outputs = inputs:
