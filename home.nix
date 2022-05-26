@@ -20,7 +20,6 @@ in
       python310
       go
       clash
-      git
       vscode
       enpass
       dbeaver
@@ -30,6 +29,11 @@ in
       copyq
       vim
     ];
+    programs.git = {
+      enable = true;
+      userName = "yakumo";
+      userEmail = "the.reason.sake@gmail.com";
+    };
     programs.home-manager.enable = true;
     nixpkgs.config.allowUnfree = true;
   };

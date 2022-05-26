@@ -3,8 +3,14 @@ import os
 import shutil
 import tarfile
 import urllib.request
+import getpass
 
 VENTOY_VERSION = "1.0.74"
+
+
+if getpass.getuser() != "root":
+    print("Please run this script as root.")
+    exit(1)
 
 
 def reporthook(a, b, c):
