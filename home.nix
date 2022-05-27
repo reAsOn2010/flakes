@@ -23,20 +23,35 @@ in
       go
       clash
       vscode
-      enpass
       dbeaver
-      alacritty
       albert
       anydesk
       copyq
-      qtcreator
-      qt5.full
+      enpass
     ];
+    programs.alacritty = {
+      enable = true;
+      settings = ''
+        {
+          env: {
+            TERM: "xterm-256color"
+          }
+        }
+      '';
+    };
     programs.vim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [ dracula-vim ];
       extraConfig = ''
+        syntax on
         set clipboard=unnamedplus
+
+        if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+          let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+          let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+        endif
+
+        set termguicolors
         colorscheme dracula
       '';
     };
@@ -49,9 +64,14 @@ in
       };
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "dotenv" "kubectl" "history" ];
+        plugins = [ "git" "dotenv" "kubectl" "history" "docker" ];
         theme = "robbyrussell";
       };
+    };
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
     programs.git = {
       enable = true;
@@ -66,17 +86,31 @@ in
         safe.directory = "/home/yakumo/nixos-config";
       };
     };
+    programs.tmux = {
+      enable = true;
+      keyMode = "vi";
+      extraConfig = ''
+        set -g default-terminal "tmux-256color"
+        set -ag terminal-overrides ",xterm-256color:RGB"
+      '';
+    };
     dconf.enable = true;
     dconf.settings = {
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Ctrl>space";
         command = "albert toggle";
         name = "albert-toggle";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Super>t";
+        command = "alacritty";
+        name = "alacritty";
       };
     };
     services.gpg-agent.enable = true;
