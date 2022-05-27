@@ -35,6 +35,10 @@ in
       enable = true;
       userName = "yakumo";
       userEmail = "the.reason.sake@gmail.com";
+      extraConfig = {
+        core.editor = "vim";
+        safe.directory /home/yakumo/nixos-config;
+      };
     };
     dconf.enable = true;
     dconf.settings = {
@@ -44,7 +48,7 @@ in
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Ctrl>t";
+        binding = "<Ctrl>space";
         command = "albert toggle";
         name = "albert-toggle";
       };
