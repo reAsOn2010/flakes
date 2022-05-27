@@ -29,15 +29,41 @@ in
       albert
       anydesk
       copyq
-      vim
+      qtcreator
+      qt5.full
     ];
+    programs.vim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [ dracula-vim ];
+      extraConfig = ''
+        set clipboard=unnamedplus
+        colorscheme dracula
+      '';
+    };
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      enableAutosuggestions = true;
+      shellAliases = {
+        osrebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
+      };
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" "dotenv" "kubectl" "history" ];
+        theme = "robbyrussell";
+      };
+    };
     programs.git = {
       enable = true;
       userName = "yakumo";
       userEmail = "the.reason.sake@gmail.com";
+      signing = {
+        signByDefault = true;
+        key = "00605704537D265A";
+      };
       extraConfig = {
         core.editor = "vim";
-        safe.directory /home/yakumo/nixos-config;
+        safe.directory = "/home/yakumo/nixos-config";
       };
     };
     dconf.enable = true;
@@ -53,6 +79,7 @@ in
         name = "albert-toggle";
       };
     };
+    services.gpg-agent.enable = true;
     programs.gpg.enable = true;
     programs.home-manager.enable = true;
     nixpkgs.config.allowUnfree = true;

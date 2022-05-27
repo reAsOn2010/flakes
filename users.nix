@@ -17,10 +17,11 @@ in
       group = "users";
       extraGroups = ["wheel"];
       passwordFile = config.age.secrets."yakumo/hashed-password.age".path;
+      shell = pkgs.zsh;
       # openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
     };
     root = {
-      # passwordFile = config.age.secrets."root/hashed-password.age".path;
+      passwordFile = config.age.secrets."root/hashed-password.age".path;
     };
   };
 }

@@ -6,7 +6,6 @@
     ./boot.nix
     ./version.nix
     ./users.nix
-    ./display.nix
     ./time.nix
     ./environment.nix
     ./home.nix
