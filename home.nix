@@ -36,10 +36,8 @@ in
       userName = "yakumo";
       userEmail = "the.reason.sake@gmail.com";
     };
-    programs.dconf = {
-      enable = true;
-    }
-    dconf.setting = {
+    dconf.enable = true;
+    dconf.settings = {
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
@@ -51,10 +49,11 @@ in
         name = "albert-toggle";
       };
     };
-    programs.gnupg.agent.enable = true
+    programs.gpg.enable = true;
     programs.home-manager.enable = true;
     nixpkgs.config.allowUnfree = true;
-    xdg.configFile."albert/albert.conf".txt = ''
+    xdg.enable = true;
+    xdg.configFile."albert/albert.conf".text = ''
       [General]
       hotkey=Ctrl+Space
       showTray=true
