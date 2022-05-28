@@ -32,11 +32,12 @@ in
     programs.alacritty = {
       enable = true;
       settings = ''
-        {
-          env: {
-            TERM: "xterm-256color"
-          }
-        }
+        env:
+          TERM: "xterm-256color"
+        shell:
+          program: ${zsh}/bin/zsh
+          args:
+            - --login
       '';
     };
     programs.vim = {
@@ -88,7 +89,7 @@ in
     };
     programs.tmux = {
       enable = true;
-      keyMode = "vi";
+      defaultCommand = "${zsh}/bin/zsh";
       extraConfig = ''
         set -g default-terminal "tmux-256color"
         set -ag terminal-overrides ",xterm-256color:RGB"
@@ -123,13 +124,13 @@ in
       hotkey=Ctrl+Space
       showTray=true
       terminal=alacritty -e
-      
+
       [org.albert.extension.applications]
       enabled=true
-      
+
       [org.albert.extension.calculator]
       enabled=true
-      
+
       [org.albert.frontend.widgetboxmodel]
       alwaysOnTop=true
       clearOnHide=false

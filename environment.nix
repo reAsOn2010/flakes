@@ -11,6 +11,15 @@
     libinput.mouse.accelSpeed = "-0.5";
   };
 
+  environment.gnome.excludePackages = (with pkgs.gnome; [
+    cheese
+    epiphany
+    tali
+    iagno
+    hitori
+    atomix
+  ]);
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod.enabled = "ibus";
   i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; 
