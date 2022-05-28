@@ -1,5 +1,5 @@
 let
-    yakumo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/aP+BdEdAhZeVxz1VJfDBCyKblMIY4eSiLtfg6ryOw";
+    yakumo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjRl7mQftJ4LsWxWbNufQ22IFMiRdxJfukQvyXBhyWn";
 in
 {
     "secrets/yakumo/hashed-password.age".publicKeys = [ yakumo ];
