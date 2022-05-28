@@ -28,6 +28,7 @@ in
       anydesk
       copyq
       enpass
+      qtcreator
     ];
     programs.alacritty = {
       enable = true;
@@ -37,6 +38,7 @@ in
           program = "${pkgs.zsh}/bin/zsh";
           args = [ "--login" ];
         };
+        font.size = 14;
       };
     };
     programs.vim = {
@@ -90,6 +92,7 @@ in
       enable = true;
       shell = "${pkgs.zsh}/bin/zsh";
       extraConfig = ''
+        set -g mouse on
         set -g default-terminal "tmux-256color"
         set -ag terminal-overrides ",xterm-256color:RGB"
       '';
