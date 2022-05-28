@@ -31,14 +31,13 @@ in
     ];
     programs.alacritty = {
       enable = true;
-      settings = ''
-        env:
-          TERM: "xterm-256color"
-        shell:
-          program: ${zsh}/bin/zsh
-          args:
-            - --login
-      '';
+      settings = {
+        env.TERM = "xterm-256color";
+        shell = {
+          program = "${pkgs.zsh}/bin/zsh";
+          args = [ "--login" ];
+        };
+      };
     };
     programs.vim = {
       enable = true;
@@ -80,7 +79,7 @@ in
       userEmail = "the.reason.sake@gmail.com";
       signing = {
         signByDefault = true;
-        key = "00605704537D265A";
+        key = "BCD10903364F5EFC";
       };
       extraConfig = {
         core.editor = "vim";
@@ -89,7 +88,7 @@ in
     };
     programs.tmux = {
       enable = true;
-      defaultCommand = "${zsh}/bin/zsh";
+      shell = "${pkgs.zsh}/bin/zsh";
       extraConfig = ''
         set -g default-terminal "tmux-256color"
         set -ag terminal-overrides ",xterm-256color:RGB"
