@@ -11,6 +11,7 @@
     libinput.mouse.accelSpeed = "-0.5";
   };
 
+  i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod.enabled = "ibus";
   i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; 
   [
@@ -20,7 +21,9 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     gnome.networkmanager-openvpn
+    gnomeExtensions.system-monitor
     gnomeExtensions.appindicator
+    gnomeExtensions.topicons-plus
     gnome3.adwaita-icon-theme
   ];
 
