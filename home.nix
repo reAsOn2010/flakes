@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   inherit (pkgs) vscode-extensions vscode-with-extensions;
@@ -28,7 +28,9 @@ in
       anydesk
       copyq
       enpass
-      qtcreator
+      kubectl
+      mattermost-desktop
+      # qtcreator
     ];
     programs.alacritty = {
       enable = true;
@@ -62,7 +64,10 @@ in
       enableCompletion = true;
       enableAutosuggestions = true;
       shellAliases = {
-        osrebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
+        os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
+        agenix = "nix run github:ryantm/agenix --";
+        ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
+        qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
       };
       oh-my-zsh = {
         enable = true;
@@ -145,5 +150,6 @@ in
       showCentered=true
       theme=Bright
     '';
+    home.file.".kube/config".source = config.age.secrets."yakumo/kube-config.age".path;
   };
 }

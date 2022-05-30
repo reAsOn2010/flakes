@@ -28,6 +28,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    exfat-utils
     google-chrome
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor

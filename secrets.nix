@@ -4,4 +4,5 @@ in
 {
     "secrets/yakumo/hashed-password.age".publicKeys = [ yakumo ];
     "secrets/root/hashed-password.age".publicKeys = [ yakumo ];
+    "secrets/yakumo/kube-config.age".publicKeys = [ yakumo ];
 }
