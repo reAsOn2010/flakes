@@ -14,7 +14,7 @@ in
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.yakumo = { pkgs, ...}: {
+  home-manager.users.yakumo = { config, pkgs, ...}: {
     home.packages = with pkgs; 
     [
       adoptopenjdk-bin
@@ -150,6 +150,7 @@ in
       showCentered=true
       theme=Bright
     '';
-    home.file.".kube/config".source = config.age.secrets."yakumo/kube-config.age".path;
+    # currently not supported
+    # home.file.".kube/config".source = config.age.secrets."yakumo/kube-config.age".path;
   };
 }
