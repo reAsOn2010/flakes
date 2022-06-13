@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   inherit (pkgs) vscode-extensions vscode-with-extensions;
@@ -9,6 +9,8 @@ let
       ms-python.python
     ];
   };
+  vault-dev-env = config.age.secrets."yakumo/vault.dev.env.age".path;
+  vault-prod-env = config.age.secrets."yakumo/vault.prod.env.age".path;
 in
 
 {
@@ -19,6 +21,7 @@ in
     [
       adoptopenjdk-bin
       jetbrains.idea-community
+      jetbrains.pycharm-community
       python310
       go
       clash
@@ -30,6 +33,7 @@ in
       enpass
       kubectl
       mattermost-desktop
+      silver-searcher
       # qtcreator
     ];
     programs.alacritty = {
@@ -63,11 +67,16 @@ in
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
+      sessionVariables = {
+        EDITOR = "vim";
+      };
       shellAliases = {
         os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
         agenix = "nix run github:ryantm/agenix --";
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
         qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
+        vault-dev = "export $(cat ${vault-dev-env} | xargs)";
+        vault-prod = "export $(cat ${vault-prod-env} | xargs)";
       };
       oh-my-zsh = {
         enable = true;

@@ -56,7 +56,7 @@ os.system("mkdir -p ./files")
 os.system("sudo mount /dev/{dev}1 ./iso".format(dev=dev))
 os.system("sudo mount /dev/{dev}3 ./files".format(dev=dev))
 
-NIXOS_VERSION = "21.11"
+NIXOS_VERSION = "22.05"
 base_url = "https://mirrors.tuna.tsinghua.edu.cn/nixos-images/nixos-{version}".format(version=NIXOS_VERSION)
 filename = "latest-nixos-gnome-x86_64-linux.iso"
 checksum_filename = "latest-nixos-gnome-x86_64-linux.iso.sha256"

@@ -2,7 +2,7 @@
     description = "Yakumo's NixOS configuration";
 
     inputs = {
-        nixpkgs = { url = "github:nixos/nixpkgs/nixos-21.11"; };
+        nixpkgs = { url = "github:nixos/nixpkgs/nixos-22.05"; };
         home-manager = { url= "github:nix-community/home-manager"; };
         agenix = { url = "github:ryantm/agenix"; };
         flake-utils = { url = "github:numtide/flake-utils"; };
@@ -62,6 +62,8 @@
               pkgs.gnumake
               pkgs.qt5.full
               pkgs.qtcreator
+              pkgs.protobuf
+              libsForQt5.qt5.qtwebengine
             ];
           };
         };

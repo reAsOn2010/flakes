@@ -7,9 +7,17 @@
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    displayManager.autoLogin.enable = true;
+    displayManager.autoLogin.user = "yakumo";
     libinput.mouse.accelProfile = "flat";
     libinput.mouse.accelSpeed = "-0.5";
   };
+
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+    gutenprint
+    hplip
+  ];
 
   environment.gnome.excludePackages = (with pkgs.gnome; [
     cheese
@@ -28,7 +36,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    exfat-utils
+    exfat
     google-chrome
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor
@@ -51,4 +59,18 @@
       dockerCompat = true;
     };
   };
+
+  networking.extraHosts = ''
+    10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com
+    10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
+  '';
+
+  programs.steam = {
+    enable = true;
+  };
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-runtime"
+  ];
 }
