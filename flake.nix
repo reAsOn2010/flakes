@@ -63,7 +63,6 @@
               pkgs.qt5.full
               pkgs.qtcreator
               pkgs.protobuf
-              libsForQt5.qt5.qtwebengine
             ];
           };
         };
