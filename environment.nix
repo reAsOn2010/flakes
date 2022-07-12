@@ -1,5 +1,6 @@
-{ pkgs, lib, ... }:
-
+{ pkgs, lib, ... }: let
+  anydesk_autostart = (pkgs.makeAutostartItem { name = "AnyDesk"; package = pkgs.anydesk;  });
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -36,7 +37,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    patchelf
     exfat
+    anydesk_autostart
     google-chrome
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor
@@ -64,7 +67,7 @@
     10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com
     10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
   '';
-  # anydesk ports
+  # anydesk ports, seems no use...
   networking.firewall.allowedTCPPorts = [
     80
     443

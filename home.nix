@@ -17,6 +17,7 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.yakumo = { config, pkgs, ...}: {
+    home.stateVersion = "22.05";
     home.packages = with pkgs; 
     [
       adoptopenjdk-bin
@@ -28,7 +29,6 @@ in
       vscode
       dbeaver
       albert
-      anydesk
       copyq
       enpass
       kubectl
@@ -77,6 +77,7 @@ in
         qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
         vault-dev = "export $(cat ${vault-dev-env} | xargs)";
         vault-prod = "export $(cat ${vault-prod-env} | xargs)";
+        ld-patch = "patchelf --set-interpreter $(cat $NIX_CC/nix-support/dynamic-linker)";
       };
       oh-my-zsh = {
         enable = true;
