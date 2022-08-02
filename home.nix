@@ -35,6 +35,7 @@ in
       mattermost-desktop
       silver-searcher
       # qtcreator
+      synergy
     ];
     programs.alacritty = {
       enable = true;

@@ -68,10 +68,20 @@ in
     10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
   '';
   # anydesk ports, seems no use...
+  networking.firewall.allowedUDPPorts = [
+    80
+    443
+    6568
+    24800
+    50051
+    50052
+    50053
+  ];
   networking.firewall.allowedTCPPorts = [
     80
     443
     6568
+    24800
     50051
     50052
     50053
