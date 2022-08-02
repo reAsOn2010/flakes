@@ -11,7 +11,7 @@
       home = "/home/yakumo";
       createHome = true;
       group = "users";
-      extraGroups = ["wheel", "lrun"];
+      extraGroups = ["wheel" "lrun"];
       passwordFile = config.age.secrets."yakumo/hashed-password.age".path;
       # openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
     };
