@@ -3,6 +3,9 @@
 {
   users.mutableUsers = false;
 
+  users.groups.lrun = {
+    gid = 593;
+  };
   users.users = {
     yakumo = {
       uid = 1000;

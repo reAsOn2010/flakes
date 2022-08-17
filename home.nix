@@ -7,6 +7,19 @@ let
     vscodeExtensions = with vscode-extensions; [
       jnoortheen.nix-ide
       ms-python.python
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "EditorConfig";
+        publisher = "EditorConfig";
+        version = "0.16.4";
+        sha256 = "sha256-j+P2oprpH0rzqI0VKt0JbZG19EDE7e7+kAb3MGGCRDk=";
+      }
+      {
+        name = "cpptools";
+        publisher = "ms-vscode";
+        version = "1.12.1";
+        sha256 = "sha256-l7RsXE/lvzBczAN+2PvS4raEcFwMeau+FR1nTYGmnQw=";
+      }
     ];
   };
   vault-dev-env = config.age.secrets."yakumo/vault.dev.env.age".path;
