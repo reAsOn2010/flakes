@@ -7,6 +7,7 @@ let
     vscodeExtensions = with vscode-extensions; [
       jnoortheen.nix-ide
       ms-python.python
+      ms-vscode.cpptools
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "EditorConfig";
@@ -15,15 +16,16 @@ let
         sha256 = "sha256-j+P2oprpH0rzqI0VKt0JbZG19EDE7e7+kAb3MGGCRDk=";
       }
       {
-        name = "cpptools";
-        publisher = "ms-vscode";
-        version = "1.12.1";
-        sha256 = "sha256-l7RsXE/lvzBczAN+2PvS4raEcFwMeau+FR1nTYGmnQw=";
+        name = "direnv";
+        publisher = "mkhl";
+        version = "0.6.1";
+        sha256 = "sha256-5/Tqpn/7byl+z2ATflgKV1+rhdqj+XMEZNbGwDmGwLQ=";
       }
     ];
   };
   vault-dev-env = config.age.secrets."yakumo/vault.dev.env.age".path;
   vault-prod-env = config.age.secrets."yakumo/vault.prod.env.age".path;
+  stretchly-autostart = (pkgs.makeAutostartItem { name = "stretchly"; package = pkgs.stretchly;  });
 in
 
 {
@@ -49,6 +51,7 @@ in
       silver-searcher
       # qtcreator
       synergy
+      stretchly-autostart
     ];
     programs.alacritty = {
       enable = true;
