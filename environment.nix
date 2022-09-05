@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: let
-  anydesk_autostart = (pkgs.makeAutostartItem { name = "AnyDesk"; package = pkgs.anydesk;  });
+  anydesk-autostart = (pkgs.makeAutostartItem { name = "AnyDesk"; package = pkgs.anydesk;  });
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -8,8 +8,8 @@ in
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    displayManager.autoLogin.enable = true;
-    displayManager.autoLogin.user = "yakumo";
+    # displayManager.autoLogin.enable = true;
+    # displayManager.autoLogin.user = "yakumo";
     libinput.mouse.accelProfile = "flat";
     libinput.mouse.accelSpeed = "-0.5";
   };
@@ -39,7 +39,7 @@ in
   environment.systemPackages = with pkgs; [
     patchelf
     exfat
-    anydesk_autostart
+    anydesk-autostart
     google-chrome
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor

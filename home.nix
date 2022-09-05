@@ -25,7 +25,6 @@ let
   };
   vault-dev-env = config.age.secrets."yakumo/vault.dev.env.age".path;
   vault-prod-env = config.age.secrets."yakumo/vault.prod.env.age".path;
-  stretchly-autostart = (pkgs.makeAutostartItem { name = "stretchly"; package = pkgs.stretchly;  });
 in
 
 {
@@ -51,7 +50,7 @@ in
       silver-searcher
       # qtcreator
       synergy
-      stretchly-autostart
+      stretchly
     ];
     programs.alacritty = {
       enable = true;
