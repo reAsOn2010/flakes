@@ -1,0 +1,50 @@
+{ lib, stdenv, pkgs, ... }:
+let 
+  rpath = with pkgs; lib.makeLibraryPath [
+    gcc
+    gcc-unwrapped
+    glibc
+    zlib
+    bzip2
+    lzma
+    freetype
+    fontconfig
+    dbus
+    kerberos
+    libxkbcommon
+    libglvnd
+    xorg.libxcb
+    xorg.libX11
+    xorg.libXext
+    xorg.xcbutilwm
+    xorg.xcbutilimage
+    xorg.xcbutilrenderutil
+    xorg.xcbutilkeysyms
+  ];
+in stdenv.mkDerivation {
+  name = "qt-unified-installer";
+  system = "x86_64-linux";
+  src = builtins.path {
+    name = "qt-unified";
+    path = ../qt;
+  };
+  nativeBuildInputs = [];
+  buildInputs = [];
+  dontUnpack = true;
+  installPhase = ''
+    mkdir -p $out
+    cp $src/qt-unified-linux-x64-4.4.1-online.run $out
+  '';
+  postFixup = ''
+    patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" "$out/qt-unified-linux-x64-4.4.1-online.run"
+    patchelf --set-rpath ${rpath} "$out/qt-unified-linux-x64-4.4.1-online.run"
+    chmod a+x $out/qt-unified-linux-x64-4.4.1-online.run
+  '';
+  meta = with lib; {
+    description = "qt-unified-installer";
+    homepage = "https://example.com";
+    license = licenses.lgpl3;
+    maintainers = with lib.maintainers; [ ];
+    platforms = [ "x86_64-linux" ];
+  };
+}

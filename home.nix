@@ -48,6 +48,7 @@ in
       kubectl
       mattermost-desktop
       silver-searcher
+      mongodb-compass
       # qtcreator
       synergy
       stretchly

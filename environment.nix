@@ -20,6 +20,12 @@ in
     hplip
   ];
 
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+    kbdInteractiveAuthentication = false;
+  };
+
   environment.gnome.excludePackages = (with pkgs.gnome; [
     cheese
     epiphany
@@ -37,6 +43,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    nix-index
     patchelf
     exfat
     anydesk-autostart
