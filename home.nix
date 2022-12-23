@@ -31,7 +31,7 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.yakumo = { config, pkgs, ...}: {
-    home.stateVersion = "22.05";
+    home.stateVersion = "22.11";
     home.packages = with pkgs; 
     [
       adoptopenjdk-bin

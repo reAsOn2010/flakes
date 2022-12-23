@@ -2,7 +2,7 @@
     description = "Yakumo's NixOS configuration";
 
     inputs = {
-        nixpkgs = { url = "github:nixos/nixpkgs/nixos-22.05"; };
+        nixpkgs = { url = "github:nixos/nixpkgs/nixos-22.11"; };
         home-manager = { url= "github:nix-community/home-manager"; };
         agenix = { url = "github:ryantm/agenix"; };
         flake-utils = { url = "github:numtide/flake-utils"; };
