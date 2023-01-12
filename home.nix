@@ -170,13 +170,32 @@ in
       hotkey=Ctrl+Space
       showTray=true
       terminal=alacritty -e
-
+      autostartOnLogin=true
+      
       [org.albert.extension.applications]
       enabled=true
-
+      
       [org.albert.extension.calculator]
       enabled=true
-
+      
+      [org.albert.extension.files]
+      enabled=false
+      
+      [org.albert.extension.hashgenerator]
+      enabled=true
+      
+      [org.albert.extension.ssh]
+      enabled=false
+      
+      [org.albert.extension.system]
+      enabled=true
+      
+      [org.albert.extension.terminal]
+      enabled=true
+      
+      [org.albert.extension.websearch]
+      enabled=false
+      
       [org.albert.frontend.widgetboxmodel]
       alwaysOnTop=true
       clearOnHide=false
