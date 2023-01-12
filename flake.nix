@@ -9,7 +9,7 @@
     };
 
     outputs = inputs@{self, nixpkgs, home-manager, agenix, flake-utils }: {
-        nixConfig.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/" ];
+        nixConfig.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store/" ];
         nixosConfigurations = {
             pat = inputs.nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";

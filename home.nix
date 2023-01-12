@@ -25,6 +25,7 @@ let
   };
   vault-dev-env = config.age.secrets."yakumo/vault.dev.env.age".path;
   vault-prod-env = config.age.secrets."yakumo/vault.prod.env.age".path;
+  kube-config = config.age.secrets."yakumo/kube-config.age".path;
 in
 
 {
@@ -77,6 +78,7 @@ in
         endif
 
         set termguicolors
+        set number
         colorscheme dracula
       '';
     };
@@ -129,6 +131,16 @@ in
         set -ag terminal-overrides ",xterm-256color:RGB"
       '';
     };
+    programs.ssh = {
+      enable = true;
+      matchBlocks = {
+        "github.com" = {
+          hostname = "ssh.github.com";
+          port = 443;
+          user = "git";
+        };
+      };
+    };
     dconf.enable = true;
     dconf.settings = {
       "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -179,5 +191,7 @@ in
     '';
     # currently not supported
     # home.file.".kube/config".source = config.age.secrets."yakumo/kube-config.age".path;
+    # fix for 21.11
+    manual.manpages.enable = false;
   };
 }
