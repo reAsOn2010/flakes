@@ -9,4 +9,5 @@ in
     "secrets/yakumo/vault.prod.env.age".publicKeys = [ yakumo ];
     "secrets/yakumo/dev.ovpn.age".publicKeys = [ yakumo ];
     "secrets/yakumo/prod.ovpn.age".publicKeys = [ yakumo ];
+    "secrets/yakumo/ovpn-auth.txt.age".publicKeys = [ yakumo ];
 }

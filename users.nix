@@ -15,7 +15,7 @@
       createHome = true;
       group = "users";
       extraGroups = ["wheel" "lrun"];
-      passwordFile = config.age.secrets."yakumo/hashed-password.age".path;
+      passwordFile = config.age.secrets."yakumo/hashed-password".path;
       # openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjRl7mQftJ4LsWxWbNufQ22IFMiRdxJfukQvyXBhyWn the.reason.sake@gmail.com"
@@ -24,7 +24,7 @@
       ];
     };
     # root = {
-    #   passwordFile = config.age.secrets."root/hashed-password.age".path;
+    #   passwordFile = config.age.secrets."root/hashed-password".path;
     # };
   };
 }

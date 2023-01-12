@@ -23,9 +23,9 @@ let
       }
     ];
   };
-  vault-dev-env = config.age.secrets."yakumo/vault.dev.env.age".path;
-  vault-prod-env = config.age.secrets."yakumo/vault.prod.env.age".path;
-  kube-config = config.age.secrets."yakumo/kube-config.age".path;
+  vault-dev-env = config.age.secrets."yakumo/vault.dev.env".path;
+  vault-prod-env = config.age.secrets."yakumo/vault.prod.env".path;
+  kube-config = config.age.secrets."yakumo/kube-config".path;
 in
 
 {
@@ -209,7 +209,7 @@ in
       theme=Bright
     '';
     # currently not supported
-    # home.file.".kube/config".source = config.age.secrets."yakumo/kube-config.age".path;
+    # home.file.".kube/config".source = config.age.secrets."yakumo/kube-config".path;
     # fix for 21.11
     manual.manpages.enable = false;
   };
