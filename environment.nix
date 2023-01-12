@@ -46,6 +46,10 @@ in
     nix-index
     patchelf
     exfat
+    (callPackage "${builtins.fetchTarball {
+      url = "https://github.com/ryantm/agenix/archive/main.tar.gz";
+      sha256 = "14sszf5s85i4jd3lc8c167fbxvpj13da45wl1j7wpd20n0fic5c1";
+    }}/pkgs/agenix.nix" {})
     anydesk-autostart
     google-chrome
     gnome.networkmanager-openvpn

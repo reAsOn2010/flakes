@@ -91,7 +91,7 @@ in
       };
       shellAliases = {
         os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
-        agenix = "nix run github:ryantm/agenix --";
+        # agenix = "nix run github:ryantm/agenix --";
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
         qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
         vault-dev = "export $(cat ${vault-dev-env} | xargs)";

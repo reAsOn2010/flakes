@@ -23,4 +23,12 @@
     file = secrets/yakumo/vault.dev.env.age;
     owner = "yakumo";
   };
+  age.secrets."yakumo/dev.ovpn.age" = {
+    file = secrets/yakumo/dev.ovpn.age;
+    owner = "yakumo";
+  };
+  age.secrets."yakumo/prod.ovpn.age" = {
+    file = secrets/yakumo/prod.ovpn.age;
+    owner = "yakumo";
+  };
 }
