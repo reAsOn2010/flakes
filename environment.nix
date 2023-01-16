@@ -52,6 +52,7 @@ in
     }}/pkgs/agenix.nix" {})
     anydesk-autostart
     google-chrome
+    adoptopenjdk-bin
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor
     gnomeExtensions.appindicator

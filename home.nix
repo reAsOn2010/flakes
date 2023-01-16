@@ -35,7 +35,6 @@ in
     home.stateVersion = "22.11";
     home.packages = with pkgs; 
     [
-      adoptopenjdk-bin
       jetbrains.idea-community
       jetbrains.pycharm-community
       python310
