@@ -50,6 +50,7 @@ in
       url = "https://github.com/ryantm/agenix/archive/main.tar.gz";
       sha256 = "14sszf5s85i4jd3lc8c167fbxvpj13da45wl1j7wpd20n0fic5c1";
     }}/pkgs/agenix.nix" {})
+    rustdesk
     anydesk-autostart
     google-chrome
     adoptopenjdk-bin

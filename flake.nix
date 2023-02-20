@@ -10,30 +10,34 @@
     };
 
     outputs = inputs@{self, nixpkgs, home-manager, agenix, homeage, flake-utils, ... }: {
-        homeManagerConfigurations = {
-          # seems no use...
-          yakumo = home-manager.lib.homeManagerConfiguration {
-            configuration = {
-              homeage = {
-                identityPaths = [ "~/.ssh/id_ed25519" ];
-                installationType = "systemd";
-                file."yakumo-kube-config" = {
-                  source = "./secrets/yakumo/kube-config.age";
-                  copies = [ "/home/yakumo/.kube/config" ];
-                };
-              };
-              imports = [ homeage.homeManagerModules.homeage ];
-            };
-          };
-        };
+        # homeManagerConfigurations = {
+        #   # seems no use...
+        #   yakumo = home-manager.lib.homeManagerConfiguration {
+        #     configuration = {
+        #       homeage = {
+        #         identityPaths = [ "~/.ssh/id_ed25519" ];
+        #         installationType = "systemd";
+        #         file."yakumo-kube-config" = {
+        #           source = "./secrets/yakumo/kube-config.age";
+        #           copies = [ "/home/yakumo/.kube/config" ];
+        #         };
+        #       };
+        #       imports = [ homeage.homeManagerModules.homeage ];
+        #     };
+        #   };
+        # };
         nixConfig.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store/" ];
         nixosConfigurations = {
             pat = inputs.nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
+                specialArgs = { inherit inputs; };
                 modules = [
                     ./configuration.nix
                     ./hardware/pat.hardware-configuration.nix
-                    home-manager.nixosModule
+                    home-manager.nixosModules.home-manager {
+                      home-manager.extraSpecialArgs = { inherit inputs; };
+                      home-manager.users.yakumo.imports = [ homeage.homeManagerModules.homeage ];
+                    }
                     agenix.nixosModule
                 ];
             };
