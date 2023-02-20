@@ -51,7 +51,6 @@ in
       sha256 = "14sszf5s85i4jd3lc8c167fbxvpj13da45wl1j7wpd20n0fic5c1";
     }}/pkgs/agenix.nix" {})
     rustdesk
-    anydesk-autostart
     google-chrome
     adoptopenjdk-bin
     gnome.networkmanager-openvpn
@@ -80,7 +79,6 @@ in
     10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com
     10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
   '';
-  # anydesk ports, seems no use...
   networking.firewall.allowedUDPPortRanges = [
     {
       from = 32768;
@@ -91,6 +89,7 @@ in
     80
     443
     6568
+    21118
     24800
   ];
   networking.firewall.allowedTCPPortRanges = [
@@ -103,6 +102,7 @@ in
     80
     443
     6568
+    21118
     24800
   ];
 
