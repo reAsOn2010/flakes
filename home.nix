@@ -32,11 +32,10 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.yakumo = { config, pkgs, ...}: {
-    # seems no use
     homeage = {
-        identityPaths = [ "/home/yakumo/.ssh/id_ed25519" ];
+        identityPaths = [ "~/.ssh/id_ed25519" ];
         installationType = "systemd";
-        file."yakumo-kube-config" = {
+        file."kube-config" = {
           source = ./secrets/yakumo/kube-config.age;
           copies = [ "/home/yakumo/.kube/config" ];
         };
