@@ -50,9 +50,6 @@ in
       url = "https://github.com/ryantm/agenix/archive/main.tar.gz";
       sha256 = "14sszf5s85i4jd3lc8c167fbxvpj13da45wl1j7wpd20n0fic5c1";
     }}/pkgs/agenix.nix" {})
-    rustdesk
-    google-chrome
-    adoptopenjdk-bin
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor
     gnomeExtensions.appindicator
@@ -72,7 +69,7 @@ in
     podman = {
       enable = true;
       dockerCompat = true;
-      # dockerSocket.enable = true;
+      dockerSocket.enable = true;
       defaultNetwork.dnsname.enable = true;
     };
   };
@@ -111,6 +108,7 @@ in
   programs.steam = {
     enable = true;
   };
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-original"

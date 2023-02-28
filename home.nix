@@ -45,6 +45,9 @@ in {
     home.stateVersion = "22.11";
     home.packages = with pkgs; 
     [
+      adoptopenjdk-bin
+      google-chrome
+      rustdesk
       jetbrains.idea-community
       jetbrains.pycharm-community
       python310
@@ -59,9 +62,7 @@ in {
       mattermost-desktop
       silver-searcher
       mongodb-compass
-      # qtcreator
       synergy
-      stretchly
     ];
     programs.alacritty = {
       enable = true;
@@ -103,10 +104,10 @@ in {
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
         qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
         vault-dev = "[[ -f .envrc ]] || touch .envrc && " + 
-          "sed -i /^source .*vault.*.env$/d .envrc || true && " +
+          "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
           "echo 'source ${config.xdg.configHome}/secrets/vault.dev.env' >> .envrc ";
         vault-prod = "[[ -f .envrc ]] || touch .envrc && " + 
-          "sed -i /^source .*vault.*.env$/d .envrc || true && " +
+          "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
           "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
         ld-patch = "patchelf --set-interpreter $(cat $NIX_CC/nix-support/dynamic-linker)";
       };
