@@ -7,7 +7,7 @@
     ./users.nix
     ./time.nix
     ./environment.nix
-    ./home.nix
+    ./home-manager.nix
     ./nix.nix
     ./agenix.nix
   ];

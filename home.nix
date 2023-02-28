@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, outputs, config, pkgs, lib, ... }:
 
 let
   inherit (pkgs) vscode-extensions vscode-with-extensions;
@@ -23,21 +23,23 @@ let
       }
     ];
   };
-  vault-dev-env = config.age.secrets."yakumo/vault.dev.env".path;
-  vault-prod-env = config.age.secrets."yakumo/vault.prod.env".path;
-  kube-config = config.age.secrets."yakumo/kube-config".path;
-in
-
-{
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.yakumo = { config, pkgs, ...}: {
+in {
+    imports = [ inputs.homeage.homeManagerModules.homeage ];
     homeage = {
         identityPaths = [ "~/.ssh/id_ed25519" ];
         installationType = "systemd";
         file."kube-config" = {
           source = ./secrets/yakumo/kube-config.age;
           copies = [ "/home/yakumo/.kube/config" ];
+          mode = "0600";
+        };
+        file."vault.dev.env" = {
+          source = ./secrets/yakumo/vault.dev.env.age;
+          symlinks = [ "${config.xdg.configHome}/secrets/vault.dev.env" ];
+        };
+        file."vault.prod.env" = {
+          source = ./secrets/yakumo/vault.prod.env.age;
+          symlinks = [ "${config.xdg.configHome}/secrets/vault.prod.env" ];
         };
     };
     home.stateVersion = "22.11";
@@ -98,11 +100,14 @@ in
       };
       shellAliases = {
         os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
-        # agenix = "nix run github:ryantm/agenix --";
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
         qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
-        vault-dev = "export $(cat ${vault-dev-env} | xargs)";
-        vault-prod = "export $(cat ${vault-prod-env} | xargs)";
+        vault-dev = "[[ -f .envrc ]] || touch .envrc && " + 
+          "sed -i /^source .*vault.*.env$/d .envrc || true && " +
+          "echo 'source ${config.xdg.configHome}/secrets/vault.dev.env' >> .envrc ";
+        vault-prod = "[[ -f .envrc ]] || touch .envrc && " + 
+          "sed -i /^source .*vault.*.env$/d .envrc || true && " +
+          "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
         ld-patch = "patchelf --set-interpreter $(cat $NIX_CC/nix-support/dynamic-linker)";
       };
       oh-my-zsh = {
@@ -219,5 +224,4 @@ in
     # home.file.".kube/config".source = config.age.secrets."yakumo/kube-config".path;
     # fix for 21.11
     manual.manpages.enable = false;
-  };
 }

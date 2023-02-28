@@ -3,40 +3,31 @@
 
     inputs = {
         nixpkgs = { url = "github:nixos/nixpkgs/nixos-22.11"; };
-        home-manager = { url= "github:nix-community/home-manager"; };
+        nixpkgs-unstable = { url = "github:nixos/nixpkgs/nixos-unstable"; }; 
+        home-manager = { 
+            url= "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
         agenix = { url = "github:ryantm/agenix"; };
         homeage = { url = "github:jordanisaacs/homeage"; };
         flake-utils = { url = "github:numtide/flake-utils"; };
     };
 
-    outputs = inputs@{self, nixpkgs, home-manager, agenix, homeage, flake-utils, ... }: {
-        # homeManagerConfigurations = {
-        #   # seems no use...
-        #   yakumo = home-manager.lib.homeManagerConfiguration {
-        #     configuration = {
-        #       homeage = {
-        #         identityPaths = [ "~/.ssh/id_ed25519" ];
-        #         installationType = "systemd";
-        #         file."yakumo-kube-config" = {
-        #           source = "./secrets/yakumo/kube-config.age";
-        #           copies = [ "/home/yakumo/.kube/config" ];
-        #         };
-        #       };
-        #       imports = [ homeage.homeManagerModules.homeage ];
-        #     };
-        #   };
-        # };
+    outputs = { self, nixpkgs, home-manager, agenix, homeage, flake-utils, ... }@inputs:
+    let
+        inherit (self) outputs;
+    in
+    rec {
         nixConfig.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store/" ];
         nixosConfigurations = {
             pat = inputs.nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
-                specialArgs = { inherit inputs; };
+                specialArgs = { inherit inputs outputs; };
                 modules = [
                     ./configuration.nix
                     ./hardware/pat.hardware-configuration.nix
                     home-manager.nixosModules.home-manager {
-                      home-manager.extraSpecialArgs = { inherit inputs; };
-                      home-manager.users.yakumo.imports = [ homeage.homeManagerModules.homeage ];
+                      home-manager.extraSpecialArgs = { inherit inputs outputs; };
                     }
                     agenix.nixosModule
                 ];
@@ -60,18 +51,16 @@
                 ];
             };
         };
-        # homeManagerConfigurations = {
-        #     pat = home-manager.lib.homeManagerConfiguration {
-        #         configuration = {
-        #             homeage = {
-        #                 identityPaths = [ "~/.ssh/id_ed25519" ];
-        #                 installationType = "systemd";
-        #                 file.".kube/config".source = "./secrets/yakumo/kube-config.age";
-        #             };
-        #             imports = [ homeage.homeManagerModules.homeage ];
-        #         };
-        #     };
-        # };
+        homeConfigurations = {
+            "yakumo@pat" = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                extraSpecialArgs = { inherit inputs outputs; };
+                modules = [
+                    ./home.nix
+                ];
+            };
+        };
+
         devShells."x86_64-linux" = {
           ops = let 
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
