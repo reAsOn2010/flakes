@@ -99,6 +99,9 @@ in {
       sessionVariables = {
         EDITOR = "vim";
       };
+      initExtra = ''
+        export PATH=$PATH:${config.xdg.configHome}/scripts
+      '';
       shellAliases = {
         os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
@@ -221,8 +224,10 @@ in {
       showCentered=true
       theme=Bright
     '';
-    # currently not supported
-    # home.file.".kube/config".source = config.age.secrets."yakumo/kube-config".path;
+    home.file."${config.xdg.configHome}/scripts/import-vpn" = {
+      source = ./scripts/import-vpn;
+      executable = true;
+    };
     # fix for 21.11
     manual.manpages.enable = false;
 }

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+FILEPATH=$1
+FILENAME=$(basename $FILEPATH)
+SUFFIX=".ovpn"
+if [[ ! $FILENAME = *$SUFFIX ]]; then
+	echo "config name should end with .ovpn"
+	exit 1
+fi
+NAME=${FILENAME%"$SUFFIX"}
+sudo nmcli connection delete $NAME || true
+sudo nmcli connection import type openvpn file $FILEPATH
+sudo nmcli connection modify $NAME ipv4.never-default yes ipv6.never-default yes
+rm $1
