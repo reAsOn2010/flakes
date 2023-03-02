@@ -26,6 +26,19 @@ in
     kbdInteractiveAuthentication = false;
   };
 
+  services.openvpn.servers = {
+    dev = { 
+      config = '' config /tmp/openvpn/dev.ovpn ''; 
+      autoStart = false;
+      updateResolvConf = true;
+    };
+    prod = { 
+      config = '' config /tmp/openvpn/prod.ovpn ''; 
+      autoStart = false;
+      updateResolvConf = true;
+    };
+  };
+
   environment.gnome.excludePackages = (with pkgs.gnome; [
     cheese
     epiphany

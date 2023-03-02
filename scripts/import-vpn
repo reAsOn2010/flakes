@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
-FILEPATH=$1
-FILENAME=$(basename $FILEPATH)
-SUFFIX=".ovpn"
-if [[ ! $FILENAME = *$SUFFIX ]]; then
-	echo "config name should end with .ovpn"
+ENV=$1
+if [[ $ENV != "dev" ]] && [[ $ENV != "prod" ]]; then
+	echo "only 'dev' or 'prod' supported."
 	exit 1
 fi
-NAME=${FILENAME%"$SUFFIX"}
-sudo nmcli connection delete $NAME || true
-sudo nmcli connection import type openvpn file $FILEPATH
-sudo nmcli connection modify $NAME ipv4.never-default yes ipv6.never-default yes
-rm $1
+if [[ ! -f "$HOME/Downloads/$ENV.ovpn" ]]; then
+	echo "$ENV.ovpn not found."
+	exit 1
+fi
+mkdir -p /tmp/openvpn/
+mv ~/Downloads/$ENV.ovpn /tmp/openvpn/$ENV.ovpn

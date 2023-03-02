@@ -41,6 +41,10 @@ in {
           source = ./secrets/yakumo/vault.prod.env.age;
           symlinks = [ "${config.xdg.configHome}/secrets/vault.prod.env" ];
         };
+        file."docker.config.json" = {
+          source = ./secrets/yakumo/docker.config.json.age;
+          symlinks = [ "/home/yakumo/.docker/config.json" ];
+        };
     };
     home.stateVersion = "22.11";
     home.packages = with pkgs; 
@@ -119,6 +123,9 @@ in {
         plugins = [ "git" "dotenv" "kubectl" "history" "docker" ];
         theme = "robbyrussell";
       };
+    };
+    programs.autojump = {
+      enable = true;
     };
     programs.direnv = {
       enable = true;
