@@ -14,7 +14,7 @@
         hyprland.url = "github:hyprwm/Hyprland";
     };
 
-    outputs = { self, nixpkgs, home-manager, agenix, homeage, hyprland, flake-utils, ... }@inputs:
+    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, homeage, hyprland, flake-utils, ... }@inputs:
     let
         inherit (self) outputs;
     in
@@ -25,17 +25,17 @@
                 system = "x86_64-linux";
                 specialArgs = { inherit inputs outputs; };
                 modules = [
-                    ./configuration.nix
-                    ./hardware/pat.hardware-configuration.nix
-                    home-manager.nixosModules.home-manager {
-                      home-manager.extraSpecialArgs = { inherit inputs outputs; };
-                    }
-                    agenix.nixosModule
-                    hyprland.nixosModules.default {
-                      programs.hyprland.enable = true;
-                      programs.hyprland.xwayland.enable = true;
-                    }
-                  ];
+                  ./configuration.nix
+                  ./hardware/pat.hardware-configuration.nix
+                  home-manager.nixosModules.home-manager {
+                    home-manager.extraSpecialArgs = { inherit inputs outputs; };
+                  }
+                  agenix.nixosModule
+                  hyprland.nixosModules.default {
+                    programs.hyprland.enable = true;
+                    programs.hyprland.xwayland.enable = true;
+                  }
+                ];
             };
             xps13 = inputs.nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";

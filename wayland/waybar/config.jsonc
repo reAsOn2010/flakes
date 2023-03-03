@@ -6,8 +6,11 @@
     "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
-        "custom/language",
+	"cpu",
+	"memory",
         "network",
+	"custom/vpn-dev",
+	"custom/vpn-prod",
         "backlight",
         "pulseaudio",
         "battery"
@@ -22,22 +25,37 @@
         "on-click": "activate",
         //"format": "{icon}",
         "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": ""
         }
     },
-    "custom/language": {
-        "exec": "cat /tmp/kb_layout",
+    "custom/vpn-dev": {
+        "exec": "$HOME/.config/waybar/scripts/vpn.sh dev",
+	"on-click": "$HOME/.config/waybar/scripts/vpn.sh dev toggle",
+	"on-double-click": "$HOME/.config/waybar/scripts/vpn.sh dev import",
+	"return-type": "json",
         "interval": 3,
-        "format": " {}"
+        "format": "DEV {icon}",
+	"format-icons": {
+            "null": "",
+	    "active": "",
+	    "inactive": ""
+	}
+    },
+    "custom/vpn-prod": {
+        "exec": "$HOME/.config/waybar/scripts/vpn.sh prod",
+	"on-click": "$HOME/.config/waybar/scripts/vpn.sh prod toggle",
+	"on-double-click": "$HOME/.config/waybar/scripts/vpn.sh prod import",
+	"return-type": "json",
+        "interval": 3,
+        "format": "DEV {icon}",
+	"format-icons": {
+            "null": "",
+	    "active": "",
+	    "inactive": ""
+	}
     },
     "tray": {
         "icon-size": 13,
@@ -50,6 +68,13 @@
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 6
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
     },
     "battery": {
         "states": {
@@ -68,16 +93,16 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "network": {
-        "format-wifi": "直 {essid}",
-        "format-ethernet": " {essid}",
+	"format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "睊 Disconnected",
-        "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
-        "on-click": "wofi-wifi-menu"
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "ﱝ Muted",
+        "format-muted": " Muted",
         "on-click": "/home/amitgold/.config/hypr/scripts/volume_ctl.sh mute",
         "scroll-step": 1,
         "format-icons": {
@@ -87,7 +112,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", "墳", ""]
+	    "default": ["", "", ""]
         }
     }
 }

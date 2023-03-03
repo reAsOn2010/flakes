@@ -49,11 +49,19 @@ in {
           symlinks = [ "/home/yakumo/.docker/config.json" ];
         };
     };
+    i18n.inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-rime
+        fcitx5-chinese-addons
+      ];
+    };
     home.stateVersion = "22.11";
     home.packages = with pkgs; 
     [
       adoptopenjdk-bin
       google-chrome
+      firefox
       rustdesk
       jetbrains.idea-community
       jetbrains.pycharm-community
@@ -79,6 +87,7 @@ in {
           program = "${pkgs.zsh}/bin/zsh";
           args = [ "--login" ];
         };
+        window.opacity = 0.9;
         font.size = 14;
       };
     };
@@ -97,18 +106,25 @@ in {
         set termguicolors
         set number
         colorscheme dracula
+        hi NonText ctermbg=none
+        hi Normal guibg=NONE ctermbg=NONE
       '';
     };
+    home.sessionVariables = {
+      EDITOR = "vim";
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
+      SDL_IM_MODULE = "fcitx";
+      GLFW_IM_MODULE = "fcitx";
+    };
+    home.sessionPath = [
+      "${config.xdg.configHome}/scripts"
+    ];
     programs.zsh = {
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
-      sessionVariables = {
-        EDITOR = "vim";
-      };
-      initExtra = ''
-        export PATH=$PATH:${config.xdg.configHome}/scripts
-      '';
       shellAliases = {
         os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
@@ -119,7 +135,6 @@ in {
         vault-prod = "[[ -f .envrc ]] || touch .envrc && " + 
           "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
           "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
-        ld-patch = "patchelf --set-interpreter $(cat $NIX_CC/nix-support/dynamic-linker)";
       };
       oh-my-zsh = {
         enable = true;
@@ -167,73 +182,73 @@ in {
         };
       };
     };
-    dconf.enable = true;
-    dconf.settings = {
-      "org/gnome/settings-daemon/plugins/media-keys" = {
-        custom-keybindings = [
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-        ];
-      };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Ctrl>space";
-        command = "albert toggle";
-        name = "albert-toggle";
-      };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        binding = "<Super>t";
-        command = "alacritty";
-        name = "alacritty";
-      };
-    };
+    # dconf.enable = true;
+    # dconf.settings = {
+    #   "org/gnome/settings-daemon/plugins/media-keys" = {
+    #     custom-keybindings = [
+    #       "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+    #       "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+    #     ];
+    #   };
+    #   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+    #     binding = "<Ctrl>space";
+    #     command = "albert toggle";
+    #     name = "albert-toggle";
+    #   };
+    #   "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+    #     binding = "<Super>t";
+    #     command = "alacritty";
+    #     name = "alacritty";
+    #   };
+    # };
     services.gpg-agent.enable = true;
     programs.gpg.enable = true;
     programs.home-manager.enable = true;
     nixpkgs.config.allowUnfree = true;
-    xdg.enable = true;
-    xdg.configFile."albert/albert.conf".text = ''
-      [General]
-      hotkey=Ctrl+Space
-      showTray=true
-      terminal=alacritty -e
-      autostartOnLogin=true
-      
-      [org.albert.extension.applications]
-      enabled=true
-      
-      [org.albert.extension.calculator]
-      enabled=true
-      
-      [org.albert.extension.files]
-      enabled=false
-      
-      [org.albert.extension.hashgenerator]
-      enabled=true
-      
-      [org.albert.extension.ssh]
-      enabled=false
-      
-      [org.albert.extension.system]
-      enabled=true
-      
-      [org.albert.extension.terminal]
-      enabled=true
-      
-      [org.albert.extension.websearch]
-      enabled=false
-      
-      [org.albert.frontend.widgetboxmodel]
-      alwaysOnTop=true
-      clearOnHide=false
-      displayIcons=true
-      displayScrollbar=false
-      displayShadow=true
-      hideOnClose=false
-      hideOnFocusLoss=true
-      itemCount=5
-      showCentered=true
-      theme=Bright
-    '';
+    # xdg.enable = true;
+    # xdg.configFile."albert/albert.conf".text = ''
+    #   [General]
+    #   hotkey=Ctrl+Space
+    #   showTray=true
+    #   terminal=alacritty -e
+    #   autostartOnLogin=true
+    #   
+    #   [org.albert.extension.applications]
+    #   enabled=true
+    #   
+    #   [org.albert.extension.calculator]
+    #   enabled=true
+    #   
+    #   [org.albert.extension.files]
+    #   enabled=false
+    #   
+    #   [org.albert.extension.hashgenerator]
+    #   enabled=true
+    #   
+    #   [org.albert.extension.ssh]
+    #   enabled=false
+    #   
+    #   [org.albert.extension.system]
+    #   enabled=true
+    #   
+    #   [org.albert.extension.terminal]
+    #   enabled=true
+    #   
+    #   [org.albert.extension.websearch]
+    #   enabled=false
+    #   
+    #   [org.albert.frontend.widgetboxmodel]
+    #   alwaysOnTop=true
+    #   clearOnHide=false
+    #   displayIcons=true
+    #   displayScrollbar=false
+    #   displayShadow=true
+    #   hideOnClose=false
+    #   hideOnFocusLoss=true
+    #   itemCount=5
+    #   showCentered=true
+    #   theme=Bright
+    # '';
     home.file."${config.xdg.configHome}/scripts" = {
       source = ./scripts;
       recursive = true;

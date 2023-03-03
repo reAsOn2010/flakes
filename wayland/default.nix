@@ -4,7 +4,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
+    extraConfig = builtins.readFile ./hyprland.conf + ''
+    exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+      '';
   };
   # wayland.windowManager.sway = {
   #   enable = true;
@@ -62,11 +64,13 @@
   home.packages = with pkgs;
   [
     mako            # notification daemon
+    libnotify
     waybar          # status bar
     rofi-wayland    # application launcher
     grim            # screenshot
     cliphist        # clipboard manager
     wl-clipboard
+    polkit_gnome
   ];
   home.file."${config.xdg.configHome}/waybar" = {
     source = ./waybar;
@@ -74,6 +78,10 @@
   };
   home.file."${config.xdg.configHome}/mako" = {
     source = ./mako;
+    recursive = true;
+  };
+  home.file."${config.xdg.configHome}/rofi" = {
+    source = ./rofi;
     recursive = true;
   };
 }

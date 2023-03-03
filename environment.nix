@@ -48,15 +48,24 @@ in
     hitori
     atomix
   ]);
+  environment.sessionVariables = rec {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    SDL_IM_MODULE = "fcitx";
+    GLFW_IM_MODULE = "fcitx";
+    PATH = [
+      "\${HOME}/.config/scripts"
+    ];
+  };
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.inputMethod.enabled = "fcitx5";
-  i18n.inputMethod.fcitx5.addons = with pkgs; [
-    fcitx5-configtool
-    fcitx5-rime
-    fcitx5-chinese-addons
-  ];
+  # i18n.inputMethod.enabled = "fcitx5";
+  # i18n.inputMethod.fcitx5.addons = with pkgs; [
+  #   fcitx5-rime
+  #   fcitx5-chinese-addons
+  # ];
 
   # i18n.inputMethod.enabled = "ibus";
   # i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; 
@@ -71,7 +80,7 @@ in
     exfat
     (callPackage "${builtins.fetchTarball {
       url = "https://github.com/ryantm/agenix/archive/main.tar.gz";
-      sha256 = "14sszf5s85i4jd3lc8c167fbxvpj13da45wl1j7wpd20n0fic5c1";
+      sha256 = "1531pvm4wajhmqri99vd12xamlgccv46hzzb66sks6q22x74wczw";
     }}/pkgs/agenix.nix" {})
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor
@@ -133,6 +142,10 @@ in
   ];
 
   programs.steam = {
+    enable = true;
+  };
+  # https://github.com/nix-community/home-manager/issues/2991
+  programs.zsh = {
     enable = true;
   };
 
