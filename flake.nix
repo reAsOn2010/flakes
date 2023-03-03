@@ -33,8 +33,9 @@
                     agenix.nixosModule
                     hyprland.nixosModules.default {
                       programs.hyprland.enable = true;
+                      programs.hyprland.xwayland.enable = true;
                     }
-                ];
+                  ];
             };
             xps13 = inputs.nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";

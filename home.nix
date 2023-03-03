@@ -24,7 +24,10 @@ let
     ];
   };
 in {
-    imports = [ inputs.homeage.homeManagerModules.homeage ];
+    imports = [ 
+      inputs.homeage.homeManagerModules.homeage 
+      ./wayland
+    ];
     homeage = {
         identityPaths = [ "~/.ssh/id_ed25519" ];
         installationType = "systemd";
@@ -231,9 +234,9 @@ in {
       showCentered=true
       theme=Bright
     '';
-    home.file."${config.xdg.configHome}/scripts/import-vpn" = {
-      source = ./scripts/import-vpn;
-      executable = true;
+    home.file."${config.xdg.configHome}/scripts" = {
+      source = ./scripts;
+      recursive = true;
     };
     # fix for 21.11
     manual.manpages.enable = false;

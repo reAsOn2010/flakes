@@ -11,7 +11,8 @@ in
     # displayManager.autoLogin.enable = true;
     # displayManager.autoLogin.user = "yakumo";
     libinput.mouse.accelProfile = "flat";
-    libinput.mouse.accelSpeed = "-0.5";
+    libinput.mouse.accelSpeed = "0";
+    libinput.mouse.middleEmulation = false;
   };
 
   services.printing.enable = true;
@@ -49,11 +50,20 @@ in
   ]);
 
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.inputMethod.enabled = "ibus";
-  i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; 
-  [
-    libpinyin
+
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = with pkgs; [
+    fcitx5-configtool
+    fcitx5-rime
+    fcitx5-chinese-addons
   ];
+
+  # i18n.inputMethod.enabled = "ibus";
+  # i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; 
+  # [
+  #   libpinyin
+  #   rime
+  # ];
 
   environment.systemPackages = with pkgs; [
     nix-index
@@ -75,6 +85,10 @@ in
     source-sans-pro
     wqy_microhei
     wqy_zenhei
+    font-awesome
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
   ];
   fonts.fontconfig.enable = true;
 
@@ -127,4 +141,6 @@ in
     "steam-original"
     "steam-runtime"
   ];
+
+  security.polkit.enable = true;
 }
