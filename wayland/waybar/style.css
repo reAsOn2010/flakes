@@ -48,6 +48,7 @@ tooltip {
     border-radius: 10px;
 }
 
+#custom-wallpaper,
 #custom-vpn-dev,
 #custom-vpn-prod,
 #window,
@@ -83,13 +84,14 @@ tooltip {
 #custom-vpn-dev,
 #custom-vpn-prod {
     color: #89dceb;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
+    border-left: 0px;
     border-right: 0px;
-    margin-left: 10px;
 }
 
-#custom-updates {
+#custom-wallpaper {
     color: #f5c2e7;
+    border-radius: 10px;
     border-left: 0px;
     border-right: 0px;
 }
@@ -109,18 +111,21 @@ tooltip {
 #cpu,
 #memory {
     color: #f38ba8;
+    border-radius: 10px;
     border-left: 0px;
     border-right: 0px;
 }
 
 #network {
     color: #fab387;
+    border-radius: 10px;
     border-left: 0px;
     border-right: 0px;
 }
 
 #pulseaudio {
     color: #89b4fa;
+    border-radius: 10px;
     border-left: 0px;
     border-right: 0px;
 }

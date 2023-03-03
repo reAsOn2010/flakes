@@ -4,8 +4,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf + ''
-    exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+    extraConfig = builtins.readFile ./hypr/hyprland.conf + ''
+    exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
       '';
   };
   # wayland.windowManager.sway = {
@@ -65,13 +65,17 @@
   [
     mako            # notification daemon
     libnotify
+    hyprpaper       # wallpaper
     waybar          # status bar
     rofi-wayland    # application launcher
     grim            # screenshot
     cliphist        # clipboard manager
     wl-clipboard
-    polkit_gnome
+    libsForQt5.polkit-kde-agent  # polkit auth agent
   ];
+  home.file."${config.xdg.configHome}/hypr/hyprpaper.conf" = {
+    source = ./hypr/hyprpaper.conf;
+  };
   home.file."${config.xdg.configHome}/waybar" = {
     source = ./waybar;
     recursive = true;

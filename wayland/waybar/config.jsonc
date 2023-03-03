@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 0,
-    "modules-left": ["clock", "wlr/workspaces"],
+    "modules-left": ["custom/wallpaper", "clock", "wlr/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
@@ -19,6 +19,7 @@
     "hyprland/window": {
         "format": "{}"
     },
+    // exprimental...
     "wlr/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -34,10 +35,10 @@
     "custom/vpn-dev": {
         "exec": "$HOME/.config/waybar/scripts/vpn.sh dev",
 	"on-click": "$HOME/.config/waybar/scripts/vpn.sh dev toggle",
-	"on-double-click": "$HOME/.config/waybar/scripts/vpn.sh dev import",
+	"on-click-right": "$HOME/.config/waybar/scripts/vpn.sh dev import",
 	"return-type": "json",
         "interval": 3,
-        "format": "DEV {icon}",
+        "format": "DEV{icon}",
 	"format-icons": {
             "null": "",
 	    "active": "",
@@ -47,15 +48,19 @@
     "custom/vpn-prod": {
         "exec": "$HOME/.config/waybar/scripts/vpn.sh prod",
 	"on-click": "$HOME/.config/waybar/scripts/vpn.sh prod toggle",
-	"on-double-click": "$HOME/.config/waybar/scripts/vpn.sh prod import",
+	"on-click-right": "$HOME/.config/waybar/scripts/vpn.sh prod import",
 	"return-type": "json",
         "interval": 3,
-        "format": "DEV {icon}",
+        "format": "PROD{icon}",
 	"format-icons": {
             "null": "",
 	    "active": "",
 	    "inactive": ""
 	}
+    },
+    "custom/wallpaper": {
+	"on-click": "$HOME/.config/waybar/scripts/wallpaper.sh",
+	"format": ""
     },
     "tray": {
         "icon-size": 13,
