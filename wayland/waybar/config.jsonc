@@ -37,26 +37,16 @@
 	"on-click": "$HOME/.config/waybar/scripts/vpn.sh dev toggle",
 	"on-click-right": "$HOME/.config/waybar/scripts/vpn.sh dev import",
 	"return-type": "json",
-        "interval": 3,
-        "format": "DEV{icon}",
-	"format-icons": {
-            "null": "",
-	    "active": "",
-	    "inactive": ""
-	}
+        "interval": 60,
+        "format": "DEV {}"
     },
     "custom/vpn-prod": {
         "exec": "$HOME/.config/waybar/scripts/vpn.sh prod",
 	"on-click": "$HOME/.config/waybar/scripts/vpn.sh prod toggle",
 	"on-click-right": "$HOME/.config/waybar/scripts/vpn.sh prod import",
 	"return-type": "json",
-        "interval": 3,
-        "format": "PROD{icon}",
-	"format-icons": {
-            "null": "",
-	    "active": "",
-	    "inactive": ""
-	}
+        "interval": 60,
+        "format": "PROD {}"
     },
     "custom/wallpaper": {
 	"on-click": "$HOME/.config/waybar/scripts/wallpaper.sh",

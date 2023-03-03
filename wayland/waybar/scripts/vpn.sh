@@ -30,9 +30,9 @@ function toggle() {
 
 function status() {
 	if systemctl --quiet is-active openvpn-$env.service; then
-		echo '{"class": "active"}'
+		echo '{"text": "", "class": "active"}'
 	else
-		echo '{"class": "inactive"}'
+		echo '{"text": "", "class": "inactive"}'
 	fi
 }
 
