@@ -2,7 +2,6 @@
 
 let
   inherit (pkgs) vscode-extensions vscode-with-extensions;
-
   vscode = vscode-with-extensions.override {
     vscodeExtensions = with vscode-extensions; [
       jnoortheen.nix-ide
@@ -60,7 +59,7 @@ in {
     home.packages = with pkgs; 
     [
       adoptopenjdk-bin
-      google-chrome
+      # google-chrome
       firefox
       rustdesk
       jetbrains.idea-community
@@ -69,6 +68,7 @@ in {
       go
       clash
       vscode
+      nixpkgs-fmt
       dbeaver
       albert
       copyq

@@ -1,4 +1,7 @@
 { inputs, outputs, pkgs, config, lib, ... }:
+let
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
   wayland.windowManager.hyprland = {
@@ -64,18 +67,23 @@
   home.packages = with pkgs;
   [
     mako            # notification daemon
-    libnotify
-    hyprpaper       # wallpaper
+    libnotify       # notify-send
     waybar          # status bar
     rofi-wayland    # application launcher
     grim            # screenshot
+    slurp           # area screenshot
     cliphist        # clipboard manager
-    wl-clipboard
+    wl-clipboard    # clipboard
+    udiskie         # removable disk automounter 
     libsForQt5.polkit-kde-agent  # polkit auth agent
-  ];
-  home.file."${config.xdg.configHome}/hypr/hyprpaper.conf" = {
-    source = ./hypr/hyprpaper.conf;
-  };
+  ] ++ (with unstable; [
+    wpaperd         # wallpaper
+  ]);
+  home.file."${config.xdg.configHome}/wpaperd/output.conf".text = ''
+    [default]
+    path = "${config.xdg.configHome}/wallpapers/"
+    duration = "30m"
+  '';
   home.file."${config.xdg.configHome}/waybar" = {
     source = ./waybar;
     recursive = true;

@@ -18,7 +18,7 @@
     let
         inherit (self) outputs;
     in
-    rec {
+    {
         nixConfig.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store/" ];
         nixosConfigurations = {
             pat = inputs.nixpkgs.lib.nixosSystem {

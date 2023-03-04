@@ -21,15 +21,23 @@
     },
     // exprimental...
     "wlr/workspaces": {
-        "disable-scroll": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
         "all-outputs": true,
         "on-click": "activate",
-        //"format": "{icon}",
-        "persistent_workspaces": {
+        "format": "{icon}",
+        "format-icons": {
             "1": "",
             "2": "",
             "3": "",
-            "4": ""
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "active": "",
+            "default": ""
         }
     },
     "custom/vpn-dev": {

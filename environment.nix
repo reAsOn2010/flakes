@@ -87,13 +87,12 @@ in
     gnomeExtensions.appindicator
     gnomeExtensions.topicons-plus
     gnome3.adwaita-icon-theme
+    waybar
   ];
 
   fonts.fonts = with pkgs; [
     dejavu_fonts
     source-sans-pro
-    wqy_microhei
-    wqy_zenhei
     font-awesome
     noto-fonts
     noto-fonts-cjk
@@ -156,4 +155,27 @@ in
   ];
 
   security.polkit.enable = true;
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+
+  # waybar
+  nixpkgs.overlays = [
+    (final: prev: {
+      waybar =
+        let
+          hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+          waybarPatchFile = import ./workspace-patch.nix { inherit pkgs hyprctl; };
+        in
+        prev.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+          patches = (oldAttrs.patches or [ ]) ++ [ waybarPatchFile ];
+          # postPatch = (oldAttrs.postPatch or "") + ''
+          #   sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+          # '';
+        });
+    })
+  ];
 }
