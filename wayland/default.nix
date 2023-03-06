@@ -76,6 +76,7 @@ in
     wl-clipboard    # clipboard
     udiskie         # removable disk automounter 
     libsForQt5.polkit-kde-agent  # polkit auth agent
+    swaylock        # lock
   ] ++ (with unstable; [
     wpaperd         # wallpaper
   ]);
