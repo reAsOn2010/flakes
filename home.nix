@@ -126,7 +126,8 @@ in {
       enableCompletion = true;
       enableAutosuggestions = true;
       shellAliases = {
-        os-rebuild = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
+        os-switch = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
+        os-test = "sudo nixos-rebuild test --flake '/home/yakumo/nixos-config#'";
         ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
         qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
         vault-dev = "[[ -f .envrc ]] || touch .envrc && " + 
