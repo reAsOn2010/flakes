@@ -88,6 +88,7 @@ in
     gnomeExtensions.topicons-plus
     gnome3.adwaita-icon-theme
     waybar
+    zlib
   ];
 
   fonts.fonts = with pkgs; [
