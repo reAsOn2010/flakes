@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ../../environment/hypr-variables.nix)
+    (import ../environment/variables.nix)
   ];
   programs = {
     bash = {
@@ -12,6 +12,12 @@
         fi
       '';
     };
+    fish = {
+      loginShellInit = ''
+         set TTY1 (tty)
+         [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
+      '';
+    };
   };
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
@@ -19,7 +25,7 @@
     systemdIntegration = true;
     nvidiaPatches = false;
     extraConfig = ''
-    exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
-      '' + builtins.readFile ./hyprland.conf; 
+      exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
+    '' + builtins.readFile ./hyprland.conf;
   };
 }

@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
   ] ++ [
-
+    ../../modules/desktop
   ];
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -30,7 +30,7 @@
       fcitx5-rime
       fcitx5-chinese-addons
       fcitx5-table-extra
-      fcitx5-pinyin-zhwiki
+      # fcitx5-pinyin-zhwiki
     ];
   };
   users.mutableUsers = false;
@@ -51,19 +51,38 @@
     systemPackages = with pkgs; [
       libnotify
       wl-clipboard
+      wlr-randr
       wayland
+      wayland-scanner
       wayland-utils
+      # egl-wayland
+      xorg.xeyes
+      wayland-protocols
+      glfw-wayland
       xwayland
       qt6.qtwayland
       libsForQt5.qt5.qtwayland
       cinnamon.nemo
       networkmanagerapplet
+      wev
       grim
     ];
   };
   services = {
+    xserver.xkbOptions = "caps:escape";
+    dbus.packages = [ pkgs.gcr ];
     getty.autologinUser = "${user}";
+    gvfs.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
   };
+  console.useXkbConfig = true;
+
   security = {
     polkit.enable = true;
     sudo = {

@@ -1,9 +1,8 @@
 { config, pkgs, inputs, user, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ( import ../../modules/desktop/home.nix )
   ] ++ [
-
   ];
 
   home = {
@@ -14,4 +13,5 @@
     home-manager.enable = true;
   };
   home.stateVersion = "22.11";
+  manual.manpages.enable = false;
 }

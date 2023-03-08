@@ -1,4 +1,4 @@
-{ system, outputs, inputs, nixpkgs, user, ... }:
+{ system, self, inputs, nixpkgs, user, ... }:
 
 let
   pkgs = import nixpkgs
@@ -14,12 +14,14 @@ in
     inherit system;
     specialArgs = { inherit inputs user; };
     modules = [
-
+      inputs.agenix.nixosModule
+      ../agenix.nix
     ] ++ [
-      system.nix
+      ./pat
     ] ++ [
-      agenix.nixosModule
-      hyprland.nixosModules.default
+      ./system.nix
+    ] ++ [
+      inputs.hyprland.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -36,7 +38,7 @@ in
         };
         nixpkgs = {
           overlays = (import ../overlays) ++ [
-            self.overlays.default
+            # self.overlays.default
           ];
         };
       }
