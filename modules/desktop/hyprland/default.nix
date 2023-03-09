@@ -10,10 +10,26 @@
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    # swww
-    swaylock-effects
+    libnotify
+    # inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+    # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    # libnotify
+    # wpaperd
+    # wl-clipboard
+    # wlr-randr
+    # wayland
+    # wayland-scanner
+    # wayland-utils
+    # egl-wayland
+    # xorg.xeyes
+    # wayland-protocols
+    # glfw-wayland
+    # xwayland
+    # qt6.qtwayland
+    # libsForQt5.qt5.qtwayland
+    # wev
+    # grim
+    # swaylock-effects
   ];
 
   # systemd.user.services.swww = {
@@ -30,7 +46,7 @@
   #     Restart = "on-failure";
   #   };
   # };
-  
+
   security.pam.services.swaylock = { };
   xdg.portal = {
     enable = true;

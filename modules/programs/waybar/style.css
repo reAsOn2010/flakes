@@ -51,6 +51,8 @@ tooltip {
 }
 
 #custom-wallpaper,
+#custom-powermenu,
+#custom-launcher,
 #custom-vpn-dev,
 #custom-vpn-prod,
 #window,
@@ -61,6 +63,7 @@ tooltip {
 #pulseaudio,
 #network,
 #workspaces,
+#temperature,
 #tray,
 #backlight {
     background: #443C68;

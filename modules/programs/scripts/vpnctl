@@ -9,12 +9,12 @@ function import() {
 		notify-send "only 'dev' or 'prod' supported."
 		exit 1
 	fi
-	if [[ ! -f "$HOME/Downloads/$env.ovpn" ]]; then
+	if [[ ! -f "$HOME/.config/openvpn/$env.ovpn" ]]; then
 		notify-send "$env.ovpn not found."
 		exit 1
 	fi
-	mkdir -p /tmp/openvpn/
-	mv ~/Downloads/$env.ovpn /tmp/openvpn/$env.ovpn
+	mkdir -p $HOME/.config/openvpn
+	mv ~/Downloads/$env.ovpn $HOME/.config/openvpn/$env.ovpn
 	notify-send "$env.ovpn successfully imported."
 }
 

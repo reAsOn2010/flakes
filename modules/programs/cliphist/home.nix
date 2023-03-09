@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    rofi-wayland
+    cliphist # clipboard manager
+    wl-clipboard # clipboard
   ];
 }

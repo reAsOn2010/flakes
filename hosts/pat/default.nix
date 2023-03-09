@@ -3,7 +3,10 @@
   imports = [
     ./hardware-configuration.nix
   ] ++ [
-    ../../modules/desktop
+    ../../modules/desktop/hyprland
+    ../../modules/programs/openvpn
+    ../../modules/programs/fonts
+    ../../modules/programs/waybar
   ];
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -24,15 +27,7 @@
     # consoleLogLevel = 0;
     # initrd.verbose = false;
   };
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-rime
-      fcitx5-chinese-addons
-      fcitx5-table-extra
-      # fcitx5-pinyin-zhwiki
-    ];
-  };
+
   users.mutableUsers = false;
   users.groups.lrun = {
     gid = 593;
@@ -42,30 +37,8 @@
     group = "users";
     extraGroups = [ "wheel" "lrun" "docker" "libvirtd" "video" "audio" ];
     passwordFile = config.age.secrets."yakumo/hashed-password".path;
-    # openssh.authorizedKeys.keyFiles = [./secrets/users/yakumo/yakumo.pub];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjRl7mQftJ4LsWxWbNufQ22IFMiRdxJfukQvyXBhyWn the.reason.sake@gmail.com"
-    ];
-  };
-  environment = {
-    systemPackages = with pkgs; [
-      libnotify
-      wl-clipboard
-      wlr-randr
-      wayland
-      wayland-scanner
-      wayland-utils
-      # egl-wayland
-      xorg.xeyes
-      wayland-protocols
-      glfw-wayland
-      xwayland
-      qt6.qtwayland
-      libsForQt5.qt5.qtwayland
-      cinnamon.nemo
-      networkmanagerapplet
-      wev
-      grim
     ];
   };
   services = {

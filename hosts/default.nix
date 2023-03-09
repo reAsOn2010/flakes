@@ -20,6 +20,7 @@ in
       ./pat
     ] ++ [
       ./system.nix
+      ./i18n.nix
     ] ++ [
       inputs.hyprland.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
@@ -27,7 +28,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs user; };
+          extraSpecialArgs = { inherit inputs user; hostName = "pat"; };
           users.${user} = {
             imports = [
               (import ./pat/home.nix)

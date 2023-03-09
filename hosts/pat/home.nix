@@ -1,7 +1,10 @@
-{ config, pkgs, inputs, user, ... }:
+{ config, pkgs, inputs, user, hostName, ... }:
+let
+in
 {
   imports = [
-    ( import ../../modules/desktop/home.nix )
+    ( import ../../modules/desktop/hyprland/home.nix )
+    ( import ../../modules/programs/common/home.nix )
   ] ++ [
   ];
 

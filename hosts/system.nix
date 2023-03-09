@@ -4,6 +4,7 @@
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
 
+  time.timeZone = "Asia/Shanghai";
   networking = {
     networkmanager.enable = true;
     hosts = {
@@ -19,10 +20,9 @@
       enable = true;
     };
   };
-  time.timeZone = "Asia/Shanghai";
-  i18n.defaultLocale = "en_US.UTF-8";
   security.rtkit.enable = true;
   environment = {
+    binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [ fish ];
     systemPackages = with pkgs; [
       git
@@ -33,6 +33,8 @@
       killall
       socat
       rar
+      cinnamon.nemo
+      jq
     ];
   };
   nix = {
