@@ -7,6 +7,7 @@
     dconf.enable = true;
     light.enable = true;
     hyprland.enable = true;
+    hyprland.xwayland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -20,14 +21,14 @@
     # wayland
     # wayland-scanner
     # wayland-utils
-    # egl-wayland
-    # xorg.xeyes
-    # wayland-protocols
-    # glfw-wayland
-    # xwayland
-    # qt6.qtwayland
-    # libsForQt5.qt5.qtwayland
-    # wev
+    egl-wayland
+    xorg.xeyes
+    wayland-protocols
+    glfw-wayland
+    xwayland
+    qt6.qtwayland
+    qt5.qtwayland
+    wev
     # grim
     # swaylock-effects
   ];

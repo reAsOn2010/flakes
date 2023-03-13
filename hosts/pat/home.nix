@@ -6,8 +6,9 @@ in
     ( import ../../modules/desktop/hyprland/home.nix )
     ( import ../../modules/programs/common/home.nix )
   ] ++ [
-  ];
 
+  ];
+  colorScheme = inputs.nix-colors.colorSchemes.default-dark;
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";

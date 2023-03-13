@@ -8,6 +8,26 @@
     ../../modules/programs/fonts
     ../../modules/programs/waybar
   ];
+  networking.firewall.allowedUDPPortRanges = [
+    {
+      from = 32768;
+      to = 65535;
+    }
+  ];
+  networking.firewall.allowedUDPPorts = [
+    80
+    443
+  ];
+  networking.firewall.allowedTCPPortRanges = [
+    {
+      from = 32768;
+      to = 65535;
+    }
+  ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
   boot = {
     supportedFilesystems = [ "ntfs" ];
     loader = {

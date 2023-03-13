@@ -34,11 +34,15 @@ in
               (import ./pat/home.nix)
             ] ++ [
               inputs.hyprland.homeManagerModules.default
+              inputs.nix-colors.homeManagerModule
+              inputs.nixneovim.nixosModules.default
             ];
           };
         };
         nixpkgs = {
           overlays = (import ../overlays) ++ [
+            inputs.nixneovim.overlays.default
+
             # self.overlays.default
           ];
         };

@@ -19,18 +19,18 @@
         fi
       '';
     };
-    # fish = {
-    #   loginShellInit = ''
-    #      set TTY1 (tty)
-    #      [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
-    #   '';
-    # };
   };
+  home.packages = with pkgs; [
+    libsForQt5.polkit-kde-agent
+  ];
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     systemdIntegration = true;
     nvidiaPatches = false;
-    extraConfig = builtins.readFile (./. + "/${hostName}.conf") + builtins.readFile ./hyprland.conf;
+    extraConfig = builtins.readFile (./. + "/${hostName}.conf") + builtins.readFile ./hyprland.conf + ''
+      exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
+    '';
   };
 }

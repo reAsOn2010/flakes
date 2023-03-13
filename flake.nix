@@ -17,9 +17,11 @@
     agenix.url = "github:ryantm/agenix";
     homeage.url = "github:jordanisaacs/homeage";
     flake-utils.url = "github:numtide/flake-utils";
+    nix-colors.url = "github:misterio77/nix-colors";
+    nixneovim.url = "github:nixneovim/nixneovim";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, homeage, hyprland, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       user = "yakumo";
       # domain = ""

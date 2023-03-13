@@ -1,0 +1,30 @@
+PROTO=https
+BOOST=1
+RESOLUTION="1920x1080"
+PIC_DIR=$HOME/.config/wallpapers
+
+mkdir -p $PIC_DIR
+
+read -ra urls < <(curl -sL "$PROTO://www.bing.com/HPImageArchive.aspx?format=js&n=$BOOST" | \
+    # Extract the image urls from the JSON response
+    grep -Po '(?<=url":").*?(?=")' | \
+    # Set the image resolution
+    sed -e "s/[[:digit:]]\{1,\}x[[:digit:]]\{1,\}/$RESOLUTION/" | \
+    # FQDN the image urls
+    sed -e "s/\(.*\)/${PROTO}\:\/\/www.bing.com\1/" | \
+    tr "\n" " ")
+
+for pic in "${urls[@]}"; do
+    if [ -z "$FILENAME" ]; then
+        filename=$(echo "$pic" | sed -e 's/.*[?&;]id=\([^&]*\).*/\1/' | grep -oe '[^\.]*\.[^\.]*$')
+    else
+        filename="$FILENAME"
+    fi
+    curl -Lo "$PIC_DIR/$filename" "$pic"
+    notify-send "Downloaded wallpaper $filename"
+done
+
+let count=$(ls -t $PIC_DIR | wc -l)-28
+if ((count > 0)); then
+	ls -t $PIC_DIR | tail -n $count | xargs -I {} rm $PIC_DIR/{}
+fi

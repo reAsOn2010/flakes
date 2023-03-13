@@ -1,20 +1,5 @@
 { config, pkgs, user, ... }:
 {
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      os-switch = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
-      os-test = "sudo nixos-rebuild test --flake '/home/yakumo/nixos-config#'";
-      ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
-      qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
-      vault-dev = "[[ -f .envrc ]] || touch .envrc && " +
-        "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
-        "echo 'source ${config.xdg.configHome}/secrets/vault.dev.env' >> .envrc ";
-      vault-prod = "[[ -f .envrc ]] || touch .envrc && " +
-        "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
-        "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
-    };
-  };
   programs.autojump.enable = true;
   programs.direnv = {
     enable = true;
