@@ -20,8 +20,8 @@
 
       @keyframes blink_red {
           to {
-              background-color: #${config.colorScheme.colors.base08};
-              color: #${config.colorScheme.colors.base00};
+              background-color: #${config.colorScheme.colors.base03};
+              color: #${config.colorScheme.colors.base08};
           }
       }
 
@@ -48,30 +48,31 @@
           border-radius: 10px;
           border-width: 2px;
           border-style: solid;
-          border-color: #${config.colorScheme.colors.base00};
+          border-color: #${config.colorScheme.colors.base03};
       }
 
       #workspaces button {
           padding: 5px;
-          color: #${config.colorScheme.colors.base02};
+          color: #${config.colorScheme.colors.base03};
+          background: #${config.colorScheme.colors.base00};
           margin-right: 5px;
           border-radius: 10px;
       }
 
       #workspaces button.active,
       #workspaces button.focused {
-          color: #${config.colorScheme.colors.base04};
+          color: #${config.colorScheme.colors.base07};
           background: #${config.colorScheme.colors.base03};
       }
 
       #workspaces button.urgent {
-          color: #${config.colorScheme.colors.base04};
-          background: #${config.colorScheme.colors.base08};
+          color: #${config.colorScheme.colors.base08};
+          background: #${config.colorScheme.colors.base03};
       }
 
       #workspaces button:hover {
-          background: #${config.colorScheme.colors.base04};
-          color: #${config.colorScheme.colors.base0B};
+          background: #${config.colorScheme.colors.base03};
+          color: #${config.colorScheme.colors.base0E};
       }
 
       #custom-wallpaper,
@@ -107,7 +108,7 @@
       #custom-vpn-prod,
       #custom-vpn-dev.inactive,
       #custom-vpn-prod.inactive {
-          color: #${config.colorScheme.colors.base08};
+          color: #${config.colorScheme.colors.base0A};
       }
 
       #custom-vpn-dev.active,
@@ -115,9 +116,14 @@
           color: #${config.colorScheme.colors.base0B};
       }
 
+      #window {
+          padding-left: 50px;
+          padding-right: 50px;
+      }
+
       #window,
       #clock {
-          color: #${config.colorScheme.colors.base07};
+          color: #${config.colorScheme.colors.base0D};
       }
 
       #cpu,
@@ -133,7 +139,7 @@
       #custom-wallpaper,
       #custom-powermenu,
       #custom-launcher {
-          color: #${config.colorScheme.colors.base04};
+          color: #${config.colorScheme.colors.base0C};
       }
     '';
     # style = builtins.readFile ./style.css;

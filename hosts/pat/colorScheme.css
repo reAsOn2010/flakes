@@ -1,18 +1,18 @@
 example {
-    /* 00 */  color: #2E3440;
+    /* 00 black background */  color: #2E3440;
     /* 01 */  color: #3B4252;
     /* 02 */  color: #434C5E;
-    /* 03 */  color: #4C566A;
+    /* 03 bright-black */  color: #4C566A;
     /* 04 */  color: #D8DEE9;
-    /* 05 */  color: #E5E9F0;
+    /* 05 white foreground */  color: #E5E9F0;
     /* 06 */  color: #ECEFF4;
-    /* 07 */  color: #8FBCBB;
-    /* 08 */  color: #BF616A;
+    /* 07 bright-white */  color: #8FBCBB;
+    /* 08 red */  color: #BF616A;
     /* 09 */  color: #D08770;
-    /* 0A */  color: #EBCB8B;
-    /* 0B */  color: #A3BE8C;
-    /* 0C */  color: #88C0D0;
-    /* 0D */  color: #81A1C1;
-    /* 0E */  color: #B48EAD;
+    /* 0A yellow */  color: #EBCB8B;
+    /* 0B green */  color: #A3BE8C;
+    /* 0C cyan */  color: #88C0D0;
+    /* 0D blue */  color: #81A1C1;
+    /* 0E magenta */  color: #B48EAD;
     /* 0F */  color: #5E81AC;
 }
