@@ -35,6 +35,7 @@
       rar
       cinnamon.nemo
       jq
+      patchelf
     ];
   };
   nix = {

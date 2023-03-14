@@ -7,6 +7,7 @@
     ../../modules/programs/openvpn
     ../../modules/programs/fonts
     ../../modules/programs/waybar
+    ../../modules/programs/steam
   ];
   networking.firewall.allowedUDPPortRanges = [
     {

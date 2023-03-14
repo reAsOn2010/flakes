@@ -8,7 +8,6 @@
     (import ../vscode/home.nix)
     (import ../scripts/home.nix)
     (import ../fish/home.nix)
-    (import ../steam/home.nix)
     (import ../wps/home.nix)
   ];
 

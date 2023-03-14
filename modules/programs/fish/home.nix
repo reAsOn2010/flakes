@@ -1,8 +1,11 @@
 { config, pkgs, inputs, user, ... }:
-let 
+let
   nix-colors-lib = inputs.nix-colors.lib-contrib { inherit pkgs; };
 in
 {
+  home.packages = with pkgs; [
+    grc
+  ];
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -20,6 +23,10 @@ in
     interactiveShellInit = ''
       sh ${nix-colors-lib.shellThemeFromScheme { scheme = config.colorScheme; }}
     '';
+    plugins = [
+      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      { name = "pure"; src = pkgs.fishPlugins.pure.src; }
+    ];
     # plugins = [
     #   {
     #     name = "bobthefish";
