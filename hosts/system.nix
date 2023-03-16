@@ -36,6 +36,7 @@
       cinnamon.nemo
       jq
       patchelf
+      zlib
     ];
   };
   nix = {

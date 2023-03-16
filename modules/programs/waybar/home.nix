@@ -96,6 +96,13 @@
           padding-right: 5px;
       }
 
+      #custom-wallpaper,
+      #custom-powermenu,
+      #custom-launcher {
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+
       #tray {
           padding-right: 10px;
       }
@@ -119,12 +126,24 @@
       #window {
           padding-left: 50px;
           padding-right: 50px;
+          color: #${config.colorScheme.colors.base07};
       }
 
-      #window,
       #clock {
           color: #${config.colorScheme.colors.base0D};
       }
+
+      #custom-pomo,
+      #custom-pomo.pause {
+          color: #${config.colorScheme.colors.base03};
+      }
+      #custom-pomo.work {
+          color: #${config.colorScheme.colors.base08};
+      }
+      #custom-pomo.break {
+          color: #${config.colorScheme.colors.base0B};
+      }
+
 
       #cpu,
       #memory,
@@ -154,6 +173,7 @@
       ];
       modules-center = [
         "clock"
+        "custom/pomo"
       ];
       modules-right = [
         "tray"
@@ -246,20 +266,27 @@
         };
       };
       "custom/launcher" = {
-        "format" = "  ";
+        "format" = "";
         "on-click" = "pkill rofi || rofi-launcher";
         "tooltip" = false;
       };
       "custom/wallpaper" = {
         "on-click" = "dlwallpaper";
-        "format" = " ﴔ ";
+        "format" = "ﴔ";
         "tolltip" = "Download today's bing wallpaper";
       };
       "custom/powermenu" = {
-        "format" = "  ";
+        "format" = "";
         "on-click" = "pkill rofi || rofi-power";
         "tooltip" = false;
       };
+      "custom/pomo" = {
+        "exec" = "pomo.sh bar_clock";
+        "on-click" = "pomo.sh pause";
+        "interval" = 1;
+        "return-type" = "json";
+        "format" = " {}";
+       };
       "custom/vpn-dev" = {
         "exec" = "vpnctl dev";
         "on-click" = "vpnctl dev toggle";

@@ -29,6 +29,7 @@ in
     vimAlias = true;
     vimdiffAlias = true;
     plugins = [
+      pkgs.vimPlugins.vim-nix
       {
         plugin = nix-colors-lib.vimThemeFromScheme { scheme = config.colorScheme; };
         config = "colorscheme nix-${config.colorScheme.slug}";
