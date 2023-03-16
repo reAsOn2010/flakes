@@ -8,6 +8,7 @@
     ../../modules/programs/fonts
     ../../modules/programs/waybar
     ../../modules/programs/steam
+    ../../modules/programs/fish
   ];
   networking.firewall.allowedUDPPortRanges = [
     {

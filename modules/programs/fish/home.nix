@@ -25,18 +25,7 @@ in
     '';
     plugins = [
       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-      { name = "pure"; src = pkgs.fishPlugins.pure.src; }
+      { name = "tide"; src = pkgs.fishPlugins.tide.src; }
     ];
-    # plugins = [
-    #   {
-    #     name = "bobthefish";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "oh-my-fish";
-    #       repo = "theme-bobthefish";
-    #       rev = "2dcfcab653ae69ae95ab57217fe64c97ae05d8de";
-    #       sha256 = "sha256-jBbm0wTNZ7jSoGFxRkTz96QHpc5ViAw9RGsRBkCQEIU=";
-    #     };
-    #   }
-    # ];
   };
 }
