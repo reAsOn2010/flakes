@@ -283,6 +283,7 @@
       "custom/pomo" = {
         "exec" = "pomo.sh bar_clock";
         "on-click" = "pomo.sh pause";
+        "on-click-right" = "pomo.sh stop";
         "interval" = 1;
         "return-type" = "json";
         "format" = " {}";

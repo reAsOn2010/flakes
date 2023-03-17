@@ -25,7 +25,7 @@
     inside-clear-color = "${config.colorScheme.colors.base09}";
     separator-color = "${config.colorScheme.colors.base00}";
     text-color = "${config.colorScheme.colors.base04}";
-    grace = 2;
+    # grace = 2;
     fade-in = 0.3;
   };
 }

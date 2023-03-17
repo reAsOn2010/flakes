@@ -1,5 +1,5 @@
 diff --git a/pomo.sh b/pomo.sh
-index 62d8ef3..b880868 100644
+index 62d8ef3..38c2fc2 100644
 --- a/pomo.sh
 +++ b/pomo.sh
 @@ -133,6 +133,29 @@ function pomo_clock {
@@ -59,3 +59,8 @@ index 62d8ef3..b880868 100644
  for act in $actions; do
      if [[ $act == "$1" ]]; then
          action=$act
+@@ -314,4 +339,3 @@ else
+     [[ $# -gt 0 ]] && echo "Unknown option/action: $1." || echo "Action not supplied."
+     pomo_usage
+ fi
+-
