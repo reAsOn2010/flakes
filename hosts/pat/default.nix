@@ -9,6 +9,7 @@
     ../../modules/programs/waybar
     ../../modules/programs/steam
     ../../modules/programs/fish
+    ../../modules/virtualisation
   ];
   networking.firewall.allowedUDPPortRanges = [
     {

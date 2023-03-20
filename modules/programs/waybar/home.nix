@@ -129,6 +129,23 @@
           color: #${config.colorScheme.colors.base07};
       }
 
+      #mdp
+      #mdp.stopped {
+          padding-left: 50px;
+          padding-right: 50px;
+          color: #${config.colorScheme.colors.base07};
+      }
+      #mpd.disconnected {
+          color: #${config.colorScheme.colors.base03};
+      }
+      #mpd.paused {
+          color: #${config.colorScheme.colors.base0A};
+      }
+      #mpd.playing {
+          color: #${config.colorScheme.colors.base0B};
+      }
+
+
       #clock {
           color: #${config.colorScheme.colors.base0D};
       }
@@ -169,15 +186,15 @@
         "custom/launcher"
         "custom/wallpaper"
         "wlr/workspaces"
-        "hyprland/window"
+        "mpd"
       ];
       modules-center = [
         "clock"
         "custom/pomo"
       ];
       modules-right = [
+        "hyprland/window"
         "tray"
-        # "mpd"
         "custom/vpn-dev"
         "custom/vpn-prod"
         "backlight"
@@ -197,6 +214,31 @@
         "on-click" = "activate";
         "active-only" = false;
         "all-outputs" = true;
+      };
+      "mpd" = {
+        "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
+        "format-disconnected" = "Disconnected ";
+        "format-stopped" = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+        "interval" = 2;
+        "consume-icons" = {
+          "on" = " "; # Icon shows only when "consume" is on
+        };
+        "random-icons" = {
+          "off" = "<span color=\"#${config.colorScheme.colors.base07}\"></span> "; # Icon grayed out when "random" is off
+          "on" = " ";
+        };
+        "repeat-icons" = {
+          "on" = " ";
+        };
+        "single-icons" = {
+          "on" = "1 ";
+        };
+        "state-icons" = {
+          "paused" = "";
+          "playing" = "";
+        };
+        "tooltip-format" = "MPD (connected)";
+        "tooltip-format-disconnected" = "MPD (disconnected)";
       };
       "clock" = {
         "interval" = 1;
@@ -253,7 +295,7 @@
       "pulseaudio" = {
         "format" = "{icon} {volume}%";
         "format-muted" = " Muted";
-        # "on-click": "/home/amitgold/.config/hypr/scripts/volume_ctl.sh mute",
+        "on-click" = "pamixer -t";
         "scroll-step" = 1;
         "format-icons" = {
           "headphone" = "";
@@ -271,9 +313,9 @@
         "tooltip" = false;
       };
       "custom/wallpaper" = {
-        "on-click" = "dlwallpaper";
+        "on-click" = "killall wpaperd || wpaperd";
         "format" = "ﴔ";
-        "tolltip" = "Download today's bing wallpaper";
+        "tooltip" = "switch wallpaper";
       };
       "custom/powermenu" = {
         "format" = "";
@@ -287,7 +329,7 @@
         "interval" = 1;
         "return-type" = "json";
         "format" = " {}";
-       };
+      };
       "custom/vpn-dev" = {
         "exec" = "vpnctl dev";
         "on-click" = "vpnctl dev toggle";

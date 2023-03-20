@@ -1,14 +1,14 @@
 { config, lib, pkgs, hostName, ... }:
 {
   imports = [
-    (import ../../environment/variables.nix)
-    (import ../../programs/mako/home.nix)
-    (import ../../programs/cliphist/home.nix)
-    (import ../../programs/rofi/home.nix)
-    (import ../../programs/swayidle/home.nix)
-    (import ../../programs/swaylock/home.nix)
-    (import ../../programs/waybar/home.nix)
-    (import ../../programs/wpaperd/home.nix)
+    ../../environment/variables.nix
+    ../../programs/mako/home.nix
+    ../../programs/cliphist/home.nix
+    ../../programs/rofi/home.nix
+    ../../programs/swayidle/home.nix
+    ../../programs/swaylock/home.nix
+    ../../programs/waybar/home.nix
+    ../../programs/wpaperd/home.nix
   ];
   programs = {
     bash = {

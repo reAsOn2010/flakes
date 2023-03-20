@@ -1,14 +1,15 @@
 { config, pkgs, ... }:
 {
   imports = [
-    (import ../alacritty/home.nix)
-    (import ../shell/home.nix)
-    (import ../firefox/home.nix)
-    (import ../vim/home.nix)
-    (import ../vscode/home.nix)
-    (import ../scripts/home.nix)
-    (import ../fish/home.nix)
-    (import ../wps/home.nix)
+    ../alacritty/home.nix
+    ../shell/home.nix
+    ../firefox/home.nix
+    ../vim/home.nix
+    ../vscode/home.nix
+    ../scripts/home.nix
+    ../fish/home.nix
+    ../wps/home.nix
+    ../mpd/home.nix
   ];
 
   home.packages = with pkgs; [

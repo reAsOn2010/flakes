@@ -31,7 +31,7 @@ in
           extraSpecialArgs = { inherit inputs user; hostName = "pat"; };
           users.${user} = {
             imports = [
-              (import ./pat/home.nix)
+              ./pat/home.nix
             ] ++ [
               inputs.hyprland.homeManagerModules.default
               inputs.nix-colors.homeManagerModule
@@ -42,7 +42,6 @@ in
         nixpkgs = {
           overlays = (import ../overlays) ++ [
             inputs.nixneovim.overlays.default
-
             # self.overlays.default
           ];
         };
