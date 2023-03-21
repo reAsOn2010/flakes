@@ -1,15 +1,6 @@
 { system, self, inputs, nixpkgs, user, ... }:
-
-let
-  pkgs = import nixpkgs
-    {
-      inherit system;
-      config.allowUnfree = true;
-    };
-  lib = nixpkgs.lib;
-in
 {
-  pat = lib.nixosSystem {
+  pat = nixpkgs.lib.nixosSystem {
     # my Office config
     inherit system;
     specialArgs = { inherit inputs user; };
@@ -48,5 +39,5 @@ in
       }
     ];
   };
-  xps13 = lib.nixosSystem { };
+  xps13 = nixpkgs.lib.nixosSystem { };
 }

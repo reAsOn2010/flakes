@@ -24,7 +24,6 @@
   outputs = { self, nixpkgs, ... }@inputs:
     let
       user = "yakumo";
-      # domain = ""
     in
     {
       # overlays.default = selfPkgs.overlay;
