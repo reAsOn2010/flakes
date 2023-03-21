@@ -1,9 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
+  home.packages = with pkgs; [
+    mpc-cli
+  ];
+  programs.ncmpcpp = {
+    enable = true;
+  };
   services.mpd = {
     enable = true;
-    musicDirectory = "~/Music";
+    musicDirectory = /home/${user}/Music;
     extraConfig = ''
       audio_output {
               type            "pipewire"

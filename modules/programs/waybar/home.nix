@@ -129,7 +129,7 @@
           color: #${config.colorScheme.colors.base07};
       }
 
-      #mdp
+      #mdp,
       #mdp.stopped {
           padding-left: 50px;
           padding-right: 50px;
@@ -216,15 +216,24 @@
         "all-outputs" = true;
       };
       "mpd" = {
-        "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
+        # "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist}|{album}|{title}|({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
+        "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
         "format-disconnected" = "Disconnected ";
         "format-stopped" = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-        "interval" = 2;
+        "interval" = 5;
+        "artist-len" = 16; 
+        "album-len" = 16;
+        "title-len" = 32;
+        "on-click" = "mpc toggle";
+        "on-click-middle" = "mpc random";
+        "on-click-right" = "mpc repeat";
+        "on-scroll-up" =  "mpc prev";
+        "on-scroll-down" =  "mpc next";
         "consume-icons" = {
           "on" = " "; # Icon shows only when "consume" is on
         };
         "random-icons" = {
-          "off" = "<span color=\"#${config.colorScheme.colors.base07}\"></span> "; # Icon grayed out when "random" is off
+          "off" = "<span color=\"#${config.colorScheme.colors.base03}\"></span> "; # Icon grayed out when "random" is off
           "on" = " ";
         };
         "repeat-icons" = {

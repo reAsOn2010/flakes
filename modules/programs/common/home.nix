@@ -10,6 +10,7 @@
     ../fish/home.nix
     ../wps/home.nix
     ../mpd/home.nix
+    # ../dochat/home.nix
   ];
 
   home.packages = with pkgs; [

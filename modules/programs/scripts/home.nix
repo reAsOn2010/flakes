@@ -24,5 +24,6 @@ in
     dlwallpaper
     ld-patch
     pomo.sh
+    dochat.sh
   ];
 }
