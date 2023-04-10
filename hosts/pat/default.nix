@@ -10,6 +10,9 @@
     ../../modules/programs/steam
     ../../modules/programs/fish
     ../../modules/virtualisation
+    ../../modules/programs/ranger
+    # ../../modules/programs/rustdesk
+    ../../modules/programs/clash
   ];
   networking.firewall.allowedUDPPortRanges = [
     {

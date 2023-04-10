@@ -14,10 +14,17 @@ in
 {
   home.packages = with pkgs; [
     rofi-wayland
+    rofi-calc
+    rofi-systemd
+    rofi-emoji
+    # self scripts
     rofi-launcher
     rofi-power
   ];
   home.file."${config.xdg.configHome}/rofi/config.rasi" = {
     source = ./config.rasi;
+  };
+  home.file."${config.xdg.dataHome}/rofi/themes" = {
+    source = ./themes;
   };
 }

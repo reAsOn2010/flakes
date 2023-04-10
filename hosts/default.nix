@@ -1,7 +1,7 @@
-{ system, self, inputs, nixpkgs, user, ... }:
+{ system, self, inputs, user, ... }:
 {
-  pat = nixpkgs.lib.nixosSystem {
-    # my Office config
+  pat = inputs.nixpkgs.lib.nixosSystem {
+    # yakumo's pat-edu office computer config
     inherit system;
     specialArgs = { inherit inputs user; };
     modules = [
@@ -16,20 +16,28 @@
       inputs.hyprland.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs user; hostName = "pat"; };
-          users.${user} = {
-            imports = [
-              ./pat/home.nix
-            ] ++ [
-              inputs.hyprland.homeManagerModules.default
-              inputs.nix-colors.homeManagerModule
-              inputs.nixneovim.nixosModules.default
-            ];
+        home-manager =
+          # allow use unstable pkgs in hm.
+          let
+            unstable = import inputs.nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+          {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = { inherit inputs user unstable; hostName = "pat"; };
+            users.${user} = {
+              imports = [
+                ./pat/home.nix
+              ] ++ [
+                inputs.hyprland.homeManagerModules.default
+                inputs.nix-colors.homeManagerModule
+                inputs.nixneovim.nixosModules.default
+              ];
+            };
           };
-        };
         nixpkgs = {
           overlays = (import ../overlays) ++ [
             inputs.nixneovim.overlays.default
@@ -39,5 +47,5 @@
       }
     ];
   };
-  xps13 = nixpkgs.lib.nixosSystem { };
+  xps13 = inputs.nixpkgs.lib.nixosSystem { };
 }

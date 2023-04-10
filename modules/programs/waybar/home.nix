@@ -90,6 +90,7 @@
       #workspaces,
       #temperature,
       #tray,
+      #mdp
       #backlight {
           background: #${config.colorScheme.colors.base00};
           padding-left: 5px;
@@ -131,8 +132,6 @@
 
       #mdp,
       #mdp.stopped {
-          padding-left: 50px;
-          padding-right: 50px;
           color: #${config.colorScheme.colors.base07};
       }
       #mpd.disconnected {

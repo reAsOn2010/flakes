@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, unstable, inputs, ... }:
 {
   imports = [
     ../alacritty/home.nix
@@ -8,15 +8,18 @@
     ../vscode/home.nix
     ../scripts/home.nix
     ../fish/home.nix
-    ../wps/home.nix
+    # ../wps/home.nix
+    ../libreoffice/home.nix
     ../mpd/home.nix
     # ../dochat/home.nix
+    # ../ranger/home.nix
+    ../vifm/home.nix
   ];
 
   home.packages = with pkgs; [
     adoptopenjdk-bin
     firefox
-    rustdesk
+    unstable.rustdesk
     jetbrains.idea-community
     jetbrains.pycharm-community
     python310
@@ -27,7 +30,11 @@
     kubectl
     silver-searcher
     mongodb-compass
-    synergy
+    # not wayland compatible
+    # synergy
+    nodejs
+    nodePackages.npm
+    gcc
   ];
 
 }

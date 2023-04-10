@@ -1,44 +1,32 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, unstable, ... }:
 let
   nix-colors-lib = inputs.nix-colors.lib-contrib { inherit pkgs; };
 in
 {
-  # programs.nixneovim = {
-  #   enable = true;
-  #   extraConfigVim = ''
-  #     syntax on
-  #     set clipboard+=unnamedplus
-  #     set number
-  #   '';
-  #   plugins = {
-  #     nix = {
-  #       enable = true;
-  #     };
-  #     lsp = {
-  #       enable = true;
-  #     };
-  #     treesitter = {
-  #       enable = true;
-  #       indent = true;
-  #     };
-  #   };
-  # };
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    plugins = [
-      pkgs.vimPlugins.vim-nix
-      {
-        plugin = nix-colors-lib.vimThemeFromScheme { scheme = config.colorScheme; };
-        config = "colorscheme nix-${config.colorScheme.slug}";
-      }
+    # not avaliable in 22.11
+    # defaultEditor = true;
+    extraPackages = with pkgs; [
+      gcc
+      cargo
+      ripgrep
+      rnix-lsp
+      shfmt
+      kotlin-language-server
+      stylua
+      unstable.lua-language-server
+      python310Packages.python-lsp-server
+      nodePackages.vscode-json-languageserver
     ];
-    extraConfig = ''
-      syntax on
-      set clipboard+=unnamedplus
-      set number
-    '';
+  };
+  home.file."${config.xdg.configHome}/nvim/init.lua" = {
+    source = ./init.lua;
+  };
+  home.file."${config.xdg.configHome}/nvim/lua" = {
+    source = ./lua;
   };
 }

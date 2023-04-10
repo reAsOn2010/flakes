@@ -9,6 +9,7 @@
     ../../programs/swaylock/home.nix
     ../../programs/waybar/home.nix
     ../../programs/wpaperd/home.nix
+    ../../programs/homeage/home.nix
   ];
   programs = {
     bash = {
@@ -24,6 +25,9 @@
     libsForQt5.polkit-kde-agent
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+  gtk = {
+    enable = true;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

@@ -5,6 +5,7 @@
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Shanghai";
+  time.hardwareClockInLocalTime = true;
   networking = {
     networkmanager.enable = true;
     hosts = {
@@ -12,6 +13,8 @@
       "10.233.252.1" = [ "cls-mhktarmn.ccs.tencent-cloud.com" ];
     };
   };
+  networking.firewall.allowedUDPPorts = [ 80 443 8000 8080 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8000 8080 ];
   services = {
     openssh = {
       enable = true;
@@ -40,7 +43,6 @@
       killall
       socat
       rar
-      cinnamon.nemo
       jq
       patchelf
       zlib
@@ -53,6 +55,7 @@
         "https://mirrors.ustc.edu.cn/nix-channels/store"
         "https://hyprland.cachix.org"
       ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
       auto-optimise-store = true;
     };
     gc = {
@@ -60,8 +63,8 @@
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
-    package = pkgs.nixVersions.unstable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    # package = pkgs.nixVersions.unstable;
+    # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs          = true

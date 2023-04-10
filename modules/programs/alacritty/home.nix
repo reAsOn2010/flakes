@@ -8,7 +8,8 @@
         program = "${pkgs.fish}/bin/fish";
         args = [ "--login" ];
       };
-      window.opacity = 0.9;
+      # let hyprland do opcatity
+      # window.opacity = 0.9;
       font.size = 14;
     };
   };

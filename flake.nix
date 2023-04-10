@@ -21,7 +21,7 @@
     nixneovim.url = "github:nixneovim/nixneovim";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, ... }@inputs:
     let
       user = "yakumo";
     in
@@ -31,7 +31,7 @@
         # NixOS configurations
         import ./hosts {
           system = "x86_64-linux";
-          inherit nixpkgs self inputs user;
+          inherit self inputs user;
         }
       );
     };

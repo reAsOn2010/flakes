@@ -3,10 +3,8 @@ let
 in
 {
   imports = [
-    ( import ../../modules/desktop/hyprland/home.nix )
-    ( import ../../modules/programs/common/home.nix )
-  ] ++ [
-
+    ../../modules/desktop/hyprland/home.nix
+    ../../modules/programs/common/home.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.default-dark;
   home = {
@@ -19,3 +17,4 @@ in
   home.stateVersion = "22.11";
   manual.manpages.enable = false;
 }
+

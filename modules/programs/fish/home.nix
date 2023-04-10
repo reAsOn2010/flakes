@@ -21,6 +21,7 @@ in
         "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
     };
     interactiveShellInit = ''
+      export SHELL="${pkgs.fish}/bin/fish"
       sh ${nix-colors-lib.shellThemeFromScheme { scheme = config.colorScheme; }}
     '';
     plugins = [

@@ -8,12 +8,15 @@ let
     name = "pomo.sh";
     src = pkgs.fetchgit {
       url = "https://github.com/reAsOn2010/pomo";
-      rev = "636b5333618fd5b4de600c344c3b769be844c38d";
-      sha256 = "sha256-gBWaf3uy52d2SYAqVSL05C8qfn5gQQSIGqw1xhCXz7I=";
+      rev = "cdab62c7973e16f4c069eb2006dd4fa92f102ef3";
+      sha256 = "sha256-8SZqRvWoHPcuwa6BdOkdTKqzDp0f+NC1w824vD/lnqg=";
     };
     installPhase = ''
       mkdir -p $out/bin
-      mv pomo.sh $out/bin
+      mv icon.png pomo.sh $out/bin
+
+      mkdir -p $out/share
+      mv *.mp3 $out/share
     '';
   };
 in
@@ -24,5 +27,22 @@ in
     dlwallpaper
     ld-patch
     pomo.sh
+    mpv
   ];
+  programs.mako = {
+    extraConfig = ''
+      [app-name=Pomodoro summary~="^End of a break period.*$"]
+      on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/work.mp3
+      default-timeout=10000
+      ignore-timeout=true
+      [app-name=Pomodoro summary~="^End of a work period.*$"]
+      on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/break.mp3
+      font=monospace 32
+      width=1366
+      height=768
+      text-alignment=center
+      anchor=center
+      ignore-timeout=true
+    '';
+  };
 }

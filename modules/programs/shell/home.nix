@@ -27,6 +27,9 @@
       set -ag terminal-overrides ",xterm-256color:RGB"
     '';
   };
+  programs.zellij = {
+    enable = true;
+  };
   programs.ssh = {
     enable = true;
     matchBlocks = {

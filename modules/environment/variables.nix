@@ -3,9 +3,9 @@
 {
   home = {
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
       BROWSER = "firefox";
-      TERMINAL = "alacritty";
+      # TERMINAL = "alacritty";
       # GTK_IM_MODULE = "fcitx5";
       # QT_IM_MODULE = "fcitx5";
       # XMODIFIERS = "@im=fcitx5";
@@ -26,8 +26,6 @@
       # WLR_RENDERER = "vulkan";
       #__NV_PRIME_RENDER_OFFLOAD="1";
 
-      # GDK_BACKEND = "x11"; # for compatibility
-      
       NIXOS_OZONE_WL = "1";
 
       XDG_CURRENT_DESKTOP = "Hyprland";
