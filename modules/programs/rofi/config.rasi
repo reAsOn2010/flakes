@@ -1,4 +1,4 @@
-@theme "rounded-orange-dark"
+@theme "squared-everforest"
 configuration {
 /*	modes: "drun,run,ssh";*/
 /*	font: "mono 12";*/
