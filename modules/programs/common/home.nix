@@ -35,6 +35,8 @@
     nodejs
     nodePackages.npm
     gcc
+    cmake
+    gnumake
   ];
 
 }

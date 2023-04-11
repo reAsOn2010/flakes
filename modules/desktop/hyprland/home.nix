@@ -1,4 +1,7 @@
-{ config, lib, pkgs, hostName, ... }:
+{ config, lib, pkgs, inputs, hostName, ... }:
+let
+  nix-colors-lib = inputs.nix-colors.lib-contrib { inherit pkgs; };
+in
 {
   imports = [
     ../../environment/variables.nix
@@ -27,6 +30,16 @@
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   gtk = {
     enable = true;
+    theme = {
+      package = nix-colors-lib.gtkThemeFromScheme {
+        scheme = config.colorScheme;
+      };
+      name = config.colorScheme.slug;
+    };
+    cursorTheme = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+    };
   };
   wayland.windowManager.hyprland = {
     enable = true;

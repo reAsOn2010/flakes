@@ -10,4 +10,5 @@ in
   "secrets/yakumo/docker.config.json.age".publicKeys = [ yakumo ];
   "secrets/yakumo/dbeaver/data-sources.json.age".publicKeys = [ yakumo ];
   "secrets/yakumo/dbeaver/credentials-config.json.age".publicKeys = [ yakumo ];
+  "secrets/yakumo/clash/config.yaml.age".publicKeys = [ yakumo ];
 }

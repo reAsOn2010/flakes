@@ -29,20 +29,24 @@ in
     pomo.sh
     mpv
   ];
+
+  # [app-name=Pomodoro summary~="^End of a break period.*$"]
+  # on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/work.mp3
+  # default-timeout=10000
+  # ignore-timeout=true
+  # [app-name=Pomodoro summary~="^End of a work period.*$"]
+  # on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/break.mp3
+  # font=monospace 32
+  # width=1366
+  # height=768
+  # text-alignment=center
+  # anchor=center
+  # ignore-timeout=true
+
   programs.mako = {
     extraConfig = ''
-      [app-name=Pomodoro summary~="^End of a break period.*$"]
-      on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/work.mp3
-      default-timeout=10000
-      ignore-timeout=true
-      [app-name=Pomodoro summary~="^End of a work period.*$"]
+      [app-name=Pomodoro]
       on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/break.mp3
-      font=monospace 32
-      width=1366
-      height=768
-      text-alignment=center
-      anchor=center
-      ignore-timeout=true
     '';
   };
 }

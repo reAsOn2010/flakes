@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, user, ... }:
 {
   imports = [
     inputs.homeage.homeManagerModules.homeage
@@ -8,7 +8,7 @@
     installationType = "systemd";
     file."kube-config" = {
       source = ../../../secrets/yakumo/kube-config.age;
-      copies = [ "/home/yakumo/.kube/config" ];
+      copies = [ "/home/${user}/.kube/config" ];
       mode = "0600";
     };
     file."vault.dev.env" = {
@@ -21,7 +21,17 @@
     };
     file."docker.config.json" = {
       source = ../../../secrets/yakumo/docker.config.json.age;
-      symlinks = [ "/home/yakumo/.docker/config.json" ];
+      symlinks = [ "/home/${user}/.docker/config.json" ];
+    };
+    file."dbeaver.credentials-config.json" = {
+      source = ../../../secrets/yakumo/dbeaver/credentials-config.json.age;
+      copies = [ "${config.xdg.dataHome}/DBeaverData/workspace6/General/.dbeaver/credentials-config.json" ];
+      mode = "0600";
+    };
+    file."dbeaver.data-sources.json" = {
+      source = ../../../secrets/yakumo/dbeaver/data-sources.json.age;
+      copies = [ "${config.xdg.dataHome}/DBeaverData/workspace6/General/.dbeaver/data-source.json" ];
+      mode = "0600";
     };
   };
 }

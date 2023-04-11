@@ -15,40 +15,31 @@ let
       runHook postInstall
     '';
   };
-  clash-config = pkgs.stdenv.mkDerivation rec {
-    name = "clash-config";
-    src = ./.;
-    data = pkgs.fetchurl {
-      name = "config.yaml";
-      url = "https://suc.eula.club/sub?target=clash&url=https%3A%2F%2Ffast.lycorisrecoil.org%2Flink%2FEvGwXJcsEgejFo66%3Fsub%3D1&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini.ini&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true";
-      sha256 = "sha256-YiERqopIs4AxqGff2hxQjBhGoCjVj4puz3jvRdfawMI=";
-    };
-    installPhase = ''
-      runHook preInstall
-      ls -al
-      mkdir -p $out/etc/clash
-      install -Dm 0644 $data -D $out/etc/clash/config.yaml
-      runHook postInstall
-    '';
-  };
 in
 {
+  networking = {
+    hosts = {
+      "127.0.0.1" = [ "yacd.localhost" ];
+    };
+  };
   environment.systemPackages = [
     clash-geoip
-    clash-config
   ];
   virtualisation.oci-containers.containers = {
-    clashboard = {
+    yacd = {
       image = "haishanh/yacd";
-      ports = [ "127.0.0.1:7899:80" ];
+      ports = [ "80" ];
+      extraOptions = [
+        "--label=traefik.http.routers.yacd.rule=Host(`yacd.localhost`)"
+      ];
     };
     clash = {
       image = "dreamacro/clash";
       volumes = [
         "${clash-geoip}/etc/clash/Country.mmdb:/root/.config/clash/Country.mmdb"
-        "${clash-config}/etc/clash/config.yaml:/root/.config/clash/config.yaml"
+        "${config.age.secrets."yakumo/clash/config.yaml".path}:/root/.config/clash/config.yaml"
       ];
-      extraOptions = ["--network=host"];
+      extraOptions = [ "--network=host" ];
     };
   };
 }
