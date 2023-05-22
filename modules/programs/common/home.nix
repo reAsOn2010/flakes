@@ -22,6 +22,7 @@
     unstable.rustdesk
     jetbrains.idea-community
     jetbrains.pycharm-community
+    jetbrains.clion
     python310
     go
     nixpkgs-fmt
@@ -37,6 +38,7 @@
     gcc
     cmake
     gnumake
+    cinnamon.nemo
   ];
 
 }

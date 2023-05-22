@@ -36,6 +36,10 @@ in
       };
       name = config.colorScheme.slug;
     };
+    iconTheme = {
+      package = pkgs.numix-icon-theme;
+      name = "numix";
+    };
     cursorTheme = {
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
