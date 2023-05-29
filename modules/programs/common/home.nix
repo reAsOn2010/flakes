@@ -39,6 +39,9 @@
     cmake
     gnumake
     cinnamon.nemo
+    nix-index
+
+    ffmpeg
   ];
 
 }

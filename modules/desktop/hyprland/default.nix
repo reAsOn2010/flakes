@@ -21,7 +21,6 @@
     # wayland-scanner
     # wayland-utils
     egl-wayland
-    xorg.xeyes
     wayland-protocols
     glfw-wayland
     xwayland
@@ -30,6 +29,36 @@
     wev
     udiskie
     # grim
+
+    # some packages for graphic display?
+    libGL
+    libdrm
+    libglvnd
+    mesa
+    mesa_glu
+    mesa_drivers
+    freetype
+    dbus
+    fontconfig
+    xorg.libxcb
+    xorg.libICE
+    xorg.libSM
+    xorg.libXrender
+    xorg.xcbutilimage
+    xorg.xcbutilwm
+    xorg.xorgserver
+    xorg.libpthreadstubs
+    xorg.libX11
+    xorg.libXext
+    xorg.libXi
+    xorg.xcbproto
+    xorg.xcbutil
+    xorg.xcbutilcursor
+    xorg.xcbutilerrors
+    xorg.xcbutilkeysyms
+    xorg.xcbutilrenderutil
+    xorg.xcbutilwm
+    xorg.xorgproto
   ];
 
   security.pam.services.swaylock = { };
