@@ -42,6 +42,8 @@
     nix-index
 
     ffmpeg
+
+    yq-go
   ];
 
 }
