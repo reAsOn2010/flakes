@@ -20,19 +20,19 @@ function import() {
 
 function toggle() {
 	if systemctl --quiet is-active openvpn-$env.service; then
-		systemctl stop openvpn-$env.service 
+		systemctl stop openvpn-$env.service
 		notify-send "$env.ovpn stopped."
 	else
-		systemctl start openvpn-$env.service 
+		systemctl start openvpn-$env.service
 		notify-send "$env.ovpn started."
 	fi
 }
 
 function status() {
 	if systemctl --quiet is-active openvpn-$env.service; then
-		echo '{"text": "", "class": "active"}'
+		echo '{"text": "on", "class": "active", "percentage": 100}'
 	else
-		echo '{"text": "", "class": "inactive"}'
+		echo '{"text": "off", "class": "inactive", "percentage": 0}'
 	fi
 }
 

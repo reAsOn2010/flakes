@@ -43,7 +43,7 @@ in
   # anchor=center
   # ignore-timeout=true
 
-  programs.mako = {
+  services.mako = {
     extraConfig = ''
       [app-name=Pomodoro]
       on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/break.mp3

@@ -6,6 +6,7 @@
 
   time.timeZone = "Asia/Shanghai";
   time.hardwareClockInLocalTime = true;
+  # time.hardwareClockInLocalTime = false;
   networking = {
     networkmanager.enable = true;
     hosts = {
@@ -76,8 +77,8 @@
   system = {
     autoUpgrade = {
       enable = false;
-      channel = "https://nixos.org/channels/nixos-unstable";
+      channel = "https://nixos.org/channels/nixos-23.05";
     };
-    stateVersion = "22.11";
+    stateVersion = "23.05";
   };
 }

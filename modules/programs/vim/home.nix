@@ -8,8 +8,7 @@ in
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    # not avaliable in 22.11
-    # defaultEditor = true;
+    defaultEditor = true;
     extraPackages = with pkgs; [
       gcc
       cargo
@@ -21,6 +20,7 @@ in
       unstable.lua-language-server
       python310Packages.python-lsp-server
       nodePackages.vscode-json-languageserver
+      luajitPackages.jsregexp
     ];
   };
   home.file."${config.xdg.configHome}/nvim/init.lua" = {

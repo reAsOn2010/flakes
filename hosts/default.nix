@@ -5,7 +5,7 @@
     inherit system;
     specialArgs = { inherit inputs user; };
     modules = [
-      inputs.agenix.nixosModule
+      inputs.agenix.nixosModules.default
       ../agenix.nix
     ] ++ [
       ./pat

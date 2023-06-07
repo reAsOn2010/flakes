@@ -220,14 +220,14 @@
         "format-disconnected" = "Disconnected ";
         "format-stopped" = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
         "interval" = 5;
-        "artist-len" = 16; 
+        "artist-len" = 16;
         "album-len" = 16;
         "title-len" = 32;
         "on-click" = "mpc toggle";
         "on-click-middle" = "mpc random";
         "on-click-right" = "mpc repeat";
-        "on-scroll-up" =  "mpc prev";
-        "on-scroll-down" =  "mpc next";
+        "on-scroll-up" = "mpc prev";
+        "on-scroll-down" = "mpc next";
         "consume-icons" = {
           "on" = " "; # Icon shows only when "consume" is on
         };
@@ -265,11 +265,11 @@
         "format-icons" = [ "" "" "" "" ];
       };
       "cpu" = {
-        "format" = " {usage}%";
+        "format" = " {usage}%";
         "tooltip" = false;
       };
       "memory" = {
-        "format" = "﬙ {percentage}%";
+        "format" = " {percentage}%";
         "states" = {
           "warning" = 85;
         };
@@ -295,9 +295,9 @@
           "critical" = 10;
         };
         "format" = "{icon} {capacity}%";
-        "format-icons" = [ "" "" "" "" "" "" "" "" "" ];
+        "format-icons" = [ "" "" "" "" "" ];
         "format-full" = "{icon} {capacity}%";
-        "format-charging" = " {capacity}%";
+        "format-charging" = " {capacity}%";
         "tooltip" = false;
       };
       "pulseaudio" = {
@@ -321,9 +321,9 @@
         "tooltip" = false;
       };
       "custom/wallpaper" = {
-        "on-click" = "killall wpaperd || wpaperd";
-        "format" = "ﴔ";
-        "tooltip" = "switch wallpaper";
+        "format" = "";
+        "on-click" = "killall wpaperd; wpaperd";
+        "tooltip-format" = "switch wallpaper";
       };
       "custom/powermenu" = {
         "format" = "";
@@ -344,7 +344,8 @@
         "on-click-right" = "vpnctl dev import";
         "return-type" = "json";
         "interval" = 10;
-        "format" = "{} DEV";
+        "format" = "{icon} DEV";
+        "format-icons" = [ "" "" ];
       };
       "custom/vpn-prod" = {
         "exec" = "vpnctl prod";
@@ -352,7 +353,8 @@
         "on-click-right" = "vpnctl prod import";
         "return-type" = "json";
         "interval" = 10;
-        "format" = "{} PROD";
+        "format" = "{icon} PROD";
+        "format-icons" = [ "" "" ];
       };
     }];
   };

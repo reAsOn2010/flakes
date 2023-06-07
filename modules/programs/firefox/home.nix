@@ -2,3 +2,4 @@
 {
   programs.firefox.enable = true;
 }
+

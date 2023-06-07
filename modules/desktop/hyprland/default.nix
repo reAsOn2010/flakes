@@ -28,7 +28,8 @@
     qt5.qtwayland
     wev
     udiskie
-    # grim
+    grim # screenshot
+    slurp # screenshot
 
     # some packages for graphic display?
     libGL

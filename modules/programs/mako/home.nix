@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  programs.mako = {
+  services.mako = {
     enable = true;
     backgroundColor = "#${config.colorScheme.colors.base01}FF";
     textColor = "#${config.colorScheme.colors.base04}FF";

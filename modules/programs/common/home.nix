@@ -13,37 +13,36 @@
     ../mpd/home.nix
     # ../dochat/home.nix
     # ../ranger/home.nix
-    ../vifm/home.nix
+    # ../vifm/home.nix
   ];
 
   home.packages = with pkgs; [
-    adoptopenjdk-bin
-    firefox
-    unstable.rustdesk
-    jetbrains.idea-community
-    jetbrains.pycharm-community
-    jetbrains.clion
-    python310
-    go
-    nixpkgs-fmt
-    dbeaver
+    # common programs
+    cinnamon.nemo
+    rustdesk
     enpass
+    nix-index # nix-locate
+    ffmpeg
+    yq-go # yaml formatter
+    dbeaver
     kubectl
-    silver-searcher
     mongodb-compass
-    # not wayland compatible
-    # synergy
-    nodejs
-    nodePackages.npm
+    silver-searcher # ag
+    marktext # markdown editor
+    sxiv # image viewer
+    # develop tools
+    jetbrains.idea-community
+    adoptopenjdk-bin
+    jetbrains.pycharm-community
+    python310
+    jetbrains.clion
     gcc
     cmake
     gnumake
-    cinnamon.nemo
-    nix-index
-
-    ffmpeg
-
-    yq-go
+    go
+    nixpkgs-fmt
+    nodejs
+    nodePackages.npm
   ];
 
 }
