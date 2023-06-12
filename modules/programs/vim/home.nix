@@ -3,6 +3,9 @@ let
   nix-colors-lib = inputs.nix-colors.lib-contrib { inherit pkgs; };
 in
 {
+  home.packages = [
+    pkgs.luajitPackages.jsregexp
+  ];
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -20,7 +23,6 @@ in
       unstable.lua-language-server
       python310Packages.python-lsp-server
       nodePackages.vscode-json-languageserver
-      luajitPackages.jsregexp
     ];
   };
   home.file."${config.xdg.configHome}/nvim/init.lua" = {

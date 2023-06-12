@@ -113,8 +113,6 @@ in
   };
 
   networking.extraHosts = ''
-    10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com
-    10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
   '';
   networking.firewall.allowedUDPPortRanges = [
     {

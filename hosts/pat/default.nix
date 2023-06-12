@@ -13,6 +13,7 @@
     ../../modules/programs/ranger
     # ../../modules/programs/rustdesk
     ../../modules/programs/clash
+    ../../modules/programs/common/overlays.nix
   ];
   networking.firewall.allowedUDPPortRanges = [
     {
@@ -37,8 +38,7 @@
   networking.extraHosts = ''
     10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com
     10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
-    49.79.226.144 pta-oms.pintia.cn
-    49.79.226.144 oms.pintia.cn
+    127.0.0.1 vault-file-proxy.ops
   '';
   boot = {
     supportedFilesystems = [ "ntfs" ];

@@ -30,12 +30,14 @@
     silver-searcher # ag
     marktext # markdown editor
     sxiv # image viewer
+
     # develop tools
     jetbrains.idea-community
     adoptopenjdk-bin
     jetbrains.pycharm-community
     python310
     jetbrains.clion
+    obsidian
     gcc
     cmake
     gnumake
@@ -43,6 +45,8 @@
     nixpkgs-fmt
     nodejs
     nodePackages.npm
+    mattermost-desktop
   ];
+
 
 }

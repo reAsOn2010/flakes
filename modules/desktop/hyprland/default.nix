@@ -31,6 +31,9 @@
     grim # screenshot
     slurp # screenshot
 
+    # some packages for desktop?
+    xdg-utils
+
     # some packages for graphic display?
     libGL
     libdrm
@@ -65,6 +68,6 @@
   security.pam.services.swaylock = { };
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    # wlr.enable = true;
   };
 }

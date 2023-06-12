@@ -5,6 +5,7 @@ in
   imports = [
     ../../modules/desktop/hyprland/home.nix
     ../../modules/programs/common/home.nix
+    ../../modules/programs/common/overlays.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.default-dark;
   home = {
