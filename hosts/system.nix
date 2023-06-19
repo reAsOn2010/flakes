@@ -30,11 +30,17 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
   };
   security.rtkit.enable = true;
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
-    shells = with pkgs; [ fish ];
+    shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       git
       wget

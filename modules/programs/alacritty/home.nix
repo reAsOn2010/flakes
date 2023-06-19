@@ -5,7 +5,7 @@
     settings = {
       env.TERM = "xterm-256color";
       shell = {
-        program = "${pkgs.fish}/bin/fish";
+        program = "${pkgs.zsh}/bin/zsh";
         args = [ "--login" ];
       };
       # let hyprland do opcatity

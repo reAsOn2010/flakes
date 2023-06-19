@@ -239,6 +239,9 @@ filextype {*.xhtml,*.html,*.htm},<text/html>
         \ qutebrowser %f %i &,
         \ {Open with firefox}
         \ firefox %f &,
+        \ {Open with msedge}
+        \ microsoft-edge %f &,
+filetype {*.xhtml,*.html,*.htm},<text/html> links, lynx
 filetype {*.xhtml,*.html,*.htm},<text/html> links, lynx
 
 " Object

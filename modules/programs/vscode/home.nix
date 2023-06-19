@@ -10,7 +10,7 @@
       editorconfig.editorconfig
     ];
     userSettings = {
-      terminal.integrated.shell.linux = "${pkgs.fish}/bin/fish";
+      terminal.integrated.shell.linux = "${pkgs.zsh}/bin/zsh";
       editor.fontSize = 18;
       terminal.background = "#${config.colorScheme.colors.base00}";
       terminal.foreground = "#${config.colorScheme.colors.base05}";

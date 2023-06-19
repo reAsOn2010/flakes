@@ -8,7 +8,8 @@
     ../../modules/programs/fonts
     ../../modules/programs/waybar
     ../../modules/programs/steam
-    ../../modules/programs/fish
+    # ../../modules/programs/fish
+    ../../modules/programs/zsh
     ../../modules/virtualisation
     ../../modules/programs/ranger
     # ../../modules/programs/rustdesk

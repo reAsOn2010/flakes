@@ -3,11 +3,12 @@
   imports = [
     ../alacritty/home.nix
     ../shell/home.nix
-    ../firefox/home.nix
+    ../browser/home.nix
     ../vim/home.nix
     ../vscode/home.nix
     ../scripts/home.nix
-    ../fish/home.nix
+    # ../fish/home.nix
+    ../zsh/home.nix
     # ../wps/home.nix
     ../libreoffice/home.nix
     ../mpd/home.nix

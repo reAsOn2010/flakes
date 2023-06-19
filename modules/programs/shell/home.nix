@@ -20,7 +20,7 @@
   };
   programs.tmux = {
     enable = true;
-    shell = "${pkgs.fish}/bin/fish";
+    shell = "${pkgs.zsh}/bin/zsh";
     extraConfig = ''
       set -g mouse on
       set -g default-terminal "tmux-256color"
