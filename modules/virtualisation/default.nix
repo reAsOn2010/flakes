@@ -11,6 +11,8 @@ in
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    # waydroid.enable = true;
+    # lxd.enable = true;
   };
   services.traefik = {
     enable = true;

@@ -33,5 +33,10 @@
       copies = [ "${config.xdg.dataHome}/DBeaverData/workspace6/General/.dbeaver/data-source.json" ];
       mode = "0600";
     };
+    file."rclone.rclone.conf" = {
+      source = ../../../secrets/yakumo/rclone/rclone.conf.age;
+      copies = [ "${config.xdg.configHome}/rclone/rclone.conf" ];
+      mode = "0600";
+    };
   };
 }

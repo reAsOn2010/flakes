@@ -29,8 +29,8 @@
     kubectl
     mongodb-compass
     silver-searcher # ag
-    marktext # markdown editor
     sxiv # image viewer
+
 
     # develop tools
     jetbrains.idea-community
@@ -47,6 +47,9 @@
     nodejs
     nodePackages.npm
     mattermost-desktop
+
+    # cloud storage
+    rclone
   ];
 
 
