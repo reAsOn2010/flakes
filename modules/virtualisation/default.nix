@@ -14,6 +14,12 @@ in
     # waydroid.enable = true;
     # lxd.enable = true;
   };
+  # used for install waydroid script
+  # environment.systemPackages = with pkgs; [
+  #   python310Packages.inquirerpy
+  #   python310Packages.tqdm
+  #   python310Packages.requests
+  # ];
   services.traefik = {
     enable = true;
     group = "podman";

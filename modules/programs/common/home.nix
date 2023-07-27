@@ -22,6 +22,7 @@
     cinnamon.nemo
     rustdesk
     enpass
+    keepassxc
     nix-index # nix-locate
     ffmpeg
     yq-go # yaml formatter
@@ -39,6 +40,7 @@
     python310
     jetbrains.clion
     obsidian
+    zotero
     gcc
     cmake
     gnumake
