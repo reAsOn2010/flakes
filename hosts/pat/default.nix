@@ -25,6 +25,7 @@
   networking.firewall.allowedUDPPorts = [
     80
     443
+    5900
   ];
   networking.firewall.allowedTCPPortRanges = [
     {
@@ -35,6 +36,7 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
+    5900
   ];
   networking.extraHosts = ''
     10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com

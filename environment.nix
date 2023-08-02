@@ -24,8 +24,11 @@ in
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      passwordAuthentication = true;
+      kbdInteractiveAuthentication = true;
+      X11Forwarding = true;
+    };
   };
 
   services.openvpn.servers = {

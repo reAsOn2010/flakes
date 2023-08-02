@@ -15,6 +15,7 @@
     # ../dochat/home.nix
     # ../ranger/home.nix
     # ../vifm/home.nix
+    ../wayvnc/home.nix
   ];
 
   home.packages = with pkgs; [
