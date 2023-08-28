@@ -23,6 +23,7 @@ in
       unstable.lua-language-server
       python310Packages.python-lsp-server
       nodePackages.vscode-json-languageserver
+      rust-analyzer
     ];
   };
   home.file."${config.xdg.configHome}/nvim/init.lua" = {

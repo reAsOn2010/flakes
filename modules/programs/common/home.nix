@@ -16,6 +16,7 @@
     # ../ranger/home.nix
     # ../vifm/home.nix
     ../wayvnc/home.nix
+    ../syncthing/home.nix
   ];
 
   home.packages = with pkgs; [

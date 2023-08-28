@@ -15,6 +15,7 @@
     # ../../modules/programs/rustdesk
     ../../modules/programs/clash
     ../../modules/programs/common/overlays.nix
+    ../../modules/programs/syncthing
   ];
   networking.firewall.allowedUDPPortRanges = [
     {
