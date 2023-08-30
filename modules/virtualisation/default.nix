@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, user, ... }:
 let
   socketPath = "${config.services.traefik.dataDir}/podman.sock";
 in
@@ -10,6 +10,9 @@ in
       dockerCompat = true;
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
+    };
+    virtualbox = {
+      host.enable = true;
     };
     # waydroid.enable = true;
     # lxd.enable = true;

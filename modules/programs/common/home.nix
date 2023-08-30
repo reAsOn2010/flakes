@@ -51,6 +51,7 @@
     nodejs
     nodePackages.npm
     mattermost-desktop
+    genymotion
 
     # cloud storage
     rclone

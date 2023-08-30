@@ -6,7 +6,6 @@
     user = "${user}";
     dataDir = "/home/${user}/Sync";
     configDir = "/home/${user}/.config/syncthing";
-    overrideDevices = true;
     overrideFolders = true;
     devices = {
       "oneplus8p" = { id = "A6LCNPC-BMEOIU7-HPYUKSX-XEYDQ2S-MXZY57Z-P5SDKFK-57YMFA5-FG52KAZ"; };
