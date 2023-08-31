@@ -20,8 +20,13 @@ in
       shfmt
       kotlin-language-server
       stylua
-      unstable.lua-language-server
+      lua-language-server
       python310Packages.python-lsp-server
+      python310Packages.rope
+      python310Packages.pyflakes
+      python310Packages.mccabe
+      python310Packages.pycodestyle
+      python310Packages.autopep8
       nodePackages.vscode-json-languageserver
       rust-analyzer
     ];
