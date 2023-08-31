@@ -49,7 +49,6 @@ in
     enable = true;
     xwayland.enable = true;
     systemdIntegration = true;
-    nvidiaPatches = false;
     extraConfig = builtins.readFile (./. + "/${hostName}.conf") + builtins.readFile ./hyprland.conf + ''
       exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
     '';
