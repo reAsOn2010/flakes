@@ -62,7 +62,7 @@ return {
 				},
 			},
 			rnix = {},
-			pylsp = {},
+			pyright = {},
 			kotlin_language_server = {},
 			rust_analyzer = {},
 		},

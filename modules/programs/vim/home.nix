@@ -21,12 +21,9 @@ in
       kotlin-language-server
       stylua
       lua-language-server
-      unstable.python310Packages.python-lsp-server
-      unstable.python310Packages.rope
-      unstable.python310Packages.pyflakes
-      unstable.python310Packages.mccabe
-      unstable.python310Packages.pycodestyle
-      unstable.python310Packages.autopep8
+      unstable.nodePackages.pyright
+      # python310Packages.jedi-language-server
+      python310Packages.autopep8
       nodePackages.vscode-json-languageserver
       rust-analyzer
     ];

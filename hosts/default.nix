@@ -29,6 +29,7 @@
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs user unstable; hostName = "pat"; };
             users.${user} = {
+              # nixpkgs.config.allowUnfree = true;
               imports = [
                 ./pat/home.nix
               ] ++ [
