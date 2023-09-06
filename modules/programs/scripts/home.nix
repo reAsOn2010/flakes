@@ -4,21 +4,21 @@ let
   lock = pkgs.writeShellScriptBin "lock" ''exec swaylock'';
   dlwallpaper = pkgs.writeShellScriptBin "dlwallpaper" (builtins.readFile ./dlwallpaper);
   ld-patch = pkgs.writeShellScriptBin "ld-patch" (builtins.readFile ./ld-patch);
-  pomo.sh = pkgs.stdenv.mkDerivation rec {
-    name = "pomo.sh";
-    src = pkgs.fetchgit {
-      url = "https://github.com/reAsOn2010/pomo";
-      rev = "cdab62c7973e16f4c069eb2006dd4fa92f102ef3";
-      sha256 = "sha256-8SZqRvWoHPcuwa6BdOkdTKqzDp0f+NC1w824vD/lnqg=";
-    };
-    installPhase = ''
-      mkdir -p $out/bin
-      mv icon.png pomo.sh $out/bin
+  # pomo.sh = pkgs.stdenv.mkDerivation rec {
+  #   name = "pomo.sh";
+  #   src = pkgs.fetchgit {
+  #     url = "https://github.com/reAsOn2010/pomo";
+  #     rev = "cdab62c7973e16f4c069eb2006dd4fa92f102ef3";
+  #     sha256 = "sha256-8SZqRvWoHPcuwa6BdOkdTKqzDp0f+NC1w824vD/lnqg=";
+  #   };
+  #   installPhase = ''
+  #     mkdir -p $out/bin
+  #     mv icon.png pomo.sh $out/bin
 
-      mkdir -p $out/share
-      mv *.mp3 $out/share
-    '';
-  };
+  #     mkdir -p $out/share
+  #     mv *.mp3 $out/share
+  #   '';
+  # };
 in
 {
   home.packages = with pkgs; [
@@ -26,7 +26,7 @@ in
     lock
     dlwallpaper
     ld-patch
-    pomo.sh
+    # pomo.sh
     mpv
   ];
 
@@ -43,10 +43,10 @@ in
   # anchor=center
   # ignore-timeout=true
 
-  services.mako = {
-    extraConfig = ''
-      [app-name=Pomodoro]
-      on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/break.mp3
-    '';
-  };
+  # services.mako = {
+  #   extraConfig = ''
+  #     [app-name=Pomodoro]
+  #     on-notify=exec ${pkgs.mpv}/bin/mpv ${pomo.sh}/share/break.mp3
+  #   '';
+  # };
 }

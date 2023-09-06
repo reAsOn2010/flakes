@@ -52,6 +52,7 @@
     nodePackages.npm
     mattermost-desktop
     genymotion
+    safeeyes
 
     # cloud storage
     rclone

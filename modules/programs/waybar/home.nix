@@ -189,7 +189,7 @@
       ];
       modules-center = [
         "clock"
-        "custom/pomo"
+        # "custom/pomo"
       ];
       modules-right = [
         "hyprland/window"
@@ -330,14 +330,14 @@
         "on-click" = "pkill rofi || rofi-power";
         "tooltip" = false;
       };
-      "custom/pomo" = {
-        "exec" = "pomo.sh bar_clock";
-        "on-click" = "pomo.sh pause";
-        "on-click-right" = "pomo.sh stop";
-        "interval" = 1;
-        "return-type" = "json";
-        "format" = " {}";
-      };
+      # "custom/pomo" = {
+      #   "exec" = "pomo.sh bar_clock";
+      #   "on-click" = "pomo.sh pause";
+      #   "on-click-right" = "pomo.sh stop";
+      #   "interval" = 1;
+      #   "return-type" = "json";
+      #   "format" = " {}";
+      # };
       "custom/vpn-dev" = {
         "exec" = "vpnctl dev";
         "on-click" = "vpnctl dev toggle";
