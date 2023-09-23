@@ -17,6 +17,7 @@
       # source-han-sans
       # source-han-serif
       font-awesome
+      # wqy_zenhei # steam uses this font
     ];
     fontDir.enable = true;
     fontconfig.enable = true;
