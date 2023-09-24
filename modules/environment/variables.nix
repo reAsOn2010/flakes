@@ -4,7 +4,8 @@
   home = {
     sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = "microsoft-edge";
+      BROWSER = "firefox";
+      # BROWSER = "microsoft-edge";
       # TERMINAL = "alacritty";
       # GTK_IM_MODULE = "fcitx5";
       # QT_IM_MODULE = "fcitx5";

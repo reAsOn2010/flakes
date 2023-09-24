@@ -18,7 +18,7 @@ in
       vault-prod = "[[ -f .envrc ]] || touch .envrc && " +
         "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
         "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
-      microsoft-edge-no-gpu = "hyprctl dispatch exec \"microsoft-edge --disable-gpu\"";
+      # microsoft-edge-no-gpu = "hyprctl dispatch exec \"microsoft-edge --disable-gpu\"";
     };
     oh-my-zsh = {
       enable = true;
