@@ -11,4 +11,7 @@
   age.secrets."root/hashed-password" = {
     file = secrets/root/hashed-password.age;
   };
+  age.secrets."yakumo/clash/config.yaml" = {
+    file = secrets/yakumo/clash/config.yaml.age;
+  };
 }

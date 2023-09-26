@@ -1,0 +1,13 @@
+{ config, pkgs, ... }:
+{
+  services.mako = {
+    enable = true;
+    backgroundColor = "#${config.colorScheme.colors.base01}FF";
+    textColor = "#${config.colorScheme.colors.base04}FF";
+    borderColor = "#${config.colorScheme.colors.base00}FF";
+    progressColor = "#${config.colorScheme.colors.base08}FF";
+    defaultTimeout = 60000;
+    borderRadius = 5;
+    ignoreTimeout = true;
+  };
+}

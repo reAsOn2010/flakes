@@ -1,0 +1,4 @@
+timeout 600 'swaylock -f'
+timeout 2999 'safeeyes -q' resume 'hyprctl dispatch exec "XDG_CURRENT_DESKTOP=sway safeeyes &"'
+timeout 3000 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+before-sleep 'swaylock -f'

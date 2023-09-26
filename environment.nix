@@ -1,5 +1,6 @@
-{ pkgs, lib, ... }: let
-  anydesk-autostart = (pkgs.makeAutostartItem { name = "AnyDesk"; package = pkgs.anydesk;  });
+{ pkgs, lib, ... }:
+let
+  anydesk-autostart = (pkgs.makeAutostartItem { name = "AnyDesk"; package = pkgs.anydesk; });
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -23,18 +24,21 @@ in
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      passwordAuthentication = true;
+      kbdInteractiveAuthentication = true;
+      X11Forwarding = true;
+    };
   };
 
   services.openvpn.servers = {
-    dev = { 
-      config = '' config /tmp/openvpn/dev.ovpn ''; 
+    dev = {
+      config = '' config /tmp/openvpn/dev.ovpn '';
       autoStart = false;
       updateResolvConf = true;
     };
-    prod = { 
-      config = '' config /tmp/openvpn/prod.ovpn ''; 
+    prod = {
+      config = '' config /tmp/openvpn/prod.ovpn '';
       autoStart = false;
       updateResolvConf = true;
     };
@@ -81,7 +85,8 @@ in
     (callPackage "${builtins.fetchTarball {
       url = "https://github.com/ryantm/agenix/archive/main.tar.gz";
       sha256 = "1531pvm4wajhmqri99vd12xamlgccv46hzzb66sks6q22x74wczw";
-    }}/pkgs/agenix.nix" {})
+    }}/pkgs/agenix.nix"
+      { })
     gnome.networkmanager-openvpn
     gnomeExtensions.system-monitor
     gnomeExtensions.appindicator
@@ -111,8 +116,6 @@ in
   };
 
   networking.extraHosts = ''
-    10.222.252.1 cls-aivkqtcv.ccs.tencent-cloud.com
-    10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
   '';
   networking.firewall.allowedUDPPortRanges = [
     {
