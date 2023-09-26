@@ -8,10 +8,10 @@ in
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     shellAliases = {
-      os-switch = "sudo nixos-rebuild switch --flake \"$HOME/nixos-config#\"";
-      os-test = "sudo nixos-rebuild test --flake \"$HOME/nixos-config#\"";
-      ops-shell = "nix develop \"$HOME/nixos-config#ops\"";
-      qt-shell = "nix develop \"$HOME/nixos-config#qt\"";
+      os-switch = "sudo nixos-rebuild switch --flake \"$HOME/flakes#\"";
+      os-test = "sudo nixos-rebuild test --flake \"$HOME/flakes#\"";
+      ops-shell = "nix develop \"$HOME/flakes#ops\"";
+      qt-shell = "nix develop \"$HOME/flakes#qt\"";
       vault-dev = "[[ -f .envrc ]] || touch .envrc && " +
         "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
         "echo 'source ${config.xdg.configHome}/secrets/vault.dev.env' >> .envrc ";

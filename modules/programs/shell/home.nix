@@ -15,7 +15,7 @@
     };
     extraConfig = {
       core.editor = "vim";
-      safe.directory = "/home/${user}/nixos-config";
+      safe.directory = "/home/${user}/flakes";
     };
   };
   programs.tmux = {

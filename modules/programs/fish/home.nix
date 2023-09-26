@@ -9,10 +9,10 @@ in
   programs.fish = {
     enable = true;
     shellAliases = {
-      os-switch = "sudo nixos-rebuild switch --flake '/home/yakumo/nixos-config#'";
-      os-test = "sudo nixos-rebuild test --flake '/home/yakumo/nixos-config#'";
-      ops-shell = "nix develop '/home/yakumo/nixos-config#ops'";
-      qt-shell = "nix develop '/home/yakumo/nixos-config#qt'";
+      os-switch = "sudo nixos-rebuild switch --flake '/home/yakumo/flakes#'";
+      os-test = "sudo nixos-rebuild test --flake '/home/yakumo/flakes#'";
+      ops-shell = "nix develop '/home/yakumo/flakes#ops'";
+      qt-shell = "nix develop '/home/yakumo/flakes#qt'";
       vault-dev = "[[ -f .envrc ]] || touch .envrc && " +
         "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
         "echo 'source ${config.xdg.configHome}/secrets/vault.dev.env' >> .envrc ";
