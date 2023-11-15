@@ -25,6 +25,7 @@ in
       # python310Packages.jedi-language-server
       python310Packages.autopep8
       nodePackages.vscode-json-languageserver
+      nodePackages.yaml-language-server
       rust-analyzer
     ];
   };

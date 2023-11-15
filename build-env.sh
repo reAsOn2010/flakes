@@ -12,5 +12,5 @@ chmod 400 /root/.ssh/id_ed25519
 chmod 400 /home/yakumo/.ssh/id_ed25519
 
 # run
-nix-shell -p git --run "git clone https://github.com/reAsOn2010/nixos-config.git /tmp/nixos-config"
-nix-shell -p git --run "nixos-rebuild switch --flake \"/tmp/nixos-config#\""
+nix-shell -p git --run "git clone https://github.com/reAsOn2010/flakes.git /tmp/flakes"
+nix-shell -p git --run "nixos-rebuild switch --flake \"/tmp/flakes#\""

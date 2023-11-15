@@ -48,6 +48,7 @@ return {
 		---@type lspconfig.options
 		servers = {
 			jsonls = {},
+			yamlls = {},
 			lua_ls = {
 				-- mason = false, -- set to false if you don't want this server to be installed with mason
 				settings = {
@@ -83,12 +84,12 @@ return {
 	config = function(_, opts)
 		local Util = require("lazyvim.util")
 		-- setup autoformat
-		require("lazyvim.plugins.lsp.format").setup(opts)
+		require("lazyvim.util").format.setup(opts)
+		-- require("lazyvim.plugins.lsp.format").setup(opts)
 		-- setup formatting and keymaps
-		Util.on_attach(function(client, buffer)
+		Util.lsp.on_attach(function(client, buffer)
 			require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
 		end)
-
 		-- diagnostics
 		for name, icon in pairs(require("lazyvim.config").icons.diagnostics) do
 			name = "DiagnosticSign" .. name

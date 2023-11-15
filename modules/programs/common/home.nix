@@ -53,6 +53,8 @@
     mattermost-desktop
     genymotion
     safeeyes
+    maven
+    unstable.peazip
 
     # cloud storage
     rclone
