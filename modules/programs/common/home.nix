@@ -39,7 +39,7 @@
     jetbrains.idea-community
     adoptopenjdk-bin
     jetbrains.pycharm-community
-    python310
+    python311
     jetbrains.clion
     obsidian
     zotero

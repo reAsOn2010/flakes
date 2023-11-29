@@ -22,10 +22,11 @@ in
       stylua
       lua-language-server
       unstable.nodePackages.pyright
-      # python310Packages.jedi-language-server
-      python310Packages.autopep8
+      unstable.ruff-lsp
+      unstable.nodePackages.prettier
+      python311Packages.autopep8
       nodePackages.vscode-json-languageserver
-      nodePackages.yaml-language-server
+      unstable.nodePackages.yaml-language-server
       rust-analyzer
     ];
   };
