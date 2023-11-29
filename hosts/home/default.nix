@@ -24,6 +24,7 @@ in
     # ../../modules/programs/rustdesk
     ../../modules/programs/clash
     ../../modules/programs/syncthing
+    ../../modules/programs/it-tools
     ../../modules/overlays/overlays.nix
   ];
   networking.firewall.allowedUDPPortRanges = [

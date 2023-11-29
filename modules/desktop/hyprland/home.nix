@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, hostName, ... }:
 let
   nix-colors-lib = inputs.nix-colors.lib-contrib { inherit pkgs; };
+  monitors = import ./monitors.nix { inherit pkgs hostName; };
 in
 {
   imports = [
@@ -49,7 +50,7 @@ in
     enable = true;
     xwayland.enable = true;
     systemdIntegration = true;
-    extraConfig = builtins.readFile (./. + "/${hostName}.conf") + builtins.readFile ./hyprland.conf + ''
+    extraConfig = builtins.readFile monitors.hypr-monitor-conf + builtins.readFile ./hyprland.conf + ''
       exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
     '';
   };

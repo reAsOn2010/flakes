@@ -3,6 +3,9 @@
 {
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6"
+  ];
 
   time.timeZone = "Asia/Shanghai";
   time.hardwareClockInLocalTime = true;

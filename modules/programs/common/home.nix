@@ -55,6 +55,9 @@
     safeeyes
     maven
     unstable.peazip
+    # unstable.wavebox
+    unstable.franz
+    unstable.rambox
 
     # cloud storage
     rclone
