@@ -5,7 +5,7 @@
     twemoji-color-font
   ];
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # dejavu_fonts
       # source-sans-pro
       noto-fonts

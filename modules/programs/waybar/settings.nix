@@ -10,7 +10,8 @@ in
     modules-left = [
       "custom/launcher"
       "custom/wallpaper"
-      "wlr/workspaces"
+      "hyprland/workspaces"
+      # "wlr/workspaces"
       "mpd"
     ];
     modules-center = [
@@ -34,12 +35,23 @@ in
     "hyprland/window" = {
       "format" = "{}";
     };
-    "wlr/workspaces" = {
-      "format" = "{icon}";
+    "hyprland/workspaces" = {
+      "sort-by-number" = true;
       "on-click" = "activate";
-      "active-only" = false;
-      "all-outputs" = true;
+      "on-scroll-up" = "hyprctl dispatch workspace e+1";
+      "on-scroll-down" = "hyprctl dispatch workspace e-1";
+      "format" = "{name}";
+      "persistent-workspaces" = {
+        ${monitors.left} = [ 1 9 ];
+        ${monitors.primary} = [ 2 3 4 5 6 7 8 ];
+      };
     };
+    # "wlr/workspaces" = {
+    #   "format" = "{icon}";
+    #   "on-click" = "activate";
+    #   "active-only" = false;
+    #   "all-outputs" = true;
+    # };
     "mpd" = {
       # "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist}|{album}|{title}|({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
       "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
@@ -182,7 +194,8 @@ in
     modules-left = [
       "custom/launcher"
       "custom/wallpaper"
-      "wlr/workspaces"
+      # "wlr/workspaces"
+      "hyprland/workspaces"
     ];
     modules-center = [
       "clock"
@@ -214,12 +227,23 @@ in
       "on-click" = "pkill rofi || rofi-power";
       "tooltip" = false;
     };
-    "wlr/workspaces" = {
-      "format" = "{icon}";
+    "hyprland/workspaces" = {
+      "sort-by-number" = true;
       "on-click" = "activate";
-      "active-only" = false;
-      "all-outputs" = true;
+      "on-scroll-up" = "hyprctl dispatch workspace e+1";
+      "on-scroll-down" = "hyprctl dispatch workspace e-1";
+      "format" = "{name}";
+      "persistent-workspaces" = {
+        ${monitors.left} = [ 1 9 ];
+        ${monitors.primary} = [ 2 3 4 5 6 7 8 ];
+      };
     };
+    # "wlr/workspaces" = {
+    #   "format" = "{icon}";
+    #   "on-click" = "activate";
+    #   "active-only" = false;
+    #   "all-outputs" = true;
+    # };
     "clock" = {
       "interval" = 1;
       "format" = "{: %R   %d/%m}";

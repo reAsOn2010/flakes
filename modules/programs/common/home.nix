@@ -30,6 +30,7 @@
     yq-go # yaml formatter
     dbeaver
     kubectl
+    # kubeconform
     mongodb-compass
     silver-searcher # ag
     sxiv # image viewer
