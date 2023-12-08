@@ -37,6 +37,8 @@
       XDG_DATA_HOME = "\${HOME}/.local/share";
 
       JAVA_HOME = "${pkgs.adoptopenjdk-bin}";
+
+      # LD_LIBRARY_PATH = "\${LD_LIBRARY_PATH}:${pkgs.stdenv.cc.cc.lib}/lib";
     };
     sessionPath = [
       "$HOME/.config/scripts"

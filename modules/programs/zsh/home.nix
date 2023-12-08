@@ -57,6 +57,8 @@ in
     initExtra = ''
       export SHELL="${pkgs.zsh}/bin/zsh"
       bindkey "''${key[Up]}" up-line-or-search
+      # this makes hyprland failed to start...
+      # export LD_LIBRARY_PATH="''${LD_LIBRARY_PATH}:${pkgs.stdenv.cc.cc.lib}/lib";
     '';
     # interactiveShellInit = ''
     #   export SHELL="${pkgs.zsh}/bin/zsh"

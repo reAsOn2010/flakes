@@ -17,8 +17,8 @@
       "10.233.252.1" = [ "cls-mhktarmn.ccs.tencent-cloud.com" ];
     };
   };
-  networking.firewall.allowedUDPPorts = [ 80 443 8000 8080 ];
-  networking.firewall.allowedTCPPorts = [ 80 443 8000 8080 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 8000 8080 21118 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8000 8080 21118 ];
   services = {
     openssh = {
       enable = true;
@@ -38,6 +38,9 @@
       enable = true;
       nssmdns = true;
       openFirewall = true;
+    };
+    atd = {
+      enable = true;
     };
   };
   security.rtkit.enable = true;

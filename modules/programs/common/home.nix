@@ -34,6 +34,7 @@
     mongodb-compass
     silver-searcher # ag
     sxiv # image viewer
+    at
 
 
     # develop tools
