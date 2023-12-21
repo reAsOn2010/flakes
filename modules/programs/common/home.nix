@@ -35,6 +35,8 @@
     silver-searcher # ag
     sxiv # image viewer
     at
+    fastfetch
+    conky
 
 
     # develop tools
@@ -54,11 +56,13 @@
     nodePackages.npm
     mattermost-desktop
     genymotion
-    safeeyes
+    # safeeyes
+    # stretchly
+    workrave
     maven
     unstable.peazip
     # unstable.wavebox
-    unstable.franz
+    # unstable.franz
     unstable.rambox
 
     # cloud storage
