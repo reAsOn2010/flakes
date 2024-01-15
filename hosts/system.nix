@@ -4,7 +4,7 @@
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
+    "electron-25.9.0"
   ];
 
   time.timeZone = "Asia/Shanghai";
@@ -48,6 +48,7 @@
     binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
+      stdenv.cc.cc.lib
       git
       wget
       p7zip

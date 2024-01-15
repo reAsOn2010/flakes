@@ -14,6 +14,7 @@ return {
 					},
 				},
 			},
+			gopls = {},
 			rnix = {},
 			yamlls = {
 				settings = {

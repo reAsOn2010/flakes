@@ -35,7 +35,9 @@ in
       python311Packages.autopep8
       unstable.nodePackages.vscode-json-languageserver
       unstable.nodePackages.yaml-language-server
+      terraform-ls
       rust-analyzer
+      gopls
     ];
   };
   home.file."${config.xdg.configHome}/nvim/init.lua" = {
