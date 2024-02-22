@@ -5,6 +5,8 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
+    "electron-19.1.9"
+    "openssl-1.1.1w"
   ];
 
   time.timeZone = "Asia/Shanghai";
@@ -90,8 +92,8 @@
   system = {
     autoUpgrade = {
       enable = false;
-      channel = "https://nixos.org/channels/nixos-23.05";
+      channel = "https://nixos.org/channels/nixos-23.11";
     };
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 }

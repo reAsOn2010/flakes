@@ -6,6 +6,7 @@
     specialArgs = { inherit inputs user; };
     modules = [
       inputs.agenix.nixosModules.default
+      inputs.nur.nixosModules.nur
       ../agenix.nix
     ] ++ [
       ./pat
@@ -36,6 +37,7 @@
                 inputs.hyprland.homeManagerModules.default
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
+                inputs.nur.hmModules.nur
               ];
             };
           };

@@ -67,6 +67,10 @@
 
     # cloud storage
     rclone
+
+
+    # NUR
+    config.nur.repos.xddxdd.wechat-uos
   ];
 
   xdg.mimeApps = {

@@ -69,7 +69,7 @@
   users.users.${user} = {
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "lrun" "podman" "libvirtd" "video" "audio" "vboxusers" ];
+    extraGroups = [ "wheel" "lrun" "docker" "libvirtd" "video" "audio" "vboxusers" ];
     hashedPasswordFile = config.age.secrets."yakumo/hashed-password".path;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjRl7mQftJ4LsWxWbNufQ22IFMiRdxJfukQvyXBhyWn the.reason.sake@gmail.com"
