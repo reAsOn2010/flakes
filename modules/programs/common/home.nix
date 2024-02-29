@@ -39,7 +39,6 @@
     conky
     skopeo
 
-
     # develop tools
     jetbrains.idea-community
     adoptopenjdk-bin
