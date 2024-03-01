@@ -22,12 +22,12 @@
   home.packages = with pkgs; [
     # common programs
     cinnamon.nemo
+    unstable.ueberzugpp
+    unstable.yazi
     rustdesk
-    enpass
     keepassxc
     nix-index # nix-locate
     ffmpeg
-    yq-go # yaml formatter
     dbeaver
     kubectl
     # kubeconform
@@ -37,6 +37,7 @@
     at
     fastfetch
     conky
+    skopeo
 
 
     # develop tools
@@ -56,8 +57,7 @@
     nodePackages.npm
     mattermost-desktop
     genymotion
-    # safeeyes
-    # stretchly
+    unstable.safeeyes
     workrave
     maven
     unstable.peazip
