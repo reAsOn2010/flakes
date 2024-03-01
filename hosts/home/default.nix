@@ -135,9 +135,9 @@ in
       ];
     };
   };
-  programs = {
-    hyprland.nvidiaPatches = true;
-  };
+  # programs = {
+  #   hyprland.nvidiaPatches = true;
+  # };
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
     libvdpau-va-gl
