@@ -12,20 +12,20 @@
     userSettings = {
       terminal.integrated.shell.linux = "${pkgs.zsh}/bin/zsh";
       editor.fontSize = 18;
-      terminal.background = "#${config.colorScheme.colors.base00}";
-      terminal.foreground = "#${config.colorScheme.colors.base05}";
-      terminalCursor.background = "#${config.colorScheme.colors.base05}";
-      terminalCursor.foreground = "#${config.colorScheme.colors.base05}";
-      terminal.ansiBlack = "#${config.colorScheme.colors.base00}";
-      terminal.ansiWhite = "#${config.colorScheme.colors.base05}";
-      terminal.ansiBrightBlack = "#${config.colorScheme.colors.base03}";
-      terminal.ansiBrightWhite = "#${config.colorScheme.colors.base07}";
-      terminal.ansiRed = "#${config.colorScheme.colors.base08}";
-      terminal.ansiYellow = "#${config.colorScheme.colors.base0A}";
-      terminal.ansiGreen = "#${config.colorScheme.colors.base0B}";
-      terminal.ansiCyan = "#${config.colorScheme.colors.base0C}";
-      terminal.ansiBlue = "#${config.colorScheme.colors.base0D}";
-      terminal.ansiMagenta = "#${config.colorScheme.colors.base0E}";
+      terminal.background = "#${config.colorScheme.palette.base00}";
+      terminal.foreground = "#${config.colorScheme.palette.base05}";
+      terminalCursor.background = "#${config.colorScheme.palette.base05}";
+      terminalCursor.foreground = "#${config.colorScheme.palette.base05}";
+      terminal.ansiBlack = "#${config.colorScheme.palette.base00}";
+      terminal.ansiWhite = "#${config.colorScheme.palette.base05}";
+      terminal.ansiBrightBlack = "#${config.colorScheme.palette.base03}";
+      terminal.ansiBrightWhite = "#${config.colorScheme.palette.base07}";
+      terminal.ansiRed = "#${config.colorScheme.palette.base08}";
+      terminal.ansiYellow = "#${config.colorScheme.palette.base0A}";
+      terminal.ansiGreen = "#${config.colorScheme.palette.base0B}";
+      terminal.ansiCyan = "#${config.colorScheme.palette.base0C}";
+      terminal.ansiBlue = "#${config.colorScheme.palette.base0D}";
+      terminal.ansiMagenta = "#${config.colorScheme.palette.base0E}";
     };
   };
 }

@@ -70,7 +70,7 @@ in
         "on" = " "; # Icon shows only when "consume" is on
       };
       "random-icons" = {
-        "off" = "<span color=\"#${config.colorScheme.colors.base03}\"></span> "; # Icon grayed out when "random" is off
+        "off" = "<span color=\"#${config.colorScheme.palette.base03}\"></span> "; # Icon grayed out when "random" is off
         "on" = " ";
       };
       "repeat-icons" = {
