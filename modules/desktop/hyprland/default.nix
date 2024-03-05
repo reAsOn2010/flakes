@@ -24,8 +24,8 @@
     wayland-protocols
     glfw-wayland
     xwayland
-    qt6.qtwayland
-    qt5.qtwayland
+    # qt6.qtwayland
+    # qt5.qtwayland
     wev
     udiskie
     grim # screenshot

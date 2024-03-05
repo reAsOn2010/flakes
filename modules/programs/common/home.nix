@@ -17,6 +17,7 @@
     # ../vifm/home.nix
     ../wayvnc/home.nix
     ../syncthing/home.nix
+    ../games/home.nix
   ];
 
   home.packages = with pkgs; [
