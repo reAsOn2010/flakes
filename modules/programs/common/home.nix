@@ -17,7 +17,6 @@
     # ../vifm/home.nix
     ../wayvnc/home.nix
     ../syncthing/home.nix
-    ../games/home.nix
   ];
 
   home.packages = with pkgs; [
@@ -44,6 +43,7 @@
     jetbrains.idea-community
     adoptopenjdk-bin
     jetbrains.pycharm-community
+    jetbrains.goland
     python311
     jetbrains.clion
     obsidian
@@ -70,7 +70,7 @@
 
 
     # NUR
-    # config.nur.repos.xddxdd.wechat-uos
+    config.nur.repos.xddxdd.wechat-uos
   ];
 
   xdg.mimeApps = {

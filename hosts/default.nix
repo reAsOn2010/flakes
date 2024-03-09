@@ -51,11 +51,12 @@
     ];
   };
   home = inputs.nixpkgs.lib.nixosSystem {
-    # yakumo's pat-edu office computer config
+    # yakumo's home computer config
     inherit system;
     specialArgs = { inherit inputs user; };
     modules = [
       inputs.agenix.nixosModules.default
+      inputs.nur.nixosModules.nur
       ../agenix.nix
     ] ++ [
       ./home
@@ -80,11 +81,12 @@
             extraSpecialArgs = { inherit inputs user unstable; hostName = "home"; };
             users.${user} = {
               imports = [
-                ./pat/home.nix
+                ./home/home.nix
               ] ++ [
                 inputs.hyprland.homeManagerModules.default
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
+                inputs.nur.hmModules.nur
               ];
             };
           };

@@ -6,6 +6,7 @@ in
     ../../modules/desktop/hyprland/home.nix
     ../../modules/programs/common/home.nix
     ../../modules/overlays/overlays.nix
+    ../../modules/programs/games/home.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.default-dark;
   home = {

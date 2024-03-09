@@ -96,6 +96,7 @@ in
       pulse.enable = true;
       jack.enable = true;
     };
+    blueman.enable = true;
   };
   console.useXkbConfig = true;
 
