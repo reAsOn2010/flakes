@@ -70,7 +70,7 @@
 
 
     # NUR
-    config.nur.repos.xddxdd.wechat-uos
+    # config.nur.repos.xddxdd.wechat-uos
   ];
 
   xdg.mimeApps = {

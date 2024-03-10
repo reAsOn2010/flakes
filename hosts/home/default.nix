@@ -24,6 +24,7 @@ in
     ../../modules/programs/clash
     ../../modules/programs/syncthing
     ../../modules/programs/it-tools
+    ../../modules/programs/games
     ../../modules/overlays/overlays.nix
   ];
   networking.firewall.allowedUDPPortRanges = [
@@ -125,6 +126,8 @@ in
       #   offload.enable = true;
       # };
     };
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
     opengl = {
       enable = true;
       driSupport = true;

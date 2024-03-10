@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     unstable.ryujinx
-    unstable.joycond
     unstable.joycond-cemuhook
   ];
 }

@@ -30,6 +30,4 @@
   swapDevices = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 }
