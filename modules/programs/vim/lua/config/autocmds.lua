@@ -14,6 +14,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "go" },
 	callback = function()
 		vim.opt_local.expandtab = false
-		vim.opt_local.autoformat = false
+		vim.g.autoformat = false
 	end,
 })
