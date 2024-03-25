@@ -14,7 +14,7 @@
       ./system.nix
       ./i18n.nix
     ] ++ [
-      inputs.hyprland.nixosModules.default
+      # inputs.hyprland.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager =
@@ -34,7 +34,7 @@
               imports = [
                 ./pat/home.nix
               ] ++ [
-                inputs.hyprland.homeManagerModules.default
+                # inputs.hyprland.homeManagerModules.default
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
                 inputs.nur.hmModules.nur
@@ -64,7 +64,7 @@
       ./system.nix
       ./i18n.nix
     ] ++ [
-      inputs.hyprland.nixosModules.default
+      # inputs.hyprland.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager =
@@ -83,7 +83,7 @@
               imports = [
                 ./home/home.nix
               ] ++ [
-                inputs.hyprland.homeManagerModules.default
+                # inputs.hyprland.homeManagerModules.default
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
                 inputs.nur.hmModules.nur

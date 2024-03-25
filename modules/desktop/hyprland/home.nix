@@ -25,6 +25,13 @@ in
       '';
     };
   };
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
+  };
+
   home.packages = with pkgs; [
     libsForQt5.polkit-kde-agent
   ];
@@ -32,19 +39,28 @@ in
   gtk = {
     enable = true;
     theme = {
-      package = nix-colors-lib.gtkThemeFromScheme {
-        scheme = config.colorScheme;
-      };
-      name = config.colorScheme.slug;
+      package = pkgs.sweet;
+      name = "Sweet-Dark";
     };
     iconTheme = {
-      package = pkgs.numix-icon-theme;
-      name = "numix";
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
     };
-    cursorTheme = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
-    };
+    # Original config
+    # theme = {
+    #   package = nix-colors-lib.gtkThemeFromScheme {
+    #     scheme = config.colorScheme;
+    #   };
+    #   name = config.colorScheme.slug;
+    # };
+    # iconTheme = {
+    #   package = pkgs.numix-icon-theme;
+    #   name = "numix";
+    # };
+    # cursorTheme = {
+    #   package = pkgs.vanilla-dmz;
+    #   name = "Vanilla-DMZ";
+    # };
   };
   wayland.windowManager.hyprland = {
     enable = true;
