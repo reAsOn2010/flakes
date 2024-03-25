@@ -4,9 +4,9 @@
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-    "electron-19.1.9"
-    "openssl-1.1.1w"
+    "nix-2.16.2" # nixd depends on it
+    "electron-19.1.9" # wechat-uos depends on it
+    "openssl-1.1.1w" # wechat-uos depends on it
   ];
 
   time.timeZone = "Asia/Shanghai";

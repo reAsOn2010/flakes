@@ -15,7 +15,8 @@ return {
 				},
 			},
 			gopls = {},
-			rnix = {},
+			nixd = {},
+			-- nil_ls = {},
 			yamlls = {
 				settings = {
 					yaml = {

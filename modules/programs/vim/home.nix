@@ -24,7 +24,8 @@ in
       gcc
       cargo
       ripgrep
-      rnix-lsp
+      nixd
+      # nil
       shfmt
       kotlin-language-server
       stylua

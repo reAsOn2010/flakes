@@ -46,7 +46,7 @@
     jetbrains.goland
     python311
     jetbrains.clion
-    obsidian
+    unstable.obsidian
     zotero
     gcc
     cmake
@@ -60,7 +60,7 @@
     unstable.safeeyes
     workrave
     maven
-    unstable.peazip
+    peazip
     # unstable.wavebox
     # unstable.franz
     unstable.rambox
