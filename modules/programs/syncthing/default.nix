@@ -2,7 +2,7 @@
 
 {
   services.syncthing = {
-    enable = true;
+    enable = false;
     user = "${user}";
     dataDir = "/home/${user}/Sync";
     configDir = "/home/${user}/.config/syncthing";
