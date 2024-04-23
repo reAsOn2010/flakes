@@ -55,7 +55,7 @@
       wget
       p7zip
       zip
-      unzip
+      unzipNLS
       killall
       socat
       rar
