@@ -2,9 +2,9 @@
 
 {
   services.syncthing = {
-    enable = true;
+    enable = false;
   };
   home.packages = [
-    pkgs.syncthingtray-minimal
+    # pkgs.syncthingtray-minimal
   ];
 }
