@@ -22,7 +22,7 @@ in
     ../../modules/virtualisation
     # ../../modules/programs/rustdesk
     ../../modules/programs/clash
-    ../../modules/programs/syncthing
+    # ../../modules/programs/syncthing
     ../../modules/programs/it-tools
     ../../modules/programs/games
     ../../modules/overlays/overlays.nix
