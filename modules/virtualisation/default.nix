@@ -3,20 +3,47 @@
 #   socketPath = "${config.services.traefik.dataDir}/podman.sock";
 # in
 {
-  virtualisation.oci-containers.backend = "docker";
+  # docker as container backend
+  # virtualisation.oci-containers.backend = "docker";
+  # virtualisation = {
+  #   docker.enable = true;
+  #   virtualbox = {
+  #     host.enable = true;
+  #   };
+  # };
+  # services.traefik = {
+  #   enable = true;
+  #   group = "docker";
+  #   staticConfigOptions = {
+  #     providers.docker = {
+  #       endpoint = "unix://var/run/docker.sock";
+  #     };
+  #   };
+  # };
+  # users.users.${user} = {
+  #   extraGroups = [ "libvirtd" "docker" "vboxusers" ];
+  # };
+
+  # podman as container backend
+  virtualisation.oci-containers.backend = "podman";
   virtualisation = {
-    docker.enable = true;
+    podman = {
+      enable = true;
+    };
     virtualbox = {
       host.enable = true;
     };
   };
   services.traefik = {
     enable = true;
-    group = "docker";
+    group = "podman";
     staticConfigOptions = {
       providers.docker = {
-        endpoint = "unix://var/run/docker.sock";
+        endpoint = "unix://run/podman/podman.sock";
       };
     };
+  };
+  users.users.${user} = {
+    extraGroups = [ "libvirtd" "podman" "vboxusers" ];
   };
 }
