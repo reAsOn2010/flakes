@@ -3,10 +3,9 @@
 {
   home.packages = with pkgs; [
     mpc-cli
+    ymuse # gui client
+    go-musicfox # netease cloud music
   ];
-  programs.ncmpcpp = {
-    enable = true;
-  };
   services.mpd = {
     enable = true;
     musicDirectory = /home/${user}/Music;
