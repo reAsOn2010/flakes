@@ -17,6 +17,7 @@
     # ../vifm/home.nix
     ../wayvnc/home.nix
     ../syncthing/home.nix
+    ../fcitx5/home.nix
   ];
 
   home.packages = with pkgs; [
@@ -71,6 +72,7 @@
 
     # NUR
     config.nur.repos.xddxdd.wechat-uos
+    # config.nur.repos.linyinfeng.rimePackages.rime-ice
   ];
 
   xdg.mimeApps = {

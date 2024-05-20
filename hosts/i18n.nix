@@ -8,6 +8,8 @@
       fcitx5-rime
       fcitx5-chinese-addons
       fcitx5-table-extra
+      fcitx5-material-color
+      fcitx5-nord
       # fcitx5-pinyin-zhwiki
     ];
   };
