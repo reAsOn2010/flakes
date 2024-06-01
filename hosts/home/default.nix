@@ -52,8 +52,6 @@ in
     10.233.252.1 cls-mhktarmn.ccs.tencent-cloud.com
     127.0.0.1 vault-file-proxy.ops
   '';
-  networking.wireless.enable = true;
-  networking.wireless.userControlled.enable = true;
   boot = {
     supportedFilesystems = [ "ntfs" ];
     loader = {
@@ -141,9 +139,6 @@ in
       ];
     };
   };
-  # programs = {
-  #   hyprland.nvidiaPatches = true;
-  # };
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
     libvdpau-va-gl

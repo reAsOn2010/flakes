@@ -63,6 +63,8 @@
     xorg.xcbutilrenderutil
     xorg.xcbutilwm
     xorg.xorgproto
+
+    networkmanagerapplet
   ];
 
   security.pam.services.swaylock = { };
