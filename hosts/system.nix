@@ -38,7 +38,7 @@
     printing.enable = true;
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       openFirewall = true;
     };
     atd = {
@@ -92,8 +92,8 @@
   system = {
     autoUpgrade = {
       enable = false;
-      channel = "https://nixos.org/channels/nixos-23.11";
+      channel = "https://nixos.org/channels/nixos-24.05";
     };
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 }

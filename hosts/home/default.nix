@@ -86,7 +86,7 @@ in
     ];
   };
   services = {
-    xserver.xkbOptions = "caps:escape";
+    xserver.xkb.options = "caps:escape";
     dbus.packages = [ pkgs.gcr ];
     getty.autologinUser = "${user}";
     gvfs.enable = true;

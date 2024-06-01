@@ -5,7 +5,7 @@ in
 {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
       os-switch = "sudo nixos-rebuild switch --flake \"$HOME/flakes#\"";

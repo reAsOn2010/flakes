@@ -29,7 +29,7 @@
     keepassxc
     nix-index # nix-locate
     ffmpeg
-    dbeaver
+    dbeaver-bin
     kubectl
     # kubeconform
     mongodb-compass
