@@ -61,14 +61,14 @@
     unstable.safeeyes
     workrave
     maven
-    peazip
+    xarchiver
+    pinentry
     # unstable.wavebox
     # unstable.franz
     unstable.rambox
 
     # cloud storage
     rclone
-
 
     # NUR
     config.nur.repos.xddxdd.wechat-uos

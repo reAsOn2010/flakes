@@ -33,7 +33,8 @@ in
   };
 
   home.packages = with pkgs; [
-    libsForQt5.polkit-kde-agent
+    pantheon.pantheon-agent-polkit
+    # libsForQt5.polkit-kde-agent
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   gtk = {
@@ -67,7 +68,8 @@ in
     xwayland.enable = true;
     systemd.enable = true;
     extraConfig = builtins.readFile monitors.hypr-monitor-conf + builtins.readFile ./hyprland.conf + ''
-      exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
+      # exec-once = ${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
+      exec-once = ${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit
     '';
   };
 }

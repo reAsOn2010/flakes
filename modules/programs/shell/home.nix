@@ -40,6 +40,13 @@
       };
     };
   };
-  services.gpg-agent.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 7200;
+    defaultCacheTtlSsh = 7200;
+    maxCacheTtl = 86400;
+    maxCacheTtlSsh = 86400;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
   programs.gpg.enable = true;
 }

@@ -1,6 +1,33 @@
 { config, pkgs, hostName, ... }:
 let
   monitors = import ../../desktop/hyprland/monitors.nix { inherit pkgs hostName; };
+  waybar-clock = {
+    "interval" = 1;
+    "format" = " {:%H:%M:%S   %Y/%m/%d}";
+    "tooltip-format" = "<tt><small>{calendar}</small></tt>";
+    "calendar" = {
+      "mode" = "year";
+      "mode-mon-col" = 3;
+      "weeks-pos" = "right";
+      "on-scroll" = 1;
+      "on-click-right" = "mode";
+      "format" = {
+        "months" = "<span color='#${config.colorScheme.palette.base07}'><b>{}</b></span>";
+        "days" = "<span color='#${config.colorScheme.palette.base05}'><b>{}</b></span>";
+        "weeks" = "<span color='#${config.colorScheme.palette.base0D}'><b>W{}</b></span>";
+        "weekdays" = "<span color='#${config.colorScheme.palette.base0A}'><b>{}</b></span>";
+        "today" = "<span color='#${config.colorScheme.palette.base08}'><b><u>{}</u></b></span>";
+      };
+    };
+    "actions" = {
+      "on-click-right" = "mode";
+      "on-click-forward" = "tz_up";
+      "on-click-backward" = "tz_down";
+      "on-scroll-up" = "shift_up";
+      "on-scroll-down" = "shift_down";
+    };
+  };
+
 in
 {
   primary-setting = {
@@ -70,7 +97,7 @@ in
         "on" = " "; # Icon shows only when "consume" is on
       };
       "random-icons" = {
-        "off" = "<span color=\"#${config.colorScheme.palette.base03}\"></span> "; # Icon grayed out when "random" is off
+        "off" = "<span color='#${config.colorScheme.palette.base03}'></span> "; # Icon grayed out when "random" is off
         "on" = " ";
       };
       "repeat-icons" = {
@@ -86,11 +113,7 @@ in
       "tooltip-format" = "MPD (connected)";
       "tooltip-format-disconnected" = "MPD (disconnected)";
     };
-    "clock" = {
-      "interval" = 1;
-      "format" = "{: %R   %d/%m}";
-      "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-    };
+    "clock" = waybar-clock;
     "tray" = {
       "icon-size" = 13;
       "spacing" = 10;
@@ -244,11 +267,7 @@ in
     #   "active-only" = false;
     #   "all-outputs" = true;
     # };
-    "clock" = {
-      "interval" = 1;
-      "format" = "{: %R   %d/%m}";
-      "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-    };
+    "clock" = waybar-clock;
     "tray" = {
       "icon-size" = 13;
       "spacing" = 10;
