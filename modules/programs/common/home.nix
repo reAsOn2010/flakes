@@ -73,6 +73,7 @@
 
     # NUR
     config.nur.repos.xddxdd.wechat-uos
+    xdg-user-dirs
     # config.nur.repos.linyinfeng.rimePackages.rime-ice
   ];
 
