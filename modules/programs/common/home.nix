@@ -63,6 +63,7 @@
     maven
     xarchiver
     pinentry
+    protobuf
     # unstable.wavebox
     # unstable.franz
     unstable.rambox
