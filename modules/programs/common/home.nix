@@ -9,8 +9,8 @@
     ../scripts/home.nix
     # ../fish/home.nix
     ../zsh/home.nix
-    # ../wps/home.nix
-    ../libreoffice/home.nix
+    ../wps/home.nix
+    # ../libreoffice/home.nix
     ../mpd/home.nix
     # ../dochat/home.nix
     # ../ranger/home.nix
