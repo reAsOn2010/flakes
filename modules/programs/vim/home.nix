@@ -30,7 +30,7 @@ in
       kotlin-language-server
       stylua
       lua-language-server
-      unstable.nodePackages.pyright
+      unstable.pyright
       unstable.ruff-lsp
       unstable.nodePackages.prettier
       python311Packages.autopep8

@@ -41,9 +41,9 @@
     skopeo
 
     # develop tools
-    jetbrains.idea-community
+    jetbrains.idea-ultimate
     adoptopenjdk-bin
-    jetbrains.pycharm-community
+    jetbrains.pycharm-professional
     jetbrains.goland
     python311
     jetbrains.clion
@@ -83,4 +83,28 @@
       "inode/directory" = [ "nemo.desktop" ];
     };
   };
+
+  homeage = {
+    file."idea64.vmoptions" = {
+      source = ../../../secrets/yakumo/jetbrains/vmoptions.age;
+      copies = [ "${config.xdg.configHome}/JetBrains/IntelliJIdea2024.1/idea64.vmoptions" ];
+      mode = "0600";
+    };
+    file."pycharm64.vmoptions" = {
+      source = ../../../secrets/yakumo/jetbrains/vmoptions.age;
+      copies = [ "${config.xdg.configHome}/JetBrains/PyCharm2024.1/pycharm64.vmoptions" ];
+      mode = "0600";
+    };
+    file."goland64.vmoptions" = {
+      source = ../../../secrets/yakumo/jetbrains/vmoptions.age;
+      copies = [ "${config.xdg.configHome}/JetBrains/GoLand2024.1/goland64.vmoptions" ];
+      mode = "0600";
+    };
+    file."clion64.vmoptions" = {
+      source = ../../../secrets/yakumo/jetbrains/vmoptions.age;
+      copies = [ "${config.xdg.configHome}/JetBrains/CLion2024.1/clion64.vmoptions" ];
+      mode = "0600";
+    };
+  };
+
 }

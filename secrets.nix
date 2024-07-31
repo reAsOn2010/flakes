@@ -12,4 +12,5 @@ in
   "secrets/yakumo/dbeaver/credentials-config.json.age".publicKeys = [ yakumo ];
   "secrets/yakumo/clash/config.yaml.age".publicKeys = [ yakumo ];
   "secrets/yakumo/rclone/rclone.conf.age".publicKeys = [ yakumo ];
+  "secrets/yakumo/jetbrains/vmoptions.age".publicKeys = [ yakumo ];
 }
