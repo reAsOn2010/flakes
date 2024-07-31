@@ -31,6 +31,7 @@
     ffmpeg
     dbeaver-bin
     kubectl
+    krita
     # kubeconform
     mongodb-compass
     silver-searcher # ag
