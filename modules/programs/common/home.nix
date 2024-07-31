@@ -73,7 +73,7 @@
     rclone
 
     # NUR
-    config.nur.repos.xddxdd.wechat-uos
+    config.nur.repos.xddxdd.wechat-uos-without-sandbox
     xdg-user-dirs
     # config.nur.repos.linyinfeng.rimePackages.rime-ice
   ];
