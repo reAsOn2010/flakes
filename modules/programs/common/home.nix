@@ -65,6 +65,7 @@
     xarchiver
     pinentry
     protobuf
+    protoc-gen-go
     # unstable.wavebox
     # unstable.franz
     unstable.rambox
