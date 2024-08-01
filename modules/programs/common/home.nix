@@ -66,6 +66,7 @@
     pinentry
     protobuf
     protoc-gen-go
+    protoc-gen-go-grpc
     # unstable.wavebox
     # unstable.franz
     unstable.rambox
