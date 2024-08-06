@@ -30,7 +30,7 @@
     };
     file."dbeaver.data-sources.json" = {
       source = ../../../secrets/yakumo/dbeaver/data-sources.json.age;
-      copies = [ "${config.xdg.dataHome}/DBeaverData/workspace6/General/.dbeaver/data-source.json" ];
+      copies = [ "${config.xdg.dataHome}/DBeaverData/workspace6/General/.dbeaver/data-sources.json" ];
       mode = "0600";
     };
     file."rclone.rclone.conf" = {
