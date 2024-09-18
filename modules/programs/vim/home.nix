@@ -31,6 +31,7 @@ in
       stylua
       lua-language-server
       unstable.pyright
+      unstable.ruff
       unstable.ruff-lsp
       unstable.nodePackages.prettier
       python311Packages.autopep8
