@@ -79,7 +79,7 @@ in
   users.users.${user} = {
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "lrun" "video" "audio" ];
+    extraGroups = [ "wheel" "lrun" "video" "audio" "scanner" "lp" ];
     hashedPasswordFile = config.age.secrets."yakumo/hashed-password".path;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjRl7mQftJ4LsWxWbNufQ22IFMiRdxJfukQvyXBhyWn the.reason.sake@gmail.com"
@@ -97,7 +97,6 @@ in
       pulse.enable = true;
       jack.enable = true;
     };
-    blueman.enable = true;
   };
   console.useXkbConfig = true;
 
@@ -134,8 +133,6 @@ in
       #   offload.enable = true;
       # };
     };
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
     opengl = {
       enable = true;
       driSupport = true;

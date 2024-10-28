@@ -44,6 +44,18 @@
     atd = {
       enable = true;
     };
+    blueman.enable = true;
+  };
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    sane = {
+      enable = true;
+      extraBackends = [ pkgs.hplipWithPlugin ];
+    };
   };
   security.rtkit.enable = true;
   environment = {
