@@ -8,7 +8,7 @@ in
     ../../modules/overlays/overlays.nix
     ../../modules/programs/games/home.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.default-dark;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-latte;
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";

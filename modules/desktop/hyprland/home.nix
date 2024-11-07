@@ -40,13 +40,13 @@ in
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.sweet;
-      name = "Sweet-Dark";
+      package = pkgs.nordic;
+      name = "Nordic";
     };
-    iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
-    };
+    # iconTheme = {
+    #   package = pkgs.Nordic-standard-buttons;
+    #   name = "Nordic-standard-buttons";
+    # };
     # Original config
     # theme = {
     #   package = nix-colors-lib.gtkThemeFromScheme {
