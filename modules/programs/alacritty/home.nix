@@ -8,9 +8,9 @@
         program = "${pkgs.zsh}/bin/zsh";
         args = [ "--login" ];
       };
-      # let hyprland do opcatity
-      # window.opacity = 0.9;
       font.size = 14;
+      # let hyprland set opacity
+      # window.opacity = 0.9;
       import = [
         "${config.xdg.configHome}/alacritty/catppuccin-latte.toml"
       ];

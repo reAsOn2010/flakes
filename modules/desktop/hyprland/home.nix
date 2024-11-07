@@ -40,13 +40,19 @@ in
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
+      package = pkgs.catppuccin-gtk.override {
+        variant = "latte";
+      };
+      name = "catppuccin";
     };
-    # iconTheme = {
-    #   package = pkgs.Nordic-standard-buttons;
-    #   name = "Nordic-standard-buttons";
-    # };
+    iconTheme = {
+      package = pkgs.candy-icons;
+      name = "candy-icons";
+    };
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors;
+      name = "latteBlue";
+    };
     # Original config
     # theme = {
     #   package = nix-colors-lib.gtkThemeFromScheme {

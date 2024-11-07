@@ -1,10 +1,9 @@
 { config, pkgs, inputs, ... }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
-in
 {
-  home.packages = [ unstable.wpaperd ];
-  home.file."${config.xdg.configHome}/wpaperd/output.conf".text = ''
+  home.packages = [
+    pkgs.wpaperd
+  ];
+  home.file."${config.xdg.configHome}/wpaperd/config.toml".text = ''
     [default]
     path = "${config.xdg.configHome}/wallpapers/"
     duration = "30m"
