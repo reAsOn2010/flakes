@@ -13,6 +13,7 @@
     ] ++ [
       ./system.nix
       ./i18n.nix
+      ./nix-ld.nix
     ] ++ [
       # inputs.hyprland.nixosModules.default
       inputs.home-manager.nixosModules.home-manager

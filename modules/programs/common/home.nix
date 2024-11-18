@@ -48,8 +48,6 @@
     jetbrains.goland
     python311
     jetbrains.clion
-    unstable.obsidian
-    zotero
     gcc
     cmake
     gnumake
@@ -58,18 +56,14 @@
     nodejs
     nodePackages.npm
     mattermost-desktop
-    genymotion
-    unstable.safeeyes
-    workrave
     maven
     xarchiver
     pinentry
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
-    # unstable.wavebox
-    # unstable.franz
     unstable.rambox
+    marktext
 
     # cloud storage
     rclone
