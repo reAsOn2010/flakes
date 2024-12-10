@@ -1,7 +1,8 @@
 { pkgs, lib, config, ...}:
 {
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs;[
+  programs.nix-ld.libraries = with pkgs;
+  [
     acl
     attr
     bzip2
@@ -23,5 +24,41 @@
     util-linux
     zlib
     zstd
+  ] ++
+  # graphic libs
+  [
+    pipewire
+    cups
+    libxkbcommon
+    pango
+    mesa
+    libdrm
+    libglvnd
+    libpulseaudio
+    atk
+    cairo
+    alsa-lib
+    at-spi2-atk
+    at-spi2-core
+    gdk-pixbuf
+    glib
+    gtk3
+    libGL
+    libappindicator-gtk3
+    vulkan-loader
+    xorg.libX11
+    xorg.libXScrnSaver
+    xorg.libXcomposite
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXtst
+    xorg.libxcb
+    xorg.libxkbfile
+    xorg.libxshmfence
   ];
 }

@@ -64,12 +64,14 @@
     protoc-gen-go-grpc
     unstable.rambox
     marktext
+    bruno
 
     # cloud storage
     rclone
 
     # NUR
     config.nur.repos.xddxdd.wechat-uos-without-sandbox
+    config.nur.repos.xddxdd.dingtalk
     xdg-user-dirs
     # config.nur.repos.linyinfeng.rimePackages.rime-ice
   ];
