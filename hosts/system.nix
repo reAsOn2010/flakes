@@ -105,8 +105,8 @@
   system = {
     autoUpgrade = {
       enable = false;
-      channel = "https://nixos.org/channels/nixos-24.05";
+      channel = "https://nixos.org/channels/nixos-24.11";
     };
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 }
