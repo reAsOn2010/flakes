@@ -22,7 +22,7 @@
 
   home.packages = with pkgs; [
     # common programs
-    cinnamon.nemo
+    nemo
     unstable.ueberzugpp
     unstable.yazi
     # rustdesk
@@ -43,7 +43,7 @@
 
     # develop tools
     jetbrains.idea-ultimate
-    adoptopenjdk-bin
+    openjdk11-bootstrap
     jetbrains.pycharm-professional
     jetbrains.goland
     python311
@@ -70,8 +70,8 @@
     rclone
 
     # NUR
-    config.nur.repos.xddxdd.wechat-uos-without-sandbox
-    config.nur.repos.xddxdd.dingtalk
+    nur.repos.xddxdd.wechat-uos-without-sandbox
+    nur.repos.xddxdd.dingtalk
     xdg-user-dirs
     # config.nur.repos.linyinfeng.rimePackages.rime-ice
   ];

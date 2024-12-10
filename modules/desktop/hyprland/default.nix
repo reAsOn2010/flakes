@@ -40,7 +40,7 @@
     libglvnd
     mesa
     mesa_glu
-    mesa_drivers
+    mesa.drivers
     freetype
     dbus
     fontconfig

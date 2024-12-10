@@ -9,7 +9,7 @@
       # dejavu_fonts
       # source-sans-pro
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       nerdfonts
       twemoji-color-font

@@ -4,14 +4,14 @@
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
-      shell = {
+      terminal.shell = {
         program = "${pkgs.zsh}/bin/zsh";
         args = [ "--login" ];
       };
       font.size = 14;
       # let hyprland set opacity
       # window.opacity = 0.9;
-      import = [
+      general.import = [
         "${config.xdg.configHome}/alacritty/catppuccin-latte.toml"
       ];
     };

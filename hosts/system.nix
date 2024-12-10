@@ -4,8 +4,9 @@
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.16.2" # nixd depends on it
-    "electron-19.1.9" # wechat-uos depends on it
+    "wechat-uos-4.0.0.21"
+    # "nix-2.16.2" # nixd depends on it
+    # "electron-19.1.9" # wechat-uos depends on it
     "openssl-1.1.1w" # wechat-uos depends on it
   ];
 

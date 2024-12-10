@@ -56,7 +56,7 @@
     kernelParams = [
       "quiet"
       "splash"
-      "systemd.unified_cgroup_hierarchy=0" # if need cgroups v1
+      # "systemd.unified_cgroup_hierarchy=0" # if need cgroups v1
     ];
     # consoleLogLevel = 0;
     # initrd.verbose = false;
