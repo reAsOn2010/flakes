@@ -7,5 +7,6 @@
     [default]
     path = "${config.xdg.configHome}/wallpapers/"
     duration = "30m"
+    mode = "center"
   '';
 }
