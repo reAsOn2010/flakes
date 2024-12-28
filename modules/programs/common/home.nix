@@ -71,6 +71,7 @@
 
     # NUR
     nur.repos.xddxdd.wechat-uos-without-sandbox
+    nur.repos.xddxdd.baidunetdisk
     nur.repos.xddxdd.dingtalk
     xdg-user-dirs
     # config.nur.repos.linyinfeng.rimePackages.rime-ice
