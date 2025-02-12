@@ -26,8 +26,8 @@
     unstable.ueberzugpp
     unstable.yazi
     # rustdesk
-    # keepassxc
-    bitwarden-desktop
+    keepassxc
+    # bitwarden-desktop
     nix-index # nix-locate
     ffmpeg
     dbeaver-bin
