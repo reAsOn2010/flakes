@@ -50,6 +50,7 @@
       enable = true;
     };
     blueman.enable = true;
+    udisks2.enable = true;
   };
 
   hardware = {

@@ -25,6 +25,7 @@ in
     # ../../modules/programs/syncthing
     ../../modules/programs/it-tools
     ../../modules/programs/games
+    ../../modules/programs/calibre
     ../../modules/overlays/overlays.nix
   ];
   networking.firewall.allowedUDPPortRanges = [

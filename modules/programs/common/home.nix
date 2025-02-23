@@ -70,6 +70,9 @@
     # cloud storage
     rclone
 
+    # bt client
+    deluge
+
     # NUR
     nur.repos.xddxdd.wechat-uos-without-sandbox
     nur.repos.xddxdd.baidunetdisk
