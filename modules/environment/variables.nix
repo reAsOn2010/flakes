@@ -36,7 +36,7 @@
       XDG_BIN_HOME = "\${HOME}/.local/bin";
       XDG_DATA_HOME = "\${HOME}/.local/share";
 
-      JAVA_HOME = "${pkgs.openjdk11-bootstrap}";
+      JAVA_HOME = "${pkgs.openjdk17-bootstrap}";
       TZ = "Asia/Shanghai";
 
       # LD_LIBRARY_PATH = "\${LD_LIBRARY_PATH}:${pkgs.stdenv.cc.cc.lib}/lib";

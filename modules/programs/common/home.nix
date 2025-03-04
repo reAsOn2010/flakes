@@ -44,7 +44,8 @@
 
     # develop tools
     jetbrains.idea-ultimate
-    openjdk11-bootstrap
+    # openjdk11-bootstrap
+    openjdk17-bootstrap
     jetbrains.pycharm-professional
     jetbrains.goland
     python311
