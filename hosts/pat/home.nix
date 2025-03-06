@@ -5,6 +5,7 @@ in
   imports = [
     ../../modules/desktop/hyprland/home.nix
     ../../modules/programs/common/home.nix
+    # ../../modules/programs/android/home.nix
     ../../modules/overlays/overlays.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-latte;
