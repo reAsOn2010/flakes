@@ -7,6 +7,7 @@ in
     ../../modules/programs/common/home.nix
     ../../modules/overlays/overlays.nix
     ../../modules/programs/games/home.nix
+    ../../modules/programs/android/home.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-latte;
   home = {
