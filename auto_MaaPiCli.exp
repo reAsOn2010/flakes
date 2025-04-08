@@ -1,0 +1,50 @@
+#!/usr/bin/env expect
+spawn ./MaaPiCli
+
+set timeout 3600
+set min 30
+set max 65
+
+for {set i 0} {$i < 10} {incr i} {
+
+    expect {
+        "### Select action ###" {
+            sleep 1
+            puts "Expect action"
+            send "6\r"
+        }
+        timeout {
+            puts "Error: wait timeout 1"
+            exit 1
+        }
+    }
+    expect {
+        "Press Enter to continue..." {
+            sleep 1
+            puts "Expect enter"
+            send "\r"
+        }
+        timeout {
+            puts "Error: wait timeout 2"
+            exit 1
+        }
+    }
+
+    set random_int [expr int(rand() * ($max - $min + 1)) + $min]
+    puts "随机 Sleep: $random_int"
+    sleep $random_int
+}
+
+expect {
+    "### Select action ###" {
+        sleep 1
+        puts "Expect action"
+        send "7\r"
+    }
+    timeout {
+        puts "Error: wait timeout 3"
+        exit 1
+    }
+}
+
+expect eof
