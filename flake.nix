@@ -9,13 +9,17 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hypr-contrib.url = "github:hyprwm/contrib";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
+    # hypr-contrib.url = "github:hyprwm/contrib";
+    # hyprpicker.url = "github:hyprwm/hyprpicker";
     agenix.url = "github:ryantm/agenix";
     homeage.url = "github:jordanisaacs/homeage";
     flake-utils.url = "github:numtide/flake-utils";
     nix-colors.url = "github:misterio77/nix-colors";
     nixneovim.url = "github:nixneovim/nixneovim";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, ... }@inputs:
