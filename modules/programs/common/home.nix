@@ -67,6 +67,8 @@
     unstable.rambox
     marktext
     bruno
+    opentofu
+    terraformer
 
     # cloud storage
     rclone

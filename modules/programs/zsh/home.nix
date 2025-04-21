@@ -30,6 +30,7 @@ in
         "kubectl"
         "tmux"
         "virtualenv"
+        "opentofu"
       ];
       # theme = "powerlevel10k";
     };
