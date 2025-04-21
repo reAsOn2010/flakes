@@ -69,6 +69,7 @@
     bruno
     opentofu
     terraformer
+    terragrunt
 
     # cloud storage
     rclone

@@ -21,6 +21,7 @@ in
     vimdiffAlias = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
+      fzf
       gcc
       cargo
       ripgrep
@@ -40,7 +41,6 @@ in
       rust-analyzer
       gopls
       formatjson5
-      terraform
       terraform-ls
       hclfmt
     ];
