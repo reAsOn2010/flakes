@@ -54,10 +54,16 @@ in
         src = ./conf;
         file = "p10k.zsh";
       }
+      {
+        name = "p10k-config-tofu-prompt";
+        src = ./conf;
+        file = "tofu-prompt.zsh";
+      }
     ];
     initExtra = ''
       export SHELL="${pkgs.zsh}/bin/zsh"
       bindkey "''${key[Up]}" up-line-or-search
+      bindkey "''${key[Down]}" down-line-or-search
       # this makes hyprland failed to start...
       # export LD_LIBRARY_PATH="''${LD_LIBRARY_PATH}:${pkgs.stdenv.cc.cc.lib}/lib";
     '';
