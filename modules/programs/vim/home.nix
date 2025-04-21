@@ -27,19 +27,22 @@ in
       nixd
       # nil
       shfmt
-      kotlin-language-server
       stylua
       lua-language-server
-      unstable.pyright
-      unstable.ruff
-      unstable.ruff-lsp
-      unstable.nodePackages.prettier
+      pyright
+      ruff
+      ruff-lsp
+      nodePackages.prettier
       python311Packages.autopep8
-      unstable.nodePackages.vscode-json-languageserver
-      unstable.nodePackages.yaml-language-server
+      nodePackages.vscode-json-languageserver
+      nodePackages.yaml-language-server
       terraform-ls
       rust-analyzer
       gopls
+      formatjson5
+      terraform
+      terraform-ls
+      hclfmt
     ];
   };
   home.file."${config.xdg.configHome}/nvim/init.lua" = {
