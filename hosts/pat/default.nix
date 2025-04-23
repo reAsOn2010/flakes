@@ -17,6 +17,7 @@
     ../../modules/programs/it-tools
     ../../modules/programs/android
     ../../modules/overlays/overlays.nix
+    ../../modules/programs/stock
   ];
   networking.firewall.allowedUDPPortRanges = [
     {
