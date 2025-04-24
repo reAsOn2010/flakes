@@ -13,21 +13,21 @@
         "--network=host"
       ];
     };
-    instock = {
-      image = "mayanghua/instock";
-      ports = [ "9988" ];
-      dependsOn = [ "instock-db" ];
-      environment = {
-        db_host = "localhost";
-        db_user = "root";
-        db_password = "root";
-        db_database = "instock";
-        db_port = "3306";
-      }
-      ;
-      extraOptions = [
-        "--network=host"
-      ];
-    };
+    # instock = {
+    #   image = "mayanghua/instock";
+    #   ports = [ "9988" ];
+    #   dependsOn = [ "instock-db" ];
+    #   environment = {
+    #     db_host = "localhost";
+    #     db_user = "root";
+    #     db_password = "root";
+    #     db_database = "instock";
+    #     db_port = "3306";
+    #   }
+    #   ;
+    #   extraOptions = [
+    #     "--network=host"
+    #   ];
+    # };
   };
 }
