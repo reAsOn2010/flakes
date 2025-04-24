@@ -24,15 +24,16 @@ in {
       hashicorp.hcl
     ]);
     userSettings = {
+      files.autoSave = "onFocusChange";
       window.zoomLevel = 0.5;
       editor.fontSize = 16;
       terminal.integrated.fontFamily = "MesloLGS Nerd Font";
       terminal.integrated.fontSize = 16;
       terraform.languageServer = {
-        command= "tofu";
-        args= ["serve"];
+        path = "${pkgs.terraform-ls}/bin/terraform-ls";
+        args = ["serve"];
       };
-      terminal.integrated.shell.linux = "${pkgs.zsh}/bin/zsh";
+      terminal.integrated.defaultProfile.linux = "zsh";
       terminal.background = "#${config.colorScheme.palette.base00}";
       terminal.foreground = "#${config.colorScheme.palette.base05}";
       terminalCursor.background = "#${config.colorScheme.palette.base05}";

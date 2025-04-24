@@ -18,7 +18,7 @@ in
       vault-prod = "[[ -f .envrc ]] || touch .envrc && " +
         "sed -i '/^source .*vault.*.env$/d' .envrc || true && " +
         "echo 'source ${config.xdg.configHome}/secrets/vault.prod.env' >> .envrc ";
-      # microsoft-edge-no-gpu = "hyprctl dispatch exec \"microsoft-edge --disable-gpu\"";
+      tg = "terragrunt";
     };
     oh-my-zsh = {
       enable = true;
@@ -64,8 +64,8 @@ in
       export SHELL="${pkgs.zsh}/bin/zsh"
       bindkey "''${key[Up]}" up-line-or-search
       bindkey "''${key[Down]}" down-line-or-search
-      # this makes hyprland failed to start...
-      # export LD_LIBRARY_PATH="''${LD_LIBRARY_PATH}:${pkgs.stdenv.cc.cc.lib}/lib";
+      autoload -U +X bashcompinit && bashcompinit
+      complete -o nospace -C ${pkgs.terragrunt}/bin/terragrunt terragrunt
     '';
     # interactiveShellInit = ''
     #   export SHELL="${pkgs.zsh}/bin/zsh"

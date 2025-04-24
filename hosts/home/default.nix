@@ -27,6 +27,7 @@ in
     ../../modules/programs/games
     ../../modules/programs/calibre
     ../../modules/programs/android
+    ../../modules/programs/stock
     ../../modules/overlays/overlays.nix
   ];
   networking.firewall.allowedUDPPortRanges = [

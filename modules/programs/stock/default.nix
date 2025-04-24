@@ -27,7 +27,7 @@
       ;
       extraOptions = [
         "--network=host"
-        "--label=traefik.http.routers.tools.rule=Host(`stock.localhost`)"
+        "--label=traefik.http.routers.stock.rule=Host(`stock.localhost`)"
       ];
     };
   };
