@@ -5,6 +5,15 @@ let
     "home" = 0;
     "pat" = 2;
   }."${hostName}";
+  temperature = {
+    "pat" = {
+      "thermal-zone" = thermal_zone;
+    };
+    "home" = {
+      "hwmon-path" = "/sys/class/hwmon/hwmon3/temp1_input";
+      # "input-filename" = "temp1_input";
+    };
+  }."${hostName}";
   waybar-clock = {
     "interval" = 1;
     "format" = " {:%H:%M:%S   %Y/%m/%d}";
@@ -138,8 +147,8 @@ in
         "warning" = 85;
       };
     };
-    "temperature" = {
-      "thermal-zone" = thermal_zone;
+    "temperature" = temperature // {
+      # "thermal-zone" = thermal_zone;
       # "hwmon-path"= "${env:HWMON_PATH}";
       "critical-threshold" = 80;
       "tooltip" = false;
