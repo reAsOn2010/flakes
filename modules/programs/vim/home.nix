@@ -43,6 +43,9 @@ in
       formatjson5
       terraform-ls
       hclfmt
+      imagemagick
+      luajit
+      luajitPackages.luarocks
     ];
   };
   home.file."${config.xdg.configHome}/nvim/init.lua" = {

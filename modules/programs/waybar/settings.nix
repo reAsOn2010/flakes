@@ -1,6 +1,10 @@
 { config, pkgs, hostName, ... }:
 let
   monitors = import ../../desktop/hyprland/monitors.nix { inherit pkgs hostName; };
+  thermal_zone = {
+    "home" = 0;
+    "pat" = 2;
+  }."${hostName}";
   waybar-clock = {
     "interval" = 1;
     "format" = " {:%H:%M:%S   %Y/%m/%d}";
@@ -27,7 +31,6 @@ let
       "on-scroll-down" = "shift_down";
     };
   };
-
 in
 {
   primary-setting = {
@@ -136,6 +139,7 @@ in
       };
     };
     "temperature" = {
+      "thermal-zone" = thermal_zone;
       # "hwmon-path"= "${env:HWMON_PATH}";
       "critical-threshold" = 80;
       "tooltip" = false;
