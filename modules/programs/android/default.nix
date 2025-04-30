@@ -5,6 +5,7 @@
   ];
   programs.adb.enable = true;
   users.users.${user}.extraGroups = ["adbusers"];
+  virtualisation.waydroid.enable = true;
   # virtualisation.oci-containers.containers = {
   #   redroid = {
   #     image = "redroid/redroid:11.0.0-latest";
