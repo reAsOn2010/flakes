@@ -70,6 +70,7 @@
     opentofu
     terraformer
     terragrunt
+    cobang
 
     # cloud storage
     rclone
