@@ -302,7 +302,8 @@ in
         "warning" = 85;
       };
     };
-    "temperature" = {
+    "temperature" = temperature // {
+      # "thermal-zone" = thermal_zone;
       # "hwmon-path"= "${env:HWMON_PATH}";
       "critical-threshold" = 80;
       "tooltip" = false;
