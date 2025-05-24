@@ -119,7 +119,7 @@ in
   services.auto-cpufreq.enable = true;
   hardware = {
     nvidia = {
-      open = true;
+      open = false;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
