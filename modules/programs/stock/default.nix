@@ -1,18 +1,18 @@
 { config, lib, pkgs, ... }:
 {
   virtualisation.oci-containers.containers = {
-    instock-db = {
-      image = "library/mariadb";
-      volumes = [
-        "/data/instock-db:/var/lib/mysql"
-      ];
-      environment = {
-        MARIADB_ROOT_PASSWORD = "root";
-      };
-      extraOptions = [
-        "--network=host"
-      ];
-    };
+    # instock-db = {
+    #   image = "library/mariadb";
+    #   volumes = [
+    #     "/data/instock-db:/var/lib/mysql"
+    #   ];
+    #   environment = {
+    #     MARIADB_ROOT_PASSWORD = "root";
+    #   };
+    #   extraOptions = [
+    #     "--network=host"
+    #   ];
+    # };
     # instock = {
     #   image = "mayanghua/instock";
     #   ports = [ "9988" ];
