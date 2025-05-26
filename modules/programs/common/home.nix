@@ -71,6 +71,7 @@
     terraformer
     terragrunt
     cobang
+    wireguard-tools
 
     # cloud storage
     rclone
