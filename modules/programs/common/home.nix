@@ -32,6 +32,7 @@
     ffmpeg
     dbeaver-bin
     kubectl
+    kubernetes-helm
     krita
     # kubeconform
     mongodb-compass
