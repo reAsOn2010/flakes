@@ -73,6 +73,7 @@
     terragrunt
     cobang
     wireguard-tools
+    dig
 
     # cloud storage
     rclone
