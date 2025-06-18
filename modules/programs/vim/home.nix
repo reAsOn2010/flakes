@@ -32,7 +32,6 @@ in
       lua-language-server
       pyright
       ruff
-      ruff-lsp
       nodePackages.prettier
       python311Packages.autopep8
       nodePackages.vscode-json-languageserver

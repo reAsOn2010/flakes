@@ -60,7 +60,7 @@ in
         file = "tofu-prompt.zsh";
       }
     ];
-    initExtra = ''
+    initContent = ''
       export SHELL="${pkgs.zsh}/bin/zsh"
       bindkey "''${key[Up]}" up-line-or-search
       bindkey "''${key[Down]}" down-line-or-search
