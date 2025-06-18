@@ -22,6 +22,7 @@ in {
       # giscafer.leek-fund
       hashicorp.terraform
       hashicorp.hcl
+      tencent-cloud.coding-copilot
     ]);
     userSettings = {
       files.autoSave = "onFocusChange";
