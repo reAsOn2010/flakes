@@ -46,7 +46,9 @@
     defaultCacheTtlSsh = 7200;
     maxCacheTtl = 86400;
     maxCacheTtlSsh = 86400;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry = {
+      package = pkgs.pinentry-qt;
+    };
   };
   programs.gpg.enable = true;
 }

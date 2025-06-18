@@ -8,10 +8,16 @@ rec {
     "home" = "DP-1";
     "pat" = "DP-1";
   }."${hostName}";
-  hypr-monitor-conf = pkgs.replaceVars {
+  hypr-monitor-conf = pkgs.substitute {
     name = "hypr-monitor.conf";
     src = ./${hostName}.conf;
-    primary = "${primary}";
-    left = "${left}";
+    substitutions = [
+      "--replace"
+      "@primary@"
+      "${primary}"
+      "--replace"
+      "@left@"
+      "${left}"
+    ];
   };
 }

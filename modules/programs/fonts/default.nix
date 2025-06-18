@@ -11,14 +11,13 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      nerdfonts
       twemoji-color-font
       # source-han-mono
       # source-han-sans
       # source-han-serif
       font-awesome
       # wqy_zenhei # steam uses this font
-    ];
+    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
     fontDir.enable = true;
     fontconfig.enable = true;
   };
