@@ -20,6 +20,7 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    update-systemd-resolved.url = "github:jonathanio/update-systemd-resolved";
   };
 
   outputs = { self, ... }@inputs:

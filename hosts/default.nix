@@ -7,6 +7,7 @@
     modules = [
       inputs.agenix.nixosModules.default
       inputs.nur.modules.nixos.default
+      inputs.update-systemd-resolved.nixosModules.default
       ../agenix.nix
     ] ++ [
       ./pat
@@ -58,6 +59,7 @@
     modules = [
       inputs.agenix.nixosModules.default
       inputs.nur.modules.nixos.default
+      inputs.update-systemd-resolved.nixosModules.default
       ../agenix.nix
     ] ++ [
       ./home
