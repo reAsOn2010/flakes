@@ -25,6 +25,8 @@ in {
           hashicorp.terraform
           hashicorp.hcl
           tencent-cloud.coding-copilot
+          mtxr.sqltools
+          randomfractalsinc.duckdb-sql-tools
         ]);
         userSettings = {
           files.autoSave = "onFocusChange";
@@ -51,6 +53,7 @@ in {
           terminal.ansiCyan = "#${config.colorScheme.palette.base0C}";
           terminal.ansiBlue = "#${config.colorScheme.palette.base0D}";
           terminal.ansiMagenta = "#${config.colorScheme.palette.base0E}";
+          sqltools.useNodeRuntime = true;
         };
       };
     };

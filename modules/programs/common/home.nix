@@ -44,7 +44,7 @@
     skopeo
 
     # develop tools
-    jetbrains.idea-ultimate
+    unstable.jetbrains.idea-community
     # openjdk11-bootstrap
     openjdk17-bootstrap
     jetbrains.pycharm-professional
@@ -73,6 +73,7 @@
     terragrunt
     cobang
     wireguard-tools
+    openresolv
     dig
 
     # cloud storage

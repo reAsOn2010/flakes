@@ -51,7 +51,7 @@
     };
     blueman.enable = true;
     udisks2.enable = true;
-    resolved.enable = true;
+    resolved.enable = false;
   };
 
   hardware = {

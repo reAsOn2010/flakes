@@ -8,15 +8,15 @@
       config = '' config /home/${user}/.config/openvpn/dev.ovpn '';
       autoStart = false;
       updateResolvConf = true;
-      up = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
-      down = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
+      # up = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
+      # down = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
     };
     prod = {
       config = '' config /home/${user}/.config/openvpn/prod.ovpn '';
       autoStart = false;
       updateResolvConf = true;
-      up = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
-      down = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
+      # up = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
+      # down = "${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved";
     };
   };
   # programs.update-systemd-resolved.servers = {
