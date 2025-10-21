@@ -75,6 +75,7 @@
     wireguard-tools
     openresolv
     dig
+    lsof
 
     # cloud storage
     rclone
