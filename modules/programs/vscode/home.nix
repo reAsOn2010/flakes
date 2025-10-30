@@ -19,14 +19,13 @@ in {
           ms-vscode.cpptools
           mkhl.direnv
           editorconfig.editorconfig
+          ms-vscode-remote.remote-ssh
         ] ++ (with vscodeExts.vscode-marketplace; [
           # https://raw.githubusercontent.com/nix-community/nix-vscode-extensions/master/data/cache/vscode-marketplace-latest.json
           # giscafer.leek-fund
           hashicorp.terraform
           hashicorp.hcl
           tencent-cloud.coding-copilot
-          mtxr.sqltools
-          randomfractalsinc.duckdb-sql-tools
         ]);
         userSettings = {
           files.autoSave = "onFocusChange";
