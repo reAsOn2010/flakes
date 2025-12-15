@@ -13,6 +13,9 @@
     "dotnet-sdk-wrapped-6.0.428" # maybe games
     "dotnet-sdk-6.0.428" # maybe games
   ];
+  nixpkgs.overlays = (import ../overlays) ++ [
+    inputs.nixneovim.overlays.default
+  ];
 
   time.timeZone = "Asia/Shanghai";
   time.hardwareClockInLocalTime = true;
@@ -112,8 +115,8 @@
   system = {
     autoUpgrade = {
       enable = false;
-      channel = "https://nixos.org/channels/nixos-25.05";
+      channel = "https://nixos.org/channels/nixos-25.11";
     };
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 }

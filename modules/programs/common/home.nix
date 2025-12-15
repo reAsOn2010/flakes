@@ -18,6 +18,7 @@
     ../wayvnc/home.nix
     ../syncthing/home.nix
     ../fcitx5/home.nix
+    ../ai/home.nix
   ];
 
   home.packages = with pkgs; [
@@ -57,11 +58,10 @@
     go
     nixpkgs-fmt
     nodejs
-    nodePackages.npm
     mattermost-desktop
     maven
     xarchiver
-    pinentry
+    pinentry-qt
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc

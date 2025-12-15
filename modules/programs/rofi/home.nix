@@ -13,7 +13,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    rofi-wayland
+    rofi
     rofi-calc
     rofi-systemd
     rofi-emoji

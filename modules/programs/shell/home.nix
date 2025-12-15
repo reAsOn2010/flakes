@@ -7,15 +7,15 @@
   };
   programs.git = {
     enable = true;
-    userName = "${user}";
-    userEmail = "the.reason.sake@gmail.com";
+    settings = {
+      user.name = "${user}";
+      user.email = "the.reason.sake@gmail.com";
+      core.editor = "vim";
+      safe.directory = "/home/${user}/flakes";
+    };
     signing = {
       signByDefault = true;
       key = "BCD10903364F5EFC";
-    };
-    extraConfig = {
-      core.editor = "vim";
-      safe.directory = "/home/${user}/flakes";
     };
   };
   programs.tmux = {
@@ -32,6 +32,7 @@
   };
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "github.com" = {
         hostname = "ssh.github.com";

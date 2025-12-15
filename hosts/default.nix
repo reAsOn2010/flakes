@@ -32,7 +32,6 @@
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs user unstable; hostName = "pat"; };
             users.${user} = {
-              # nixpkgs.config.allowUnfree = true;
               imports = [
                 ./pat/home.nix
               ] ++ [
@@ -43,12 +42,6 @@
               ];
             };
           };
-        nixpkgs = {
-          overlays = (import ../overlays) ++ [
-            inputs.nixneovim.overlays.default
-            # self.overlays.default
-          ];
-        };
       }
     ];
   };
@@ -94,12 +87,6 @@
               ];
             };
           };
-        nixpkgs = {
-          overlays = (import ../overlays) ++ [
-            inputs.nixneovim.overlays.default
-            # self.overlays.default
-          ];
-        };
       }
     ];
   };

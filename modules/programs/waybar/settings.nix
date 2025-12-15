@@ -50,7 +50,6 @@ in
       "custom/launcher"
       "custom/wallpaper"
       "hyprland/workspaces"
-      # "wlr/workspaces"
       "mpd"
     ];
     modules-center = [
@@ -85,12 +84,6 @@ in
         ${monitors.primary} = [ 2 3 4 5 6 7 8 ];
       };
     };
-    # "wlr/workspaces" = {
-    #   "format" = "{icon}";
-    #   "on-click" = "activate";
-    #   "active-only" = false;
-    #   "all-outputs" = true;
-    # };
     "mpd" = {
       # "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist}|{album}|{title}|({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
       "format" = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ";
@@ -274,12 +267,6 @@ in
         ${monitors.primary} = [ 2 3 4 5 6 7 8 ];
       };
     };
-    # "wlr/workspaces" = {
-    #   "format" = "{icon}";
-    #   "on-click" = "activate";
-    #   "active-only" = false;
-    #   "all-outputs" = true;
-    # };
     "clock" = waybar-clock;
     "tray" = {
       "icon-size" = 13;

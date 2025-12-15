@@ -22,7 +22,7 @@
     # wayland-utils
     egl-wayland
     wayland-protocols
-    glfw-wayland
+    glfw
     xwayland
     # qt6.qtwayland
     # qt5.qtwayland

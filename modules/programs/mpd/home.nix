@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    mpc-cli
+    mpc
     ymuse # gui client
     go-musicfox # netease cloud music
   ];

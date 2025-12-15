@@ -10,7 +10,7 @@
       # source-sans-pro
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       twemoji-color-font
       # source-han-mono
       # source-han-sans
