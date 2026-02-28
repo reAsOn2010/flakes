@@ -16,10 +16,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     nix-colors.url = "github:misterio77/nix-colors";
     nixneovim.url = "github:nixneovim/nixneovim";
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     update-systemd-resolved.url = "github:jonathanio/update-systemd-resolved";
   };
 

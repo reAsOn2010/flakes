@@ -50,7 +50,7 @@
     openjdk17-bootstrap
     jetbrains.pycharm-professional
     jetbrains.goland
-    python311
+    python313
     jetbrains.clion
     gcc
     cmake

@@ -21,6 +21,7 @@
   time.hardwareClockInLocalTime = true;
   # time.hardwareClockInLocalTime = false;
   networking = {
+    timeServers = ["ntp.ntsc.ac.cn" "cn.ntp.org.cn"];
     networkmanager.enable = true;
     hosts = {
       "10.222.252.1" = [ "cls-aivkqtcv.ccs.tencent-cloud.com" ];

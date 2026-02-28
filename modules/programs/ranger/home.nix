@@ -26,8 +26,8 @@ in
   home.packages = with pkgs; [
     ranger
     rangerApp
-    python311Packages.chardet
-    python311Packages.python-bidi
+    python313Packages.chardet
+    python313Packages.python-bidi
     w3m
     ffmpeg
     highlight

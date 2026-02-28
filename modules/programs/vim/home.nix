@@ -33,7 +33,7 @@ in
       pyright
       ruff
       nodePackages.prettier
-      python311Packages.autopep8
+      python313Packages.autopep8
       nodePackages.vscode-json-languageserver
       nodePackages.yaml-language-server
       terraform-ls

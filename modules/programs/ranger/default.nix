@@ -14,8 +14,8 @@
             sha256 = "sha256-6/Ygz29G+tfkseyC0i/BMU7mo3PsiyugBsbh/HsRnHM=";
           };
           propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [
-            pkgs.python311Packages.astroid
-            pkgs.python311Packages.pylint
+            pkgs.python313Packages.astroid
+            pkgs.python313Packages.pylint
           ];
         });
     })

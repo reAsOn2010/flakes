@@ -25,8 +25,10 @@ in {
           # giscafer.leek-fund
           hashicorp.terraform
           hashicorp.hcl
+          blackboxapp.blackboxagent
           # tencent-cloud.coding-copilot
-          marscode.marscode-extension
+          # marscode.marscode-extension
+          # kilocode.kilo-code
         ]);
         userSettings = {
           files.autoSave = "onFocusChange";
