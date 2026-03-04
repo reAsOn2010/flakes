@@ -76,6 +76,7 @@
     openresolv
     dig
     lsof
+    autossh
 
     # cloud storage
     rclone

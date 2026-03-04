@@ -81,6 +81,8 @@ in
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+    package = null;
+    portalPackage = null;
     extraConfig = builtins.readFile monitors.hypr-monitor-conf + builtins.readFile ./hyprland.conf + ''
       exec-once = ${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit
     '';
