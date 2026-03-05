@@ -78,6 +78,10 @@
     lsof
     autossh
 
+    # download
+    aria2
+    ariang
+
     # cloud storage
     rclone
 
