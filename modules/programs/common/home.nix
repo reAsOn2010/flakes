@@ -45,7 +45,7 @@
     skopeo
 
     # develop tools
-    unstable.jetbrains.idea-community
+    unstable.jetbrains.idea-oss
     # openjdk11-bootstrap
     openjdk17-bootstrap
     jetbrains.pycharm-professional
@@ -77,6 +77,7 @@
     dig
     lsof
     autossh
+    unstable.opencode
 
     # download
     aria2
