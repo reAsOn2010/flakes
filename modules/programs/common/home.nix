@@ -45,10 +45,10 @@
     skopeo
 
     # develop tools
-    unstable.jetbrains.idea-oss
+    jetbrains.idea
     # openjdk11-bootstrap
     openjdk17-bootstrap
-    jetbrains.pycharm-professional
+    jetbrains.pycharm
     jetbrains.goland
     python313
     jetbrains.clion
