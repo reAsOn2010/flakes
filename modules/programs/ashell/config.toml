@@ -1,0 +1,36 @@
+[[CustomModule]]
+name = "DevImport"
+type = "Button"
+icon = ""
+command = "vpnctl dev import"
+
+[[CustomModule]]
+name = "ProdImport"
+type = "Button"
+icon = ""
+command = "vpnctl prod import"
+
+[[CustomModule]]
+name = "DevStatus"
+type = "Button"
+icon = "󰪎"
+command = "vpnctl dev toggle"
+listen_cmd = "vpnctl dev"
+icons.on = "󰖟"
+icons.off = "󰪎"
+alert = "off"
+
+[[CustomModule]]
+name = "ProdStatus"
+type = "Button"
+icon = "󰪎"
+command = "vpnctl prod toggle"
+listen_cmd = "vpnctl prod"
+icons.on = "󰖟"
+icons.off = "󰪎"
+alert = "off"
+
+[modules]
+left = [ "Workspaces" ]
+center = [ "WindowTitle" ]
+right = [ ["DevImport", "DevStatus"], ["ProdImport", "ProdStatus"], "SystemInfo", [ "Tray", "Tempo", "Privacy", "Settings" ] ]

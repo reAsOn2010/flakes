@@ -2,6 +2,7 @@
 {
   imports = [
     ../alacritty/home.nix
+    ../ashell/home.nix
     ../shell/home.nix
     ../browser/home.nix
     ../vim/home.nix
