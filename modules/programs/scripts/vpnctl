@@ -30,18 +30,29 @@ function toggle() {
 
 function status() {
     if systemctl --quiet is-active openvpn-$env.service; then
-        # echo '{"text": "on", "class": "active", "percentage": 100, "alt": "on"}'
-        echo '{"text": "", "class": "active", "percentage": 100, "alt": "on"}'
+        echo '{"text": "on", "class": "active", "percentage": 100}'
     else
-        # echo '{"text": "off", "class": "inactive", "percentage": 0, "alt": "off"}'
-        echo '{"text": "", "class": "inactive", "percentage": 0, "alt": "off"}'
+        echo '{"text": "off", "class": "inactive", "percentage": 0}'
     fi
+}
+
+function watch() {
+    while true; do
+        if systemctl --quiet is-active openvpn-$env.service; then
+            echo '{"text": "", "alt": "on"}'
+        else
+            echo '{"text": "", "alt": "off"}'
+        fi
+        sleep 5
+    done
 }
 
 if [[ $op == "import" ]]; then
     import
 elif [[ $op == "toggle" ]]; then
     toggle
+elif [[ $op == "watch" ]]; then
+    watch
 else
     status
 fi
