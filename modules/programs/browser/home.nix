@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   programs.firefox.enable = true;
   programs.qutebrowser = {
@@ -11,6 +11,9 @@
       ];
     };
   };
+  home.packages  = [
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
   # home.packages = with pkgs; [
   #   microsoft-edge
   # ];

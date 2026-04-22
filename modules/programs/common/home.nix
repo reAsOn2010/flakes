@@ -107,7 +107,7 @@
   homeage = {
     file."idea64.vmoptions" = {
       source = ../../../secrets/yakumo/jetbrains/vmoptions.age;
-      copies = [ "${config.xdg.configHome}/JetBrains/IntelliJIdea2024.1/idea64.vmoptions" ];
+      copies = [ "${config.xdg.configHome}/JetBrains/IntelliJIdea2025.3/idea64.vmoptions" ];
       mode = "0600";
     };
     file."pycharm64.vmoptions" = {
