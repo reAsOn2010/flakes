@@ -13,6 +13,7 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ashell.url = "github:MalpenZibo/ashell";
     # hypr-contrib.url = "github:hyprwm/contrib";
     # hyprpicker.url = "github:hyprwm/hyprpicker";
     agenix.url = "github:ryantm/agenix";
