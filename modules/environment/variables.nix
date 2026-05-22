@@ -4,7 +4,7 @@
   home = {
     sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = "zen";
+      BROWSER = "firefox";
       # BROWSER = "microsoft-edge";
       # TERMINAL = "alacritty";
       # GTK_IM_MODULE = "fcitx5";
