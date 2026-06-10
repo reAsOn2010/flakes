@@ -26,7 +26,7 @@ in {
           hashicorp.terraform
           hashicorp.hcl
           blackboxapp.blackboxagent
-          codebuddyai.codebuddy-ai
+          tencent-cloud.coding-copilot
         ]);
         userSettings = {
           files.autoSave = "onFocusChange";

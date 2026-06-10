@@ -129,7 +129,7 @@
     };
     file."clion64.vmoptions" = {
       source = ../../../secrets/yakumo/jetbrains/vmoptions.age;
-      copies = [ "${config.xdg.configHome}/JetBrains/CLion2024.1/clion64.vmoptions" ];
+      copies = [ "${config.xdg.configHome}/JetBrains/CLion2025.3/clion64.vmoptions" ];
       mode = "0600";
     };
   };
