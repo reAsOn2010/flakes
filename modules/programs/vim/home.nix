@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, unstable, ... }:
+{ config, pkgs, inputs, ... }:
 let
   nix-colors-lib = inputs.nix-colors.lib-contrib { inherit pkgs; };
   kubernetes-json-schema = pkgs.stdenv.mkDerivation rec {
@@ -32,10 +32,10 @@ in
       lua-language-server
       pyright
       ruff
-      nodePackages.prettier
+      prettier
       python313Packages.autopep8
-      nodePackages.vscode-json-languageserver
-      nodePackages.yaml-language-server
+      vscode-json-languageserver
+      yaml-language-server
       terraform-ls
       rust-analyzer
       gopls
@@ -46,10 +46,11 @@ in
       luajit
       luajitPackages.luarocks
     ];
+    extraLuaConfig = builtins.readFile ./init.lua;
   };
-  home.file."${config.xdg.configHome}/nvim/init.lua" = {
-    source = ./init.lua;
-  };
+  # home.file."${config.xdg.configHome}/nvim/init.lua" = {
+  #   source = ./init.lua;
+  # };
   home.file."${config.xdg.configHome}/nvim/lua" = {
     source = ./lua;
   };

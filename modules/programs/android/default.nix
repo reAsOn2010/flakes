@@ -2,8 +2,8 @@
 {
   environment.systemPackages = with pkgs; [
     scrcpy
+    android-tools
   ];
-  programs.adb.enable = true;
   users.users.${user}.extraGroups = ["adbusers"];
   virtualisation.waydroid.enable = true;
   # virtualisation.oci-containers.containers = {

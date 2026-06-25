@@ -146,7 +146,7 @@ in
     nvidia-offload
     libva
     libva-utils
-    glxinfo
+    mesa-demos
 
     alsa-lib
     alsa-utils

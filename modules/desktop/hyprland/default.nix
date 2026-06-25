@@ -5,12 +5,12 @@
 
   programs = {
     dconf.enable = true;
-    light.enable = true;
     hyprland.enable = true;
     hyprland.xwayland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
+    brightnessctl
     libnotify
     # inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
