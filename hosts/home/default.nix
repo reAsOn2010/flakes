@@ -15,7 +15,7 @@ in
     ../../modules/desktop/hyprland
     ../../modules/programs/openvpn
     ../../modules/programs/fonts
-    ../../modules/programs/waybar
+    ../../modules/programs/ashell
     ../../modules/programs/steam
     # ../../modules/programs/fish
     ../../modules/programs/zsh

@@ -44,25 +44,23 @@
     freetype
     dbus
     fontconfig
-    xorg.libxcb
-    xorg.libICE
-    xorg.libSM
-    xorg.libXrender
-    xorg.xcbutilimage
-    xorg.xcbutilwm
-    xorg.xorgserver
-    xorg.libpthreadstubs
-    xorg.libX11
-    xorg.libXext
-    xorg.libXi
-    xorg.xcbproto
-    xorg.xcbutil
-    xorg.xcbutilcursor
-    xorg.xcbutilerrors
-    xorg.xcbutilkeysyms
-    xorg.xcbutilrenderutil
-    xorg.xcbutilwm
-    xorg.xorgproto
+    libxcb
+    libice
+    libsm
+    libxrender
+    libxcb-image
+    libxcb-wm
+    xorg-server
+    libpthread-stubs
+    libx11
+    libxext
+    libxi
+    xcb-proto
+    libxcb-util
+    libxcb-cursor
+    libxcb-errors
+    libxcb-keysyms
+    libxcb-render-util
 
     networkmanagerapplet
   ];

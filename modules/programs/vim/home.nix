@@ -45,8 +45,9 @@ in
       imagemagick
       luajit
       luajitPackages.luarocks
+      luajitPackages.tree-sitter-cli
     ];
-    extraLuaConfig = builtins.readFile ./init.lua;
+    initLua = builtins.readFile ./init.lua;
   };
   # home.file."${config.xdg.configHome}/nvim/init.lua" = {
   #   source = ./init.lua;

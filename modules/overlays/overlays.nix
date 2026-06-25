@@ -7,6 +7,10 @@
         prev.obsidian.overrideAttrs (oldAttrs: rec {
           installPhase = builtins.replaceStrings [ "--ozone-platform=wayland" ] [ "--ozone-platform=x11" ] oldAttrs.installPhase;
         });
+      # openblas = 
+      #   prev.openblas.overrideAttrs ( oldAttrs: {
+      #     doCheck = false;
+      #   });
     })
   ];
 }

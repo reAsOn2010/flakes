@@ -33,7 +33,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "github.com" = {
         hostname = "ssh.github.com";
         port = 443;
