@@ -17,6 +17,6 @@ in
   programs = {
     home-manager.enable = true;
   };
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
 

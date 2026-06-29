@@ -19,7 +19,7 @@
     ../wayvnc/home.nix
     ../syncthing/home.nix
     ../fcitx5/home.nix
-    ../ai/home.nix
+    # ../ai/home.nix
   ];
 
   home.packages = with pkgs; [
@@ -35,7 +35,7 @@
     dbeaver-bin
     kubectl
     kubernetes-helm
-    krita
+    # krita
     # kubeconform
     mongodb-compass
     silver-searcher # ag
@@ -78,11 +78,11 @@
     dig
     lsof
     autossh
-    unstable.opencode
+    nix-top
 
     # download
-    aria2
-    ariang
+    # aria2
+    # ariang
 
     # cloud storage
     rclone
