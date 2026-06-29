@@ -1,3 +1,6 @@
+language = "zh-CN"
+region   = "zh-CN"
+
 [[CustomModule]]
 name = "DevImport"
 type = "Button"

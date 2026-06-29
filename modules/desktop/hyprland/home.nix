@@ -129,11 +129,12 @@ in
           mode = "prefered";
           position = "0x0";
           scale = "auto";
+          transform = 3;
         } 
         {
           output = "${monitors.primary}";
           mode = "prefered";
-          position = "1920x0";
+          position = "1080x420";
           scale = "auto";
         }
       ];

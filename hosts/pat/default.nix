@@ -16,7 +16,7 @@
     # ../../modules/programs/syncthing
     ../../modules/programs/it-tools
     ../../modules/programs/android
-    ../../modules/programs/ai
+    # ../../modules/programs/ai
     ../../modules/overlays/overlays.nix
   ];
   networking.firewall.allowedUDPPortRanges = [

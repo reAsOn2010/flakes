@@ -2,8 +2,7 @@
 {
   services.ollama = {
     enable = true;
-    package = pkgs.ollama;
-    acceleration = false; 
+    package = pkgs.ollama-cpu;
     loadModels = [
       "deepseek-r1:1.5b"
       "deepseek-r1:7b"
