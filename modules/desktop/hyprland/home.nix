@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, hostName, ... }:
 let
-  monitors = import ./monitors.nix { inherit pkgs hostName; };
+  hosts = import ./hosts.nix { inherit pkgs hostName; };
   lua = lib.generators.mkLuaInline;
   dsp = {
     exec = cmd: lua ''hl.dsp.exec_cmd("${cmd}")'';
@@ -125,17 +125,18 @@ in
       };
       monitor = [
         {
-          output = "${monitors.left}";
+          output = hosts.monitor.left.name;
           mode = "prefered";
-          position = "0x0";
+          position = hosts.monitor.left.position;
           scale = "auto";
-          transform = 3;
+          transform = hosts.monitor.left.transform;
         } 
         {
-          output = "${monitors.primary}";
+          output = hosts.monitor.primary.name;
           mode = "prefered";
-          position = "1080x420";
+          position = hosts.monitor.primary.position;
           scale = "auto";
+          transform = hosts.monitor.primary.transform;
         }
       ];
       bind = [
@@ -145,19 +146,15 @@ in
         (bind "${mod} + SHIFT + Q" (dsp.exec "rofi-power"))
         (bind "${mod} + CTRL + Q" (dsp.exec "hyprctl kill"))
         (bind "${mod} + V" (dsp.exec "cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
-        # "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         (bind "${mod} + F" dsp.fullscreen)
-        # "$mainMod, F, fullscreen"
         (bind "${mod} + M" dsp.float)
-        # "$mainMod, M, togglefloating"
         (bind "${mod} + R" (dsp.exec "rofi -show run"))
         (bind "${mod} + P" dsp.pseudo)
 
         # App shortcut
         (bind "CTRL + SPACE" (dsp.exec "rofi-launcher"))
-        # "CTRL, Space, exec, rofi-launcher"
-        # ", Print, exec, grim -g \"$(slurp)\" $HOME/Pictures/Screenshots/$(date -Iseconds).png"
-        # "SHIFT, Print, exec, grim $HOME/Pictures/Screenshots/$(date -Iseconds).png"
+        (bind "Print" (dsp.exec "grim -g $(slurp) $HOME/Pictures/Screenshots/$(date -Iseconds).png"))
+        (bind "SHIFT + Print" (dsp.exec "grim $HOME/Pictures/Screenshots/$(date -Iseconds).png"))
       
         # Group mode
         # "$mainMod, G, togglegroup"
@@ -169,24 +166,20 @@ in
         (bind "${mod} + right" (dsp.focus "right"))
         (bind "${mod} + up" (dsp.focus "up"))
         (bind "${mod} + down" (dsp.focus "down"))
-        # "$mainMod, H, movefocus, l"
-        # "$mainMod, J, movefocus, d"
-        # "$mainMod, K, movefocus, u"
-        # "$mainMod, L, movefocus, r"
+        (bind "${mod} + H" (dsp.focus "left"))
+        (bind "${mod} + J" (dsp.focus "down"))
+        (bind "${mod} + K" (dsp.focus "up"))
+        (bind "${mod} + L" (dsp.focus "right"))
 
         # Move window
         (bind "${mod} + SHIFT + left" (dsp.swap "left"))
         (bind "${mod} + SHIFT + right" (dsp.swap "right"))
         (bind "${mod} + SHIFT + up" (dsp.swap "up"))
         (bind "${mod} + SHIFT + down" (dsp.swap "down"))
-        # "$mainMod SHIFT, left, movewindow, l"
-        # "$mainMod SHIFT, right, movewindow, r"
-        # "$mainMod SHIFT, up, movewindow, u"
-        # "$mainMod SHIFT, down, movewindow, d"
-        # "$mainMod SHIFT, H, movewindow, l"
-        # "$mainMod SHIFT, J, movewindow, d"
-        # "$mainMod SHIFT, K, movewindow, u"
-        # "$mainMod SHIFT, L, movewindow, r"
+        (bind "${mod} + SHIFT + H" (dsp.swap "left"))
+        (bind "${mod} + SHIFT + J" (dsp.swap "down"))
+        (bind "${mod} + SHIFT + K" (dsp.swap "up"))
+        (bind "${mod} + SHIFT + L" (dsp.swap "right"))
 
         # Switch workspaces
         # "$mainMod, 1, workspace, 1"
@@ -199,6 +192,8 @@ in
         # "$mainMod, 8, workspace, 8"
         # "$mainMod, 9, workspace, 9"
 
+        (bind "${mod} + comma" (dsp.focusWorkspace "-1"))
+        (bind "${mod} + period" (dsp.focusWorkspace "+1"))
         # "$mainMod, comma, workspace, -1"
         # "$mainMod, period, workspace, +1"
 
@@ -242,7 +237,10 @@ in
           (lua ''
             function()
               hl.exec_cmd("ashell")
+              hl.exec_cmd("mako")
               hl.exec_cmd("fcitx5")
+              hl.exec_cmd("wl-clipboard-history -t")
+              hl.exec_cmd("wl-paste --watch cliphist store")
               hl.exec_cmd("mkdir -p \"$HOME/cloud\" && rclone mount cos:/main-1318916757 \"$HOME/cloud\" &")
               hl.exec_cmd("nm-applet")
             end'')
@@ -282,14 +280,15 @@ in
       #   "WLR_NO_HARDWARE_CURSORS,1"
       # ];
     };
-    extraConfig = ''
-      hl.env("VDPAU_DRIVER", "va_gl")
-      hl.env("LIBVA_DRIVER_NAME", "nvidia")
-      hl.env("XDG_SESSION_TYPE", "wayland")
-      hl.env("GBM_BACKEND", "drm")
-      hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-      hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-    '';
+    extraConfig = hosts.envs;
+    # extraConfig = ''
+    #   hl.env("VDPAU_DRIVER", "va_gl")
+    #   hl.env("LIBVA_DRIVER_NAME", "nvidia")
+    #   hl.env("XDG_SESSION_TYPE", "wayland")
+    #   hl.env("GBM_BACKEND", "drm")
+    #   hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+    #   hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+    # '';
     # extraConfig = builtins.readFile monitors.hypr-monitor-conf + builtins.readFile ./hyprland.conf + ''
     #   exec-once = ${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit
     # '';
