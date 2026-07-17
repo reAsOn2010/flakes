@@ -247,49 +247,23 @@ in
             end'')
         ];
       };
-      # exec-once = [
-      #   "ashell"
-      #   "wpaperd"
-      #   "mako"
-      #   "fcitx5"
-      #   "wl-clipboard-history -t"
-      #   "wl-paste --watch cliphist store"
-      #   "rm \"$HOME/.cache/cliphist/db\""
-      #   "mkdir -p \"$HOME/cloud\" && rclone mount cos:/main-1318916757 \"$HOME/cloud\" &"
-      #   "nm-applet &"
-      #   "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-      # ];
 
-      # workspace = [
-      #   "1, monitor:${monitors.left}, persistent:true"
-      #   "9, monitor:${monitors.left}, persistent:true"
-      #   "2, monitor:${monitors.primary}, persistent:true"
-      #   "3, monitor:${monitors.primary}, persistent:true"
-      #   "4, monitor:${monitors.primary}, persistent:true"
-      #   "5, monitor:${monitors.primary}, persistent:true"
-      #   "6, monitor:${monitors.primary}, persistent:true"
-      #   "7, monitor:${monitors.primary}, persistent:true"
-      #   "8, monitor:${monitors.primary}, persistent:true"
-      # ];
-
-      # env = [
-      #   ("VDPAU_DRIVER" "va_gl")
-      #   ("LIBVA_DRIVER_NAME" "nvidia")
-      #   "XDG_SESSION_TYPE,wayland"
-      #   "GBM_BACKEND,nvidia-drm"
-      #   "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      #   "WLR_NO_HARDWARE_CURSORS,1"
-      # ];
     };
-    extraConfig = hosts.envs;
-    # extraConfig = ''
-    #   hl.env("VDPAU_DRIVER", "va_gl")
-    #   hl.env("LIBVA_DRIVER_NAME", "nvidia")
-    #   hl.env("XDG_SESSION_TYPE", "wayland")
-    #   hl.env("GBM_BACKEND", "drm")
-    #   hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-    #   hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-    # '';
+    extraConfig = let
+      left_monitor = hosts.monitor.left.name;
+      primary_monitor = hosts.monitor.primary.name;
+    in ''
+      ${hosts.envs}
+      hl.workspace_rule({ workspace = "1", monitor = "${left_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "9", monitor = "${left_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "2", monitor = "${primary_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "3", monitor = "${primary_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "4", monitor = "${primary_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "5", monitor = "${primary_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "6", monitor = "${primary_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "7", monitor = "${primary_monitor}", persistent = true })
+      hl.workspace_rule({ workspace = "8", monitor = "${primary_monitor}", persistent = true })
+    '';
     # extraConfig = builtins.readFile monitors.hypr-monitor-conf + builtins.readFile ./hyprland.conf + ''
     #   exec-once = ${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit
     # '';

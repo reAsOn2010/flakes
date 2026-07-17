@@ -16,6 +16,7 @@
       # source-han-sans
       # source-han-serif
       font-awesome
+      meslo-lgs-nf
       # wqy_zenhei # steam uses this font
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
     fontDir.enable = true;

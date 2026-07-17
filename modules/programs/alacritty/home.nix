@@ -9,6 +9,9 @@
         args = [ "--login" ];
       };
       font.size = 14;
+      font.normal = {
+        family = "MesloLGS NF";
+      };
       # let hyprland set opacity
       # window.opacity = 0.9;
       general.import = [

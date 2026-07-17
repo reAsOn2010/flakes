@@ -42,6 +42,7 @@
       # LD_LIBRARY_PATH = "\${LD_LIBRARY_PATH}:${pkgs.stdenv.cc.cc.lib}/lib";
     };
     sessionPath = [
+      # "$JAVA_HOME/bin"
       "$HOME/.config/scripts"
     ];
   };
