@@ -34,6 +34,9 @@
     enable = true;
     enableDefaultConfig = false;
     settings = {
+      "*" = {
+        WarnWeakCrypto = "no-pq-kex";
+      };
       "github.com" = {
         hostname = "ssh.github.com";
         port = 443;

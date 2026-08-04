@@ -66,6 +66,7 @@
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
+    grpcurl
     unstable.rambox
     marktext
     bruno
