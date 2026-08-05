@@ -47,8 +47,8 @@
 
     # develop tools
     jetbrains.idea
-    # openjdk11-bootstrap
-    openjdk17-bootstrap
+    # temurin-bin-17
+    temurin-bin-21
     jetbrains.pycharm
     jetbrains.goland
     python313
