@@ -47,8 +47,8 @@
 
     # develop tools
     jetbrains.idea
-    # temurin-bin-17
-    temurin-bin-21
+    temurin-bin-17
+    # temurin-bin-21
     jetbrains.pycharm
     jetbrains.goland
     python313
