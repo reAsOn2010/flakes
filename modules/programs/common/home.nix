@@ -81,9 +81,8 @@
     autossh
     nix-top
 
-    # download
-    # aria2
-    # ariang
+    # vnc client
+    remmina
 
     # cloud storage
     rclone
