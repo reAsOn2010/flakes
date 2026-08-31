@@ -1,7 +1,15 @@
 { config, pkgs, unstable, ... }:
 {
-  home.packages = with pkgs; [
-    cherry-studio
-    unstable.playwright-mcp
-  ];
+  programs.dsh = {
+    enable = true;
+    profiles.headless = {
+      plugins = [ "@deepseek-ai/dsh-base" "@deepseek-ai/dsh-headless" ];
+    };
+    profiles.web = {
+      plugins = [ 
+        "@deepseek-ai/dsh-base"
+        "@deepseek-ai/dsh-web-app"
+      ];
+    };
+  };
 }

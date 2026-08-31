@@ -115,6 +115,44 @@
         "type": "github"
       }
     },
+    "dsh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786621126,
+        "narHash": "sha256-ZPGCNoPXVjP76Tm/tFPDX2X95cd83M4iHLmVP5dR+Ps=",
+        "owner": "deepseek-ai",
+        "repo": "deepseek-harness",
+        "rev": "47f943859bef60e4160492346772ded9b24f765a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "deepseek-ai",
+        "repo": "deepseek-harness",
+        "rev": "47f943859bef60e4160492346772ded9b24f765a",
+        "type": "github"
+      }
+    },
+    "dsh-nix": {
+      "inputs": {
+        "dsh": "dsh",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786765095,
+        "narHash": "sha256-RmXoxPMi30noeZHDcLNduLhf3iCElPVZKirs3OjT4Qs=",
+        "owner": "Samuka007",
+        "repo": "dsh-nix",
+        "rev": "090ed51b27e65af7c0aadf64dcd7b208030aa3a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Samuka007",
+        "repo": "dsh-nix",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -701,6 +739,7 @@
       "inputs": {
         "agenix": "agenix",
         "ashell": "ashell",
+        "dsh-nix": "dsh-nix",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager_2",
         "homeage": "homeage",

@@ -19,7 +19,7 @@
     ../wayvnc/home.nix
     ../syncthing/home.nix
     ../fcitx5/home.nix
-    # ../ai/home.nix
+    ../ai/home.nix
   ];
 
   home.packages = with pkgs; [
@@ -34,6 +34,7 @@
     ffmpeg
     dbeaver-bin
     kubectl
+    kustomize
     kubernetes-helm
     # krita
     # kubeconform
