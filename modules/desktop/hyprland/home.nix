@@ -237,6 +237,7 @@ in
           (lua ''
             function()
               hl.exec_cmd("ashell")
+              hl.exec_cmd("swayidle")
               hl.exec_cmd("mako")
               hl.exec_cmd("fcitx5")
               hl.exec_cmd("udiskie")

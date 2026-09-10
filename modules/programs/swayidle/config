@@ -1,2 +1,2 @@
 timeout 600 'TZ=Asia/Shanghai swaylock -f'
-timeout 3000 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+timeout 3000 'hyprctl dispatch "hl.dsp.dpms({ action = \"off\" })"' resume 'hyprctl dispatch "hl.dsp.dpms({ action = \"on\" })"'
