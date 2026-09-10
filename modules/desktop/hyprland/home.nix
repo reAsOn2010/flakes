@@ -153,7 +153,7 @@ in
 
         # App shortcut
         (bind "CTRL + SPACE" (dsp.exec "rofi-launcher"))
-        (bind "Print" (dsp.exec "grim -g \"$(slurp)\" $HOME/Pictures/Screenshots/$(date -Iseconds).png"))
+        (bind "Print" (dsp.exec "grim -g \\\"$(slurp)\\\" $HOME/Pictures/Screenshots/$(date -Iseconds).png"))
         (bind "SHIFT + Print" (dsp.exec "grim $HOME/Pictures/Screenshots/$(date -Iseconds).png"))
       
         # Group mode
