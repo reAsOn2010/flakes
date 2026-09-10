@@ -28,6 +28,8 @@ rec {
   };
   envs = {
     "home" = ''
+      hl.env("TZ", "Asia/Shanghai")
+      hl.env("TZDIR", "/etc/zoneinfo")
       hl.env("VDPAU_DRIVER", "va_gl")
       hl.env("LIBVA_DRIVER_NAME", "nvidia")
       hl.env("XDG_SESSION_TYPE", "wayland")
@@ -35,6 +37,9 @@ rec {
       hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
       hl.env("WLR_NO_HARDWARE_CURSORS", "1")
     '';
-    "pat" = "";
+    "pat" = ''
+      hl.env("TZ", "Asia/Shanghai")
+      hl.env("TZDIR", "/etc/zoneinfo")
+    '';
   }."${hostName}";
 }

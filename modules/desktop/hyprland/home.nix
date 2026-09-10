@@ -255,6 +255,8 @@ in
       primary_monitor = hosts.monitor.primary.name;
     in ''
       ${hosts.envs}
+      -- Hyprland 重建子进程环境时会丢掉 TZDIR，导致 TZ=Asia/Shanghai 无法解析而回退成 UTC
+      hl.env("TZDIR", "/etc/zoneinfo")
       hl.workspace_rule({ workspace = "1", monitor = "${left_monitor}", persistent = true })
       hl.workspace_rule({ workspace = "9", monitor = "${left_monitor}", persistent = true })
       hl.workspace_rule({ workspace = "2", monitor = "${primary_monitor}", persistent = true })
