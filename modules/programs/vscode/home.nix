@@ -25,7 +25,6 @@ in {
           # giscafer.leek-fund
           hashicorp.terraform
           hashicorp.hcl
-          blackboxapp.blackboxagent
           tencent-cloud.coding-copilot
         ]);
         userSettings = {
