@@ -39,7 +39,7 @@
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
                 inputs.nur.modules.homeManager.default
-                inputs.dsh-nix.homeManagerModules.dsh
+                # inputs.dsh-nix.homeManagerModules.dsh
               ];
             };
           };
@@ -85,7 +85,7 @@
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
                 inputs.nur.modules.homeManager.default
-                inputs.dsh-nix.homeManagerModules.dsh
+                # inputs.dsh-nix.homeManagerModules.dsh
               ];
             };
           };

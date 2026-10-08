@@ -33,7 +33,7 @@
     nix-index # nix-locate
     ffmpeg
     dbeaver-bin
-    inputs.dbx.packages.x86_64-linux.dbx-desktop
+    # inputs.dbx.packages.x86_64-linux.dbx-desktop
     kubectl
     kustomize
     kubernetes-helm
@@ -46,6 +46,7 @@
     fastfetch
     conky
     skopeo
+    wechat
 
     # develop tools
     jetbrains.idea
@@ -93,9 +94,7 @@
     deluge
 
     # NUR
-    nur.repos.xddxdd.wechat-uos-without-sandbox
-    nur.repos.xddxdd.baidunetdisk
-    nur.repos.xddxdd.dingtalk
+    # nur.repos.xddxdd.baidunetdisk
     xdg-user-dirs
     # config.nur.repos.linyinfeng.rimePackages.rime-ice
   ];

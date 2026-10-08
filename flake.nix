@@ -23,14 +23,14 @@
     nixneovim.url = "github:nixneovim/nixneovim";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     update-systemd-resolved.url = "github:jonathanio/update-systemd-resolved";
-    dsh-nix = {
-      url = "github:Samuka007/dsh-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dbx = {
-      url = "github:t8y2/dbx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # dsh-nix = {
+    #   url = "github:Samuka007/dsh-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # dbx = {
+    #   url = "github:t8y2/dbx";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = { self, ... }@inputs:

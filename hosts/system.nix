@@ -4,14 +4,14 @@
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "wechat-uos-4.0.0.21"
+    # "wechat-uos-4.0.0.21"
     # "nix-2.16.2" # nixd depends on it
     # "electron-19.1.9" # wechat-uos depends on it
-    "electron-11.5.0"
-    "openssl-1.1.1w" # wechat-uos depends on it
-    "dotnet-runtime-6.0.36" # maybe games
-    "dotnet-sdk-wrapped-6.0.428" # maybe games
-    "dotnet-sdk-6.0.428" # maybe games
+    # "electron-11.5.0"
+    # "openssl-1.1.1w" # wechat-uos depends on it
+    # "dotnet-runtime-6.0.36" # maybe games
+    # "dotnet-sdk-wrapped-6.0.428" # maybe games
+    # "dotnet-sdk-6.0.428" # maybe games
   ];
   nixpkgs.overlays = (import ../overlays) ++ [
     inputs.nixneovim.overlays.default
