@@ -27,6 +27,10 @@
       url = "github:Samuka007/dsh-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dbx = {
+      url = "github:t8y2/dbx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, ... }@inputs:

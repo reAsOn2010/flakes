@@ -33,6 +33,7 @@
     nix-index # nix-locate
     ffmpeg
     dbeaver-bin
+    inputs.dbx.packages.x86_64-linux.dbx-desktop
     kubectl
     kustomize
     kubernetes-helm
