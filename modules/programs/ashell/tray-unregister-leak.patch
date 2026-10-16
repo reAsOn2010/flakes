@@ -1,0 +1,99 @@
+diff -ruN ashell-pA/src/services/tray/dbus.rs ashell-pB/src/services/tray/dbus.rs
+--- ashell-pA/src/services/tray/dbus.rs	2026-10-15 16:38:53.619201603 +0800
++++ ashell-pB/src/services/tray/dbus.rs	2026-10-15 16:38:57.202310934 +0800
+@@ -168,11 +168,15 @@
+             service.to_string()
+         };
+ 
++        // Publish the item before announcing it: a host that reacts to the signal by
++        // reading `RegisteredStatusNotifierItems` (ashell does that to re-sync its tray
++        // after rebuilding its event streams) would otherwise see a list that is still
++        // missing the very item it was just notified about.
++        self.items.push((sender, service.clone()));
++
+         Self::status_notifier_item_registered(emitter, &service)
+             .await
+             .unwrap_or_else(|e| warn!("Failed to emit item_registered signal: {e}"));
+-
+-        self.items.push((sender, service));
+     }
+ }
+ 
+diff -ruN ashell-pA/src/services/tray/mod.rs ashell-pB/src/services/tray/mod.rs
+--- ashell-pA/src/services/tray/mod.rs	2026-10-15 16:38:53.619210642 +0800
++++ ashell-pB/src/services/tray/mod.rs	2026-10-15 16:39:18.411387217 +0800
+@@ -15,7 +15,7 @@
+     stream::channel,
+     widget::image,
+ };
+-use log::{debug, error, info, trace};
++use log::{debug, error, info, trace, warn};
+ use std::{any::TypeId, ops::Deref};
+ 
+ pub mod dbus;
+@@ -95,6 +95,9 @@
+     IconChanged(String, TrayIcon),
+     MenuLayoutChanged(String, Layout),
+     Unregistered(String),
++    /// The watcher's authoritative item list, used to drop the entries whose
++    /// `Unregistered` event was lost while the event streams were rebuilt.
++    Sync(Vec<String>),
+     None,
+ }
+ 
+@@ -233,7 +236,17 @@
+         let mut menu_layout_change = Vec::with_capacity(items.len());
+ 
+         for name in items {
+-            let item = StatusNotifierItem::new(conn, name.to_string()).await?;
++            let item = match StatusNotifierItem::new(conn, name.to_string()).await {
++                Ok(item) => item,
++                Err(e) => {
++                    // The item may be gone already (the application restarted between our
++                    // snapshot of the list and the proxy setup). Skip it instead of
++                    // tearing down the whole tray service; the next reconcile pass drops
++                    // it from the tray.
++                    warn!("Skipping tray item {name}: {e}");
++                    continue;
++                }
++            };
+ 
+             icon_pixel_change.push(
+                 item.item_proxy
+@@ -381,6 +394,26 @@
+ 
+                 match TrayService::events(&conn).await {
+                     Ok(mut events) => {
++                        // `events` was built from a fresh snapshot, but the streams that
++                        // were dropped while setting it up may have missed
++                        // `StatusNotifierItemRegistered`/`Unregistered` signals in the
++                        // meantime. That is exactly what an application restart produces
++                        // (the new bus name registers before the old one goes away), and a
++                        // lost `Unregistered` leaves a stale icon in the tray forever. The
++                        // watcher's item list does not have that race, so reconcile our
++                        // data against it before consuming the new streams.
++                        match StatusNotifierWatcherProxy::new(&conn).await {
++                            Ok(watcher) => match watcher.registered_status_notifier_items().await {
++                                Ok(items) => {
++                                    let _ = output
++                                        .send(ServiceEvent::Update(TrayEvent::Sync(items)))
++                                        .await;
++                                }
++                                Err(e) => error!("Failed to fetch tray items: {e}"),
++                            },
++                            Err(e) => error!("Failed to query the tray watcher: {e}"),
++                        }
++
+                         while let Some(event) = events.next().await {
+                             debug!("tray data {event:?}");
+ 
+@@ -465,6 +498,9 @@
+             TrayEvent::Unregistered(name) => {
+                 self.data.0.retain(|item| item.name != name);
+             }
++            TrayEvent::Sync(names) => {
++                self.data.0.retain(|item| names.contains(&item.name));
++            }
+             TrayEvent::None => {}
+         }
+     }

@@ -139,6 +139,28 @@ in
           transform = hosts.monitor.primary.transform;
         }
       ];
+      window_rule = [
+        # JetBrains IDE 的补全/搜索等弹出窗口，标题形如 `win.<id>`，不能让它们抢走焦点
+        {
+          name = "jetbrains-tooltips";
+          match = {
+            class = "^(.*jetbrains.*)$";
+            title = "^(win.*)$";
+          };
+          no_initial_focus = true;
+          no_focus = true;
+        }
+        # JetBrains 拖动标签页时产生的窗口，标题只有一个空白字符
+        {
+          name = "jetbrains-tab-drag";
+          match = {
+            class = "^(.*jetbrains.*)$";
+            title = "^\\s$";
+          };
+          no_initial_focus = true;
+          no_focus = true;
+        }
+      ];
       bind = [
         # Basic bind
         (bind "${mod} + T" (dsp.exec "alacritty"))
