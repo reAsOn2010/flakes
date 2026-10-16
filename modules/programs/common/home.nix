@@ -70,7 +70,8 @@
     protoc-gen-go
     protoc-gen-go-grpc
     grpcurl
-    unstable.rambox
+    # 3.1.1（上游 2.x 已 EOL）；覆盖在 overlays/default.nix + pkgs/rambox
+    rambox
     marktext
     bruno
     opentofu
@@ -108,6 +109,8 @@
       "x-scheme-handler/https" = [ "firefox.desktop" ];
       "x-scheme-handler/about" = [ "firefox.desktop" ];
       "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+      # rambox 的 deep link（浏览器登录完成后回调 rambox://...）
+      "x-scheme-handler/rambox" = [ "rambox.desktop" ];
       "inode/directory" = [ "nemo.desktop" ];
     };
   };
