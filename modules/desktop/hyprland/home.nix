@@ -172,6 +172,8 @@ in
         (bind "${mod} + M" dsp.float)
         (bind "${mod} + R" (dsp.exec "rofi -show run"))
         (bind "${mod} + P" dsp.pseudo)
+        # 不依赖托盘图标重启输入法（托盘图标丢失时仍能强制 fcitx5 重新取焦点）
+        (bind "${mod} + ALT + F" (dsp.exec "busctl --user call org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1 Restart"))
 
         # App shortcut
         (bind "CTRL + SPACE" (dsp.exec "rofi-launcher"))
@@ -261,7 +263,9 @@ in
               hl.exec_cmd("ashell")
               hl.exec_cmd("swayidle")
               hl.exec_cmd("mako")
-              hl.exec_cmd("fcitx5")
+              -- fcitx5 注册 StatusNotifierItem 时不重试：若 ashell 的 watcher 还没起，图标就永久丢失。
+              -- 最多等 10s，超时也照常启动，避免 watcher 异常时连输入法都没了。
+              hl.exec_cmd("bash -c 'for i in {1..50}; do busctl --user list --no-legend --no-pager 2>/dev/null | grep -q StatusNotifierWatcher && break; sleep 0.2; done; exec fcitx5'")
               hl.exec_cmd("udiskie")
               hl.exec_cmd("wl-clipboard-history -t")
               hl.exec_cmd("wl-paste --watch cliphist store")

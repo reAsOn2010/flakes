@@ -49,6 +49,9 @@
     wechat
 
     # develop tools
+    git-filter-repo
+    unstable.pulumi
+    unstable.pulumiPackages.pulumi-python
     jetbrains.idea
     temurin-bin-17
     # temurin-bin-21
@@ -62,6 +65,7 @@
     go
     nixpkgs-fmt
     nodejs
+    yarn
     mattermost-desktop
     maven
     xarchiver
