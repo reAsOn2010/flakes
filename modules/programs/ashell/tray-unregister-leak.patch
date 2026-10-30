@@ -1,7 +1,25 @@
 diff -ruN ashell-pA/src/services/tray/dbus.rs ashell-pB/src/services/tray/dbus.rs
---- ashell-pA/src/services/tray/dbus.rs	2026-10-15 16:38:53.619201603 +0800
-+++ ashell-pB/src/services/tray/dbus.rs	2026-10-15 16:38:57.202310934 +0800
-@@ -168,11 +168,15 @@
+--- ashell-pA/src/services/tray/dbus.rs	2026-10-30 13:42:56.833096247 +0800
++++ ashell-pB/src/services/tray/dbus.rs	2026-10-30 13:43:05.092092762 +0800
+@@ -67,6 +67,17 @@
+                                 have_bus_name = false;
+                             }
+                         } else if let BusName::Unique(name) = &args.name {
++                            // The bus also emits this signal when a unique name is
++                            // *acquired* (`old_owner` empty, `new_owner` set), and a client
++                            // typically calls `RegisterStatusNotifierItem` right after
++                            // connecting. That earlier acquisition event can reach us after
++                            // the item was already registered, so acting on it would drop
++                            // the entry we just added (fcitx5 restart). Only react when the
++                            // name actually lost its owner.
++                            if args.new_owner.is_some() {
++                                continue;
++                            }
++
+                             let mut interface = internal_interface.get_mut().await;
+                             if let Some(idx) = interface
+                                 .items
+@@ -168,11 +179,15 @@
              service.to_string()
          };
  
@@ -20,8 +38,8 @@ diff -ruN ashell-pA/src/services/tray/dbus.rs ashell-pB/src/services/tray/dbus.r
  }
  
 diff -ruN ashell-pA/src/services/tray/mod.rs ashell-pB/src/services/tray/mod.rs
---- ashell-pA/src/services/tray/mod.rs	2026-10-15 16:38:53.619210642 +0800
-+++ ashell-pB/src/services/tray/mod.rs	2026-10-15 16:39:18.411387217 +0800
+--- ashell-pA/src/services/tray/mod.rs	2026-10-30 13:42:56.833116187 +0800
++++ ashell-pB/src/services/tray/mod.rs	2026-10-30 13:42:59.615500251 +0800
 @@ -15,7 +15,7 @@
      stream::channel,
      widget::image,
