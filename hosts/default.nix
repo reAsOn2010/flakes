@@ -38,7 +38,8 @@
                 # inputs.hyprland.homeManagerModules.default
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
-                inputs.nur.modules.homeManager.default
+                # NUR 的 homeManager 模块只是设 nixpkgs.overlays；useGlobalPkgs 下系统
+                # pkgs 已带 NUR overlay（nur.modules.nixos.default 已导入），再导入会报 warning
                 # inputs.dsh-nix.homeManagerModules.dsh
               ];
             };
@@ -84,7 +85,8 @@
                 # inputs.hyprland.homeManagerModules.default
                 inputs.nix-colors.homeManagerModule
                 inputs.nixneovim.nixosModules.default
-                inputs.nur.modules.homeManager.default
+                # NUR 的 homeManager 模块只是设 nixpkgs.overlays；useGlobalPkgs 下系统
+                # pkgs 已带 NUR overlay（nur.modules.nixos.default 已导入），再导入会报 warning
                 # inputs.dsh-nix.homeManagerModules.dsh
               ];
             };

@@ -9,7 +9,7 @@ let
   # unique name **获得**时也会发这个信号（`new_owner` 非空）；客户端连上后立刻注册，
   # 那条“获名”事件晚于注册被处理时，会把刚登记的条目删掉（fcitx5 重启后图标消失），
   # 补丁要求 `new_owner` 为空才删除。
-  ashell = inputs.ashell.packages.${pkgs.system}.default.overrideAttrs (old: {
+  ashell = inputs.ashell.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
     patches = (old.patches or [ ]) ++ [ ./tray-unregister-leak.patch ];
   });
 in
