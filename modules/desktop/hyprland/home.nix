@@ -23,6 +23,9 @@ let
   bind = keys: dispatcher: { _args = [keys dispatcher]; };
   bindOpts = keys: dispatcher: opts: { _args = [keys dispatcher opts]; };
   mod = "SUPER";
+  # COS 挂载：桶内只有几 MB，必须开启本地 VFS 缓存，否则每次打开/预览/缩略图
+  # 都会重新走一遍公网下行（默认 --vfs-cache-mode off，无任何缓存）。
+  cloudMount = ''mkdir -p \"$HOME/cloud\" && rclone mount cos:/main-1318916757 \"$HOME/cloud\" --vfs-cache-mode full --vfs-cache-max-size 512M --vfs-cache-max-age 168h --vfs-write-back 5s --vfs-read-chunk-size 1M --vfs-read-chunk-size-limit 16M --buffer-size 16M --dir-cache-time 1h --attr-timeout 1h --daemon'';
   workspaceBinds = lib.concatMap (i:
     let key = toString (lib.mod i 10);
     in [
@@ -269,7 +272,7 @@ in
               hl.exec_cmd("udiskie")
               hl.exec_cmd("wl-clipboard-history -t")
               hl.exec_cmd("wl-paste --watch cliphist store")
-              hl.exec_cmd("mkdir -p \"$HOME/cloud\" && rclone mount cos:/main-1318916757 \"$HOME/cloud\" &")
+              hl.exec_cmd("${cloudMount}")
               hl.exec_cmd("nm-applet")
             end'')
         ];
